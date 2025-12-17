@@ -97,20 +97,38 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-xs sm:text-sm text-gray-400 mb-5 sm:mb-6">
-              <span className="w-2 h-2 rounded-sm bg-[var(--color-primary)] animate-pulse" />
-              Available for inquiries
-            </span>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="mb-6"
+            >
+              <span className="inline-block bg-[var(--color-primary)] text-black px-4 py-1.5 text-xs md:text-sm font-bold uppercase tracking-[0.3em]" style={{ fontFamily: 'var(--font-heading)' }}>
+                Available for inquiries
+              </span>
+            </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black leading-[0.9] mb-5 sm:mb-6">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-[0.9] mb-5 sm:mb-6"
+              style={{ fontFamily: 'var(--font-heading)' }}
+            >
               <span className="text-white">GET IN</span>
               <br />
               <span className="text-[var(--color-primary)]">TOUCH</span>
-            </h1>
+            </motion.h1>
 
-            <p className="text-base sm:text-lg text-gray-400 max-w-xl mx-auto px-2">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="text-sm md:text-base text-gray-400 max-w-xl mx-auto uppercase tracking-widest leading-relaxed"
+              style={{ fontFamily: 'var(--font-heading)' }}
+            >
               Sponsorships, bookings, media inquiries, or just want to connect?
-            </p>
+            </motion.p>
           </motion.div>
         </div>
       </section>
@@ -164,13 +182,14 @@ export default function ContactPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </motion.div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Message Sent!</h3>
+                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3" style={{ fontFamily: 'var(--font-heading)' }}>Message Sent!</h3>
                     <p className="text-sm sm:text-base text-gray-400 mb-6 sm:mb-8">
                       We&apos;ll get back to you within 48 hours.
                     </p>
                     <button
                       onClick={() => setFormStatus('idle')}
-                      className="h-10 sm:h-11 px-5 sm:px-6 bg-white/5 text-white hover:bg-white/10 transition-all duration-150 border border-white/10 text-[13px] sm:text-[15px] font-bold uppercase tracking-widest"
+                      className="h-12 sm:h-14 px-8 border border-white/20 bg-white/5 text-white font-bold uppercase tracking-widest text-sm hover:bg-white/10 hover:border-white/30 transition-all"
+                      style={{ fontFamily: 'var(--font-heading)' }}
                     >
                       Send Another Message
                     </button>
@@ -180,7 +199,7 @@ export default function ContactPage() {
                     <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-8">
                       <IconBox icon={inquiryTypes.find((t) => t.id === selectedType)?.icon || 'chat'} size="lg" />
                       <div>
-                        <h2 className="text-lg sm:text-xl font-bold text-white">
+                        <h2 className="text-lg sm:text-xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
                           {inquiryTypes.find((t) => t.id === selectedType)?.label} Inquiry
                         </h2>
                         <p className="text-gray-500 text-xs sm:text-sm">
@@ -196,8 +215,9 @@ export default function ContactPage() {
                           <input
                             type="text"
                             required
-                            className="w-full bg-black/30 border border-white/10 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder:text-gray-500 focus:outline-none focus:border-[var(--color-primary)]/50 transition-colors"
+                            className="w-full h-12 sm:h-14 px-6 bg-white/5 border border-white/20 rounded-sm text-white placeholder:text-gray-400 text-sm focus:outline-none focus:border-[var(--color-primary)]/50 transition-all duration-300"
                             placeholder="Your name"
+                            style={{ fontFamily: 'var(--font-heading)' }}
                           />
                         </div>
                         <div>
@@ -205,8 +225,9 @@ export default function ContactPage() {
                           <input
                             type="email"
                             required
-                            className="w-full bg-black/30 border border-white/10 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder:text-gray-500 focus:outline-none focus:border-[var(--color-primary)]/50 transition-colors"
+                            className="w-full h-12 sm:h-14 px-6 bg-white/5 border border-white/20 rounded-sm text-white placeholder:text-gray-400 text-sm focus:outline-none focus:border-[var(--color-primary)]/50 transition-all duration-300"
                             placeholder="your@email.com"
+                            style={{ fontFamily: 'var(--font-heading)' }}
                           />
                         </div>
                       </div>
@@ -226,7 +247,8 @@ export default function ContactPage() {
                             <label className="block text-gray-400 text-xs sm:text-sm mb-1.5 sm:mb-2">Budget Range *</label>
                             <select
                               required
-                              className="w-full bg-black/30 border border-white/10 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white focus:outline-none focus:border-[var(--color-primary)]/50 transition-colors"
+                              className="w-full h-12 sm:h-14 px-6 bg-white/5 border border-white/20 rounded-sm text-white text-sm focus:outline-none focus:border-[var(--color-primary)]/50 transition-all duration-300"
+                              style={{ fontFamily: 'var(--font-heading)' }}
                             >
                               <option value="">Select range</option>
                               <option value="5000-15000">$5K - $15K</option>
@@ -243,7 +265,8 @@ export default function ContactPage() {
                             <label className="block text-gray-400 text-xs sm:text-sm mb-1.5 sm:mb-2">Event Type *</label>
                             <select
                               required
-                              className="w-full bg-black/30 border border-white/10 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white focus:outline-none focus:border-[var(--color-primary)]/50 transition-colors"
+                              className="w-full h-12 sm:h-14 px-6 bg-white/5 border border-white/20 rounded-sm text-white text-sm focus:outline-none focus:border-[var(--color-primary)]/50 transition-all duration-300"
+                              style={{ fontFamily: 'var(--font-heading)' }}
                             >
                               <option value="">Select type</option>
                               <option value="appearance">Appearance</option>
@@ -290,15 +313,16 @@ export default function ContactPage() {
                         <textarea
                           required
                           rows={4}
-                          className="w-full bg-black/30 border border-white/10 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder:text-gray-500 focus:outline-none focus:border-[var(--color-primary)]/50 transition-colors resize-none"
+                          className="w-full px-6 py-4 bg-white/5 border border-white/20 rounded-sm text-white placeholder:text-gray-400 text-sm focus:outline-none focus:border-[var(--color-primary)]/50 transition-all duration-300 resize-none"
                           placeholder="Tell us more..."
+                          style={{ fontFamily: 'var(--font-heading)' }}
                         />
                       </div>
 
                       <button
                         type="submit"
                         disabled={formStatus === 'loading'}
-                        className="w-full h-10 sm:h-11 bg-[var(--color-primary)] text-black font-bold uppercase tracking-widest hover:brightness-105 transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed text-[13px] sm:text-[15px]"
+                        className="w-full h-12 sm:h-14 px-8 bg-[var(--color-primary)] text-black font-bold uppercase tracking-widest text-sm hover:brightness-110 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                         style={{ fontFamily: 'var(--font-heading)' }}
                       >
                         {formStatus === 'loading' ? (
@@ -329,7 +353,7 @@ export default function ContactPage() {
                 transition={{ delay: 0.1 }}
                 className="bg-[#111] rounded-xl sm:rounded-2xl lg:rounded-3xl p-4 sm:p-5 lg:p-6 border border-white/5"
               >
-                <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">Direct Emails</h3>
+                <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4" style={{ fontFamily: 'var(--font-heading)' }}>Direct Emails</h3>
                 <div className="space-y-2 sm:space-y-3">
                   {inquiryTypes.map((type) => (
                     <div key={type.id} className="flex items-center justify-between py-1.5 sm:py-2">
@@ -353,7 +377,7 @@ export default function ContactPage() {
                 transition={{ delay: 0.2 }}
                 className="bg-[#111] rounded-xl sm:rounded-2xl lg:rounded-3xl p-4 sm:p-5 lg:p-6 border border-white/5"
               >
-                <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">Connect</h3>
+                <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4" style={{ fontFamily: 'var(--font-heading)' }}>Connect</h3>
                 <div className="space-y-2 sm:space-y-3">
                   {socialLinks.map((social) => (
                     <a
@@ -394,7 +418,7 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-sm sm:text-base font-bold text-white">Based In</h3>
+                    <h3 className="text-sm sm:text-base font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>Based In</h3>
                     <p className="text-gray-400 text-xs sm:text-sm">Springfield, MA</p>
                   </div>
                 </div>
@@ -416,7 +440,7 @@ export default function ContactPage() {
             viewport={{ once: true }}
             className="text-center mb-8 sm:mb-12"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
               Quick <span className="text-[var(--color-primary)]">Answers</span>
             </h2>
           </motion.div>

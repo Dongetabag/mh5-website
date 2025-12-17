@@ -98,22 +98,36 @@ export default function EventsPage() {
             transition={{ duration: 0.8 }}
           >
             {/* Coming Soon Badge */}
-            <div className="flex items-center justify-center gap-2 mb-8 sm:mb-10">
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-sm bg-[var(--color-primary)] opacity-75"></span>
-                <span className="relative inline-flex rounded-sm h-3 w-3 bg-[var(--color-primary)]"></span>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="mb-6"
+            >
+              <span className="inline-block bg-[var(--color-primary)] text-black px-4 py-1.5 text-xs md:text-sm font-bold uppercase tracking-[0.3em]" style={{ fontFamily: 'var(--font-heading)' }}>
+                Coming Soon
               </span>
-              <span className="text-[var(--color-primary)] text-sm sm:text-base font-medium">Coming Soon</span>
-            </div>
+            </motion.div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-8xl font-semibold leading-[0.9] mb-6 sm:mb-8" style={{ fontFamily: 'var(--font-heading)' }}>
-              <span className="text-white">Events</span>
-            </h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-5xl sm:text-6xl lg:text-8xl font-bold leading-[0.9] mb-6 sm:mb-8 text-white"
+              style={{ fontFamily: 'var(--font-heading)' }}
+            >
+              Events
+            </motion.h1>
 
-            <p className="text-lg sm:text-xl lg:text-2xl text-gray-400 max-w-2xl mx-auto mb-8 sm:mb-10 px-2 leading-relaxed">
-              Tournaments. Club nights. VIP experiences.<br className="hidden sm:block" />
-              Something big is on the way.
-            </p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="mt-6 md:mt-8 text-sm md:text-base text-gray-400 max-w-xl uppercase tracking-widest leading-relaxed mx-auto"
+              style={{ fontFamily: 'var(--font-heading)' }}
+            >
+              Tournaments. Club nights. VIP experiences. Something big is on the way.
+            </motion.p>
 
             {/* Coming Soon Visual */}
             <motion.div
@@ -165,23 +179,22 @@ export default function EventsPage() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your email"
-                      className="w-full h-14 sm:h-16 px-6 bg-white/5 border border-white/10 rounded-2xl text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50 focus:border-[var(--color-primary)]/50 text-base sm:text-lg transition-all duration-300 backdrop-blur-sm"
-                      required
-                      aria-label="Email address for early access notifications"
-                      aria-describedby="email-help"
+                    className="w-full h-12 sm:h-14 px-6 bg-white/5 border border-white/20 rounded-sm text-white placeholder:text-gray-400 focus:outline-none focus:border-[var(--color-primary)]/50 text-sm transition-all duration-300"
+                    required
+                    aria-label="Email address for early access notifications"
+                    aria-describedby="email-help"
                     />
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[var(--color-primary)]/0 via-[var(--color-primary)]/0 to-[var(--color-primary)]/0 group-focus-within:via-[var(--color-primary)]/10 group-focus-within:to-[var(--color-primary)]/5 pointer-events-none transition-all duration-300" />
                   </div>
                   <button
                     type="submit"
-                    className="h-14 sm:h-16 px-8 sm:px-12 bg-[var(--color-primary)] text-black font-bold uppercase tracking-wider hover:brightness-110 active:scale-[0.98] transition-all duration-200 rounded-2xl shadow-lg shadow-[var(--color-primary)]/20 hover:shadow-[var(--color-primary)]/30 text-base sm:text-lg whitespace-nowrap"
+                    className="h-12 sm:h-14 px-8 bg-[var(--color-primary)] text-black font-bold uppercase tracking-widest text-sm hover:brightness-110 transition-all min-w-[200px] text-center"
                     style={{ fontFamily: 'var(--font-heading)' }}
                   >
                     Notify Me
                   </button>
                 </form>
               )}
-              <p id="email-help" className="text-gray-400 text-sm sm:text-base mt-4 text-center">
+              <p id="email-help" className="text-gray-400 text-xs sm:text-sm mt-4 text-center uppercase tracking-widest" style={{ fontFamily: 'var(--font-heading)' }}>
                 Be the first to know when tickets go on sale
               </p>
             </motion.div>

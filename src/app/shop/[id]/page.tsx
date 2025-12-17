@@ -175,10 +175,7 @@ export default function ProductDetailPage() {
                   <div className="flex flex-col gap-3 max-w-xs">
                     {availableSizes.map((size) => {
                       const isSelected = selectedSize === size
-                      const sizeVariant = product.variants.find(v => {
-                        const parts = v.name.split(' - ')
-                        return parts[0] === selectedDesign && v.size === size
-                      })
+                      const sizeVariant = product.variants.find(v => v.size === size)
                       const isAvailable = sizeVariant?.available !== false
                       
                       return (
@@ -237,7 +234,7 @@ export default function ProductDetailPage() {
                 }`}
                 style={{ fontFamily: 'var(--font-heading)' }}
               >
-                {currentVariant ? 'ADD TO CART' : 'SELECT SIZE & DESIGN'}
+                {currentVariant ? 'ADD TO CART' : 'SELECT SIZE'}
               </button>
 
               {/* Additional Info */}

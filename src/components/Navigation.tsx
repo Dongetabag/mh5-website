@@ -26,6 +26,7 @@ const Navigation = () => {
     { href: '/legacy', label: 'Story', id: 'legacy' },
     { href: '/events', label: 'Events', id: 'events' },
     { href: '/media', label: 'Media', id: 'media' },
+    { href: '/shop', label: 'Shop', id: 'shop' },
     { href: '/partners', label: 'Partners', id: 'partners' },
     { href: '/contact', label: 'Contact', id: 'contact' },
   ]

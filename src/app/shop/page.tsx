@@ -1,15 +1,17 @@
 'use client'
 
 /**
- * SHOP PAGE - TapStitch Product Catalog
+ * SHOP PAGE - Product Catalog
  * =====================================
- * Display products from TapStitch store
- * Integrated with shopping cart and checkout
+ * Redirects to WooCommerce shop subdomain when configured
+ * Otherwise displays products from TapStitch API
  */
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { shopConfig } from '@/config/shop.config'
 
 interface Product {
   id: number
@@ -26,11 +28,19 @@ interface Product {
 }
 
 export default function ShopPage() {
+  const router = useRouter()
   const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    // Redirect to WooCommerce if configured
+    if (shopConfig.redirectToWooCommerce && shopConfig.woocommerceUrl) {
+      window.location.href = shopConfig.woocommerceUrl
+      return
+    }
+
+    // Otherwise, fetch products from API
     fetchProducts()
   }, [])
 

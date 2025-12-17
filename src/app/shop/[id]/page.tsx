@@ -259,10 +259,10 @@ export default function ProductDetailPage() {
               {/* Size Picker */}
               {availableSizes.length > 0 && (
                 <div className="mb-6">
-                  <label className="block text-white font-semibold mb-3 text-sm uppercase tracking-wider" style={{ fontFamily: 'var(--font-heading)' }}>
-                    Select Size
+                  <label className="block text-white font-bold mb-4 text-base uppercase tracking-wide" style={{ fontFamily: 'var(--font-heading)' }}>
+                    SELECT SIZE
                   </label>
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-col gap-3 max-w-xs">
                     {availableSizes.map((size) => {
                       const isSelected = selectedSize === size
                       const sizeVariant = product.variants.find(v => {
@@ -276,18 +276,22 @@ export default function ProductDetailPage() {
                           key={size}
                           onClick={() => isAvailable && setSelectedSize(size)}
                           disabled={!isAvailable}
-                          className={`relative h-12 sm:h-14 px-6 sm:px-8 rounded-lg border-2 font-bold text-sm uppercase tracking-wider transition-all ${
+                          className={`relative w-full h-14 rounded-xl border-2 font-bold text-base uppercase tracking-wide transition-all flex items-center justify-center ${
                             isSelected
-                              ? 'border-[var(--color-primary)] bg-[var(--color-primary)]/10 text-[var(--color-primary)]'
+                              ? 'border-[var(--color-primary)] bg-[#1A1A1A] text-white'
                               : isAvailable
-                              ? 'border-white/20 text-white hover:border-white/40 hover:bg-white/5'
-                              : 'border-white/5 text-gray-600 cursor-not-allowed opacity-50'
+                              ? 'border-white/10 bg-[#1A1A1A] text-white hover:border-white/30 hover:bg-[#2A2A2A]'
+                              : 'border-white/5 bg-[#0A0A0A] text-gray-600 cursor-not-allowed opacity-50'
                           }`}
                           style={{ fontFamily: 'var(--font-heading)' }}
                         >
                           {size}
                           {isSelected && (
-                            <div className="absolute -top-1 -right-1 w-4 h-4 bg-[var(--color-primary)] rounded-full"></div>
+                            <div className="absolute -top-2 -right-2 w-5 h-5 bg-[var(--color-primary)] rounded-full flex items-center justify-center">
+                              <svg className="w-3 h-3 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                              </svg>
+                            </div>
                           )}
                         </button>
                       )

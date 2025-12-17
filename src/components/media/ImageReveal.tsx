@@ -105,6 +105,7 @@ const ImageReveal = ({
           priority={priority}
           onLoad={() => setImageLoaded(true)}
           loading={priority ? undefined : 'lazy'}
+          unoptimized
         />
         {!imageLoaded && (
           <div className="absolute inset-0 bg-[var(--color-bg-secondary)] animate-pulse" />

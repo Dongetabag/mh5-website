@@ -9,6 +9,7 @@
 
 import { useState, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 
 const pressFeatures = [
@@ -421,13 +422,16 @@ function PhotoGallerySection() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: index * 0.05, duration: 0.4 }}
-              className="aspect-square rounded-lg sm:rounded-xl overflow-hidden cursor-pointer group"
+              className="aspect-square rounded-lg sm:rounded-xl overflow-hidden cursor-pointer group relative"
               onClick={() => setSelectedImage(photo.src)}
             >
-              <img
+              <Image
                 src={photo.src}
                 alt={photo.alt}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                fill
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                unoptimized
               />
             </motion.div>
           ))}
@@ -448,11 +452,15 @@ function PhotoGallerySection() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <img
-            src={selectedImage}
-            alt="Enlarged view"
-            className="max-w-full max-h-[80vh] rounded-lg object-contain"
-          />
+          <div className="relative w-full h-[80vh] max-w-4xl">
+            <Image
+              src={selectedImage}
+              alt="Enlarged view"
+              fill
+              className="object-contain rounded-lg"
+              unoptimized
+            />
+          </div>
         </div>
       )}
     </section>

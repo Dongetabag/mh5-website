@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { IconBox, icons } from '@/components/ui/GlossIcon'
 
 interface MediaCategoryCardProps {
@@ -50,10 +51,13 @@ export function MediaCategoryCard({
         }}
       >
         {/* Background image */}
-        <img
+        <Image
           src={previewImage}
           alt={label}
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover transition-transform duration-700 group-hover:scale-110"
+          unoptimized
         />
 
         {/* Video overlay on hover */}

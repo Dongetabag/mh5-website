@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    // Allow unoptimized images for local static files
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -9,6 +11,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'via.placeholder.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'therealmh5.com',
       },
     ],
   },

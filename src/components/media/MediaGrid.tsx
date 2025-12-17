@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 
 interface MediaItem {
   src: string
@@ -178,11 +179,13 @@ function ImageCard({
       className={`relative ${aspectClass} rounded-xl overflow-hidden bg-black/20 cursor-pointer group`}
       onClick={onClick}
     >
-      <img
+      <Image
         src={image.src}
         alt={image.alt || ''}
-        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        loading="lazy"
+        fill
+        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+        className="object-cover group-hover:scale-105 transition-transform duration-500"
+        unoptimized
       />
 
       {/* Gradient overlay */}
@@ -255,11 +258,15 @@ function MediaLightbox({
             playsInline
           />
         ) : (
-          <img
-            src={media.src}
-            alt={media.alt || ''}
-            className="w-full h-full max-h-[90vh] object-contain rounded-xl"
-          />
+          <div className="relative w-full h-[90vh]">
+            <Image
+              src={media.src}
+              alt={media.alt || ''}
+              fill
+              className="object-contain rounded-xl"
+              unoptimized
+            />
+          </div>
         )}
       </motion.div>
     </motion.div>

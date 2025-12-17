@@ -84,31 +84,45 @@ const brandCategories = [
 const campaignVideos = [
   {
     id: 1,
-    title: 'Summer Training Series',
-    thumbnail: '/images/brand-campaigns/A8A2681C-EE12-4329-B186-53D5C364CA5B.JPG',
+    title: 'Brand Campaign',
+    thumbnail: '/images/brand-campaigns/278543FD-E8F1-48C4-B12D-F5014265F665.JPG',
     views: '2.5M',
     engagement: '12%',
   },
   {
     id: 2,
-    title: 'Game Day Prep',
-    thumbnail: '/images/brand-campaigns/A1905360-DC17-4045-A863-A0E4BAFE6DD2.JPG',
+    title: 'Summer Training Series',
+    thumbnail: '/images/brand-campaigns/A8A2681C-EE12-4329-B186-53D5C364CA5B.JPG',
     views: '1.8M',
     engagement: '15%',
   },
   {
     id: 3,
-    title: 'Behind The Scenes',
-    thumbnail: '/images/brand-campaigns/69F59DD8-E162-4731-B2C3-4FE2654F2948.JPEG',
+    title: 'Campaign Highlight',
+    thumbnail: '/images/brand-campaigns/A7407964.jpg',
     views: '3.2M',
     engagement: '18%',
   },
   {
     id: 4,
-    title: 'Product Launch',
-    thumbnail: '/images/brand-campaigns/B0CACDEC-BE6E-4435-A8AF-523237E9974A.JPG',
+    title: 'Brand Partnership',
+    thumbnail: '/images/brand-campaigns/B6641C04-9563-44EC-B211-6810D47B15E2.jpg',
     views: '1.5M',
     engagement: '10%',
+  },
+  {
+    id: 5,
+    title: 'Campaign Shoot',
+    thumbnail: '/images/brand-campaigns/IMG_4508.jpg',
+    views: '2.1M',
+    engagement: '14%',
+  },
+  {
+    id: 6,
+    title: 'Brand Collaboration',
+    thumbnail: '/images/brand-campaigns/IMG_5062.jpg',
+    views: '1.9M',
+    engagement: '16%',
   },
 ]
 

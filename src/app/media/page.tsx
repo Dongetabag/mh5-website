@@ -246,12 +246,13 @@ const photoGallery = [
   { src: '/images/events/MHF.jpg', alt: 'MH5 brand' },
   { src: '/images/events/Sony-2666.JPG', alt: 'Showcase' },
   { src: '/images/events/e0857ff9-f9da-4a3d-9d21-4f538c744511.JPG', alt: 'Tournament' },
-  // Brand campaign photos
+  // Brand campaign photos - all available
   { src: '/images/brand-campaigns/278543FD-E8F1-48C4-B12D-F5014265F665.JPG', alt: 'Brand campaign' },
-  { src: '/images/brand-campaigns/69F59DD8-E162-4731-B2C3-4FE2654F2948.JPEG', alt: 'Collaboration' },
-  { src: '/images/brand-campaigns/A1905360-DC17-4045-A863-A0E4BAFE6DD2.JPG', alt: 'Partnership' },
+  { src: '/images/brand-campaigns/A7407964.jpg', alt: 'Brand campaign' },
   { src: '/images/brand-campaigns/A8A2681C-EE12-4329-B186-53D5C364CA5B.JPG', alt: 'Campaign' },
-  { src: '/images/brand-campaigns/B0CACDEC-BE6E-4435-A8AF-523237E9974A.JPG', alt: 'Brand campaign' },
+  { src: '/images/brand-campaigns/B6641C04-9563-44EC-B211-6810D47B15E2.jpg', alt: 'Brand campaign' },
+  { src: '/images/brand-campaigns/IMG_4508.jpg', alt: 'Brand campaign' },
+  { src: '/images/brand-campaigns/IMG_5062.jpg', alt: 'Brand campaign' },
 ]
 
 export default function MediaPage() {

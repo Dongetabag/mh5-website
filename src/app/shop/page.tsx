@@ -42,7 +42,9 @@ export default function ShopPage() {
       const data = await response.json()
 
       if (data.success) {
-        setProducts(data.data?.products || data.data || [])
+        // Handle both formats: data.data.products or data.data.items
+        const productsData = data.data?.products || data.data?.items || data.data || []
+        setProducts(Array.isArray(productsData) ? productsData : [])
       } else {
         setError(data.error || 'Failed to load products')
       }

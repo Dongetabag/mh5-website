@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MH5 Hoodie Collection - Design Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0A0A0A;
+            color: #F5F5F5;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #7DF9FF;
+            text-align: center;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: rgba(245, 245, 245, 0.7);
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+        
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .hoodie-card {
+            background: #1A1A1A;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid rgba(125, 249, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .hoodie-card:hover {
+            border-color: #7DF9FF;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(125, 249, 255, 0.2);
+        }
+        
+        .hoodie-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: #2A2A2A;
+        }
+        
+        .hoodie-info {
+            padding: 20px;
+        }
+        
+        .variant-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #7DF9FF;
+            margin-bottom: 8px;
+            text-transform: capitalize;
+        }
+        
+        .variant-name::before {
+            content: "✨ ";
+        }
+        
+        .variant-description {
+            color: rgba(245, 245, 245, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .stats {
+            margin-top: 40px;
+            text-align: center;
+            padding: 30px;
+            background: #1A1A1A;
+            border-radius: 12px;
+            border: 2px solid rgba(125, 249, 255, 0.2);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #7DF9FF;
+            display: block;
+        }
+        
+        .stat-label {
+            color: rgba(245, 245, 245, 0.7);
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .brand-info {
+            margin-top: 50px;
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(125, 249, 255, 0.1), rgba(157, 251, 255, 0.1));
+            border-radius: 12px;
+        }
+        
+        .brand-info h2 {
+            color: #7DF9FF;
+            margin-bottom: 15px;
+        }
+        
+        .brand-info p {
+            color: rgba(245, 245, 245, 0.8);
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏀 MH5 HOODIE COLLECTION</h1>
+        <p class="subtitle">Premium Hoodie Designs - Neon Cyan Branding</p>
+        
+        <div class="collection-grid" id="collectionGrid">
+            <!-- Hoodie designs will be inserted here -->
+        </div>
+        
+        <div class="stats">
+            <h2 style="color: #7DF9FF; margin-bottom: 20px;">Collection Stats</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalDesigns">0</span>
+                    <span class="stat-label">Total Designs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="totalVariants">4</span>
+                    <span class="stat-label">Design Variants</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="totalHoodies">0</span>
+                    <span class="stat-label">Hoodie Images</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="brand-info">
+            <h2>Design Details</h2>
+            <p>
+                All designs feature the MH5 logo in Neon Cyan (#7DF9FF), carefully placed using AI-generated specifications.
+                Each variant is optimized for maximum brand visibility while maintaining a premium aesthetic.
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        const hoodieData = [
+            {
+                image: '/images/hoodie-designs/designed-hoodies/Snow Wash Fleece Oversize Hoodie-gallery-1-classic-front.png',
+                variant: 'Classic Front',
+                description: 'Small logo centered on chest, clean and professional. Perfect for subtle branding.'
+            },
+            {
+                image: '/images/hoodie-designs/designed-hoodies/Snow Wash Fleece Oversize Hoodie-gallery-1-classic-back.png',
+                variant: 'Classic Back',
+                description: 'Large bold logo on back center. Maximum brand visibility and impact.'
+            },
+            {
+                image: '/images/hoodie-designs/designed-hoodies/Snow Wash Fleece Oversize Hoodie-gallery-1-minimal-corner.png',
+                variant: 'Minimal Corner',
+                description: 'Small logo on front left chest corner. Subtle, premium branding.'
+            },
+            {
+                image: '/images/hoodie-designs/designed-hoodies/Snow Wash Fleece Oversize Hoodie-gallery-1-oversized-back.png',
+                variant: 'Oversized Back',
+                description: 'Dominant back design covering most of the area. Streetwear aesthetic.'
+            },
+            {
+                image: '/images/hoodie-designs/designed-hoodies/Snow Wash Fleece Oversize Hoodie-gallery-10-classic-front.png',
+                variant: 'Classic Front',
+                description: 'Small logo centered on chest, clean and professional. Perfect for subtle branding.'
+            },
+            {
+                image: '/images/hoodie-designs/designed-hoodies/Snow Wash Fleece Oversize Hoodie-gallery-10-classic-back.png',
+                variant: 'Classic Back',
+                description: 'Large bold logo on back center. Maximum brand visibility and impact.'
+            },
+            {
+                image: '/images/hoodie-designs/designed-hoodies/Snow Wash Fleece Oversize Hoodie-gallery-10-minimal-corner.png',
+                variant: 'Minimal Corner',
+                description: 'Small logo on front left chest corner. Subtle, premium branding.'
+            },
+            {
+                image: '/images/hoodie-designs/designed-hoodies/Snow Wash Fleece Oversize Hoodie-gallery-10-oversized-back.png',
+                variant: 'Oversized Back',
+                description: 'Dominant back design covering most of the area. Streetwear aesthetic.'
+            },
+            {
+                image: '/images/hoodie-designs/designed-hoodies/Snow Wash Fleece Oversize Hoodie-gallery-11-classic-front.png',
+                variant: 'Classic Front',
+                description: 'Small logo centered on chest, clean and professional. Perfect for subtle branding.'
+            },
+            {
+                image: '/images/hoodie-designs/designed-hoodies/Snow Wash Fleece Oversize Hoodie-gallery-11-classic-back.png',
+                variant: 'Classic Back',
+                description: 'Large bold logo on back center. Maximum brand visibility and impact.'
+            },
+            {
+                image: '/images/hoodie-designs/designed-hoodies/Snow Wash Fleece Oversize Hoodie-gallery-11-oversized-back.png',
+                variant: 'Oversized Back',
+                description: 'Dominant back design covering most of the area. Streetwear aesthetic.'
+            }
+        ];
+        
+        const grid = document.getElementById('collectionGrid');
+        let uniqueHoodies = new Set();
+        
+        hoodieData.forEach(hoodie => {
+            const card = document.createElement('div');
+            card.className = 'hoodie-card';
+            
+            // Track unique hoodie images
+            const hoodieBase = hoodie.image.split('-').slice(0, -1).join('-');
+            uniqueHoodies.add(hoodieBase);
+            
+            card.innerHTML = `
+                <img src="${hoodie.image}" alt="${hoodie.variant}" class="hoodie-image" loading="lazy">
+                <div class="hoodie-info">
+                    <div class="variant-name">${hoodie.variant}</div>
+                    <div class="variant-description">${hoodie.description}</div>
+                </div>
+            `;
+            
+            grid.appendChild(card);
+        });
+        
+        // Update stats
+        document.getElementById('totalDesigns').textContent = hoodieData.length;
+        document.getElementById('totalHoodies').textContent = uniqueHoodies.size;
+    </script>
+</body>
+</html>
+

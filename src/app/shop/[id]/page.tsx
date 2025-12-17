@@ -28,7 +28,6 @@ export default function ProductDetailPage() {
       setProduct(productData)
       // Extract unique designs and sizes from variants
       const designs = new Set(productData.variants.map(v => {
-        // Extract design name (e.g., "Classic Front" from "Classic Front - Small")
         const parts = v.name.split(' - ')
         return parts[0]
       }))
@@ -37,6 +36,7 @@ export default function ProductDetailPage() {
       // Set defaults
       setSelectedDesign(Array.from(designs)[0] as string || null)
       setSelectedSize(Array.from(sizes)[0] as string || null)
+      setSelectedImage(0)
       setLoading(false)
     } else {
       setLoading(false)
@@ -89,6 +89,12 @@ export default function ProductDetailPage() {
     }
   }, [selectedDesign, product, availableDesigns])
 
+  // Handle thumbnail click - update both image and design
+  const handleThumbnailClick = (index: number, design: string) => {
+    setSelectedImage(index)
+    setSelectedDesign(design)
+  }
+
   if (loading) {
     return (
       <div className="bg-[#0a0a0a] min-h-screen flex items-center justify-center">
@@ -135,7 +141,7 @@ export default function ProductDetailPage() {
         </button>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-          {/* Product Images */}
+          {/* Product Images & Design Gallery */}
           <div className="sticky top-24 self-start">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -152,26 +158,40 @@ export default function ProductDetailPage() {
               )}
             </motion.div>
 
-            {/* Thumbnail Gallery */}
-            {product.images.length > 1 && (
+            {/* Design Thumbnail Gallery */}
+            {product.images.length > 1 && availableDesigns.length > 0 && (
               <div className="grid grid-cols-4 gap-3">
-                {product.images.map((image, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setSelectedImage(index)}
-                    className={`relative aspect-square rounded-lg overflow-hidden border-2 transition-all ${
-                      selectedImage === index
-                        ? 'border-[var(--color-primary)] ring-2 ring-[var(--color-primary)]/30'
-                        : 'border-white/10 hover:border-white/30'
-                    }`}
-                  >
-                    <img
-                      src={image}
-                      alt={`${product.name} view ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </button>
-                ))}
+                {availableDesigns.map((design, designIndex) => {
+                  const imageIndex = designIndex
+                  const isSelected = selectedDesign === design
+                  
+                  return (
+                    <button
+                      key={design}
+                      onClick={() => handleThumbnailClick(imageIndex, design)}
+                      className={`relative aspect-square rounded-lg overflow-hidden border-2 transition-all ${
+                        isSelected
+                          ? 'border-[var(--color-primary)] ring-2 ring-[var(--color-primary)]/30'
+                          : 'border-white/10 hover:border-white/30'
+                      }`}
+                    >
+                      {product.images[imageIndex] && (
+                        <img
+                          src={product.images[imageIndex]}
+                          alt={design}
+                          className="w-full h-full object-cover"
+                        />
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex items-end p-2">
+                        <span className={`text-[10px] font-bold uppercase tracking-wider ${
+                          isSelected ? 'text-[var(--color-primary)]' : 'text-white'
+                        }`} style={{ fontFamily: 'var(--font-heading)' }}>
+                          {design.toUpperCase().replace(' ', ' ')}
+                        </span>
+                      </div>
+                    </button>
+                  )
+                })}
               </div>
             )}
           </div>
@@ -184,77 +204,16 @@ export default function ProductDetailPage() {
               transition={{ delay: 0.2 }}
             >
               {/* Title */}
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
                 {product.name}
               </h1>
 
               {/* Price - Large and Prominent */}
-              <div className="mb-6">
+              <div className="mb-8">
                 <p className="text-4xl sm:text-5xl font-bold text-[var(--color-primary)]">
                   ${parseFloat(price).toFixed(2)}
                 </p>
-                {color && (
-                  <p className="text-gray-400 text-sm mt-2 uppercase tracking-wider">
-                    {color}
-                  </p>
-                )}
               </div>
-
-              {/* Description */}
-              <p className="text-gray-400 text-base sm:text-lg mb-8 leading-relaxed">
-                {product.description}
-              </p>
-
-              {/* Design Picker */}
-              {availableDesigns.length > 0 && (
-                <div className="mb-6">
-                  <label className="block text-white font-semibold mb-3 text-sm uppercase tracking-wider" style={{ fontFamily: 'var(--font-heading)' }}>
-                    Select Design
-                  </label>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    {availableDesigns.map((design) => {
-                      const isSelected = selectedDesign === design
-                      const designImageIndex = availableDesigns.indexOf(design)
-                      
-                      return (
-                        <button
-                          key={design}
-                          onClick={() => setSelectedDesign(design)}
-                          className={`relative group aspect-square rounded-xl overflow-hidden border-2 transition-all ${
-                            isSelected
-                              ? 'border-[var(--color-primary)] ring-2 ring-[var(--color-primary)]/30'
-                              : 'border-white/10 hover:border-white/30'
-                          }`}
-                        >
-                          {product.images[designImageIndex] && (
-                            <img
-                              src={product.images[designImageIndex]}
-                              alt={design}
-                              className="w-full h-full object-cover"
-                            />
-                          )}
-                          <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-3 ${
-                            isSelected ? 'opacity-100' : 'opacity-0 group-hover:opacity-100 transition-opacity'
-                          }`}>
-                            <span className={`text-xs font-bold uppercase tracking-wider ${
-                              isSelected ? 'text-[var(--color-primary)]' : 'text-white'
-                            }`}>
-                              {design}
-                            </span>
-                          </div>
-                          {isSelected && (
-                            <div className="absolute top-2 right-2 w-5 h-5 bg-[var(--color-primary)] rounded-full flex items-center justify-center">
-                              <svg className="w-3 h-3 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                              </svg>
-                            </div>
-                          )}
-                        </button>
-                      )
-                    })}
-                  </div>
-                </div>
-              )}
 
               {/* Size Picker */}
               {availableSizes.length > 0 && (
@@ -303,9 +262,9 @@ export default function ProductDetailPage() {
               {/* Selected Variant Info */}
               {currentVariant && (
                 <div className="mb-6 p-4 rounded-lg bg-[#1A1A1A] border border-white/10">
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-start">
                     <div>
-                      <p className="text-white font-semibold">{currentVariant.name}</p>
+                      <p className="text-white font-semibold text-lg">{currentVariant.name}</p>
                       <p className="text-gray-400 text-sm mt-1">
                         {color && `Color: ${color}`}
                         {color && currentVariant.size && ' • '}
@@ -322,12 +281,12 @@ export default function ProductDetailPage() {
               {/* Add to Cart Button */}
               <button
                 disabled={!currentVariant}
-                className={`w-full h-12 sm:h-14 px-8 bg-[var(--color-primary)] text-black font-bold uppercase tracking-widest text-sm hover:brightness-110 active:scale-[0.98] transition-all duration-200 mb-6 ${
+                className={`w-full h-14 px-8 bg-[var(--color-primary)] text-black font-bold uppercase tracking-widest text-sm hover:brightness-110 active:scale-[0.98] transition-all duration-200 mb-8 ${
                   !currentVariant ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
                 style={{ fontFamily: 'var(--font-heading)' }}
               >
-                {currentVariant ? 'Add to Cart' : 'Select Size & Design'}
+                {currentVariant ? 'ADD TO CART' : 'SELECT SIZE & DESIGN'}
               </button>
 
               {/* Additional Info */}
@@ -337,7 +296,9 @@ export default function ProductDetailPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                   </svg>
                   <div>
-                    <h3 className="text-white font-semibold mb-1">Free Shipping</h3>
+                    <h3 className="text-white font-bold uppercase tracking-wide text-sm mb-1" style={{ fontFamily: 'var(--font-heading)' }}>
+                      FREE SHIPPING
+                    </h3>
                     <p className="text-gray-400 text-sm">Free shipping on orders over $50. Standard delivery 5-7 business days.</p>
                   </div>
                 </div>
@@ -346,7 +307,9 @@ export default function ProductDetailPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                   </svg>
                   <div>
-                    <h3 className="text-white font-semibold mb-1">30-Day Returns</h3>
+                    <h3 className="text-white font-bold uppercase tracking-wide text-sm mb-1" style={{ fontFamily: 'var(--font-heading)' }}>
+                      30-DAY RETURNS
+                    </h3>
                     <p className="text-gray-400 text-sm">30-day return policy. Items must be unworn and in original condition.</p>
                   </div>
                 </div>

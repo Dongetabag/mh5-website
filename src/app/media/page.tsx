@@ -4,6 +4,7 @@
  * MH5 MEDIA PAGE
  * ==============
  * Media gallery with press coverage and social content
+ * Updated to reflect sorted media structure
  */
 
 import { useState, useRef } from 'react'
@@ -37,222 +38,257 @@ const pressFeatures = [
   },
 ]
 
-// All available videos - including new additions
+// Videos sorted by category
 const verticalVideos = [
-  // Basketball videos
+  // Basketball videos - all 6 available
+  {
+    src: '/videos/basketball/13f27e29c219419d852eac4f5ef134dd.MOV',
+    label: 'Highlights',
+    category: 'basketball',
+  },
   {
     src: '/videos/basketball/26e44d220245495a8a592c0002ace524.MOV',
-    label: 'Highlights',
+    label: 'Game Action',
+    category: 'basketball',
   },
   {
     src: '/videos/basketball/67df5ad85df7404a81f2d6e311e19d8c.MOV',
-    label: 'Game Action',
-  },
-  {
-    src: '/videos/basketball/6536a9824ab348f29c26ce57c181f307.MOV',
     label: 'Skills',
-  },
-  {
-    src: '/videos/basketball/6f40c6f056194535a398d54f76c6f2da.MOV',
-    label: 'Workout',
+    category: 'basketball',
   },
   {
     src: '/videos/basketball/69722150427940f68a4a967b2ba80576.MOV',
     label: 'Training',
+    category: 'basketball',
   },
   {
-    src: '/videos/basketball/13f27e29c219419d852eac4f5ef134dd.MOV',
-    label: 'Performance',
+    src: '/videos/basketball/6f40c6f056194535a398d54f76c6f2da.MOV',
+    label: 'Workout',
+    category: 'basketball',
   },
   {
     src: '/videos/basketball/88b0d1582ab545f8befd9ad80dabd80f.MOV',
-    label: 'Highlights',
+    label: 'Performance',
+    category: 'basketball',
   },
-  // Event videos - all available
+  // Event videos - all 20 available
   {
     src: '/videos/events/26b5dca7c1d348c0866fbb02e4f3d241.MOV',
     label: 'Event',
+    category: 'events',
   },
   {
     src: '/videos/events/37f8ca3c904745f7a7c16d2da3e44b5c.MOV',
     label: 'Tournament',
+    category: 'events',
   },
   {
     src: '/videos/events/4e14c7c11ff043afbd523f184c7a3999.MOV',
     label: 'Event',
+    category: 'events',
   },
   {
     src: '/videos/events/5089b366326446a49925a5305985a148.MOV',
     label: 'Crowd Energy',
+    category: 'events',
   },
   {
     src: '/videos/events/5893e5fd7bfc44d6a422765f2277d665.MOV',
     label: 'Club Night',
+    category: 'events',
   },
   {
     src: '/videos/events/70965acdb9d5482c9035562525803230.MOV',
     label: 'Live Event',
-  },
-  {
-    src: '/videos/events/74c0f77d-1a1a-478d-9184-c71c2c1a88db.MOV',
-    label: 'Event',
+    category: 'events',
   },
   {
     src: '/videos/events/7efaf7eb3b9a4babb2b824c773d971b2.MOV',
     label: 'Event',
+    category: 'events',
   },
   {
     src: '/videos/events/8aa44a60cf7f4630996aa4d294ce9568.MOV',
     label: 'Event',
+    category: 'events',
   },
   {
     src: '/videos/events/90d1467329ec4a3dac3a8658cba48dd8.MOV',
     label: 'Event',
-  },
-  {
-    src: '/videos/events/964f999e6f0f4496b7593e267ba109d1.MOV',
-    label: 'Event',
+    category: 'events',
   },
   {
     src: '/videos/events/9f90e8aa68434121b10f738f483e53f2.MOV',
     label: 'Tournament',
+    category: 'events',
   },
   {
     src: '/videos/events/F6401E28-2949-4092-BDFF-98C11CA5B439.MOV',
     label: 'Event',
+    category: 'events',
   },
   {
     src: '/videos/events/IMG_0680.MOV',
     label: 'Event',
+    category: 'events',
   },
   {
     src: '/videos/events/IMG_2421.mov',
     label: 'Event',
+    category: 'events',
   },
   {
     src: '/videos/events/a49c7a65cf3549fba727b57bcec1bddc.MOV',
     label: 'Event',
+    category: 'events',
   },
   {
     src: '/videos/events/c7ae7027582a43399c46595e1203d9a4.MOV',
     label: 'Event',
+    category: 'events',
   },
   {
     src: '/videos/events/cb31bf2b613042c197eb1e91563637a0.MOV',
     label: 'Event',
+    category: 'events',
   },
   {
     src: '/videos/events/d11f4e200d3d4174940ce130366e3698.MOV',
     label: 'Event',
+    category: 'events',
   },
   {
     src: '/videos/events/d478bfa5726949438ca2f506c332a6bc.MOV',
     label: 'VIP Section',
+    category: 'events',
   },
   {
     src: '/videos/events/d9e745c8f9c848af8356513ac8b3daab.MOV',
     label: 'Event',
+    category: 'events',
   },
   {
     src: '/videos/events/ecdaf770de5641a49205034cc0bf0a66.MOV',
     label: 'Event',
+    category: 'events',
   },
-  // Brand campaign videos
+  {
+    src: '/videos/events/964f999e6f0f4496b7593e267ba109d1.MOV',
+    label: 'Event',
+    category: 'events',
+  },
+  // Brand campaign videos - all 7 available
   {
     src: '/videos/brand-campaigns/37f8ca3c904745f7a7c16d2da3e44b5c.MOV',
     label: 'Brand Shoot',
+    category: 'brand',
+  },
+  {
+    src: '/videos/brand-campaigns/5089b366326446a49925a5305985a148.MOV',
+    label: 'Campaign',
+    category: 'brand',
+  },
+  {
+    src: '/videos/brand-campaigns/74c0f77d-1a1a-478d-9184-c71c2c1a88db.MOV',
+    label: 'Brand Campaign',
+    category: 'brand',
   },
   {
     src: '/videos/brand-campaigns/90d1467329ec4a3dac3a8658cba48dd8.MOV',
     label: 'Campaign',
+    category: 'brand',
+  },
+  {
+    src: '/videos/brand-campaigns/964f999e6f0f4496b7593e267ba109d1.MOV',
+    label: 'Brand Campaign',
+    category: 'brand',
+  },
+  {
+    src: '/videos/brand-campaigns/d478bfa5726949438ca2f506c332a6bc.MOV',
+    label: 'Campaign',
+    category: 'brand',
+  },
+  {
+    src: '/videos/brand-campaigns/IMG_9166.MOV.mov',
+    label: 'Brand Shoot',
+    category: 'brand',
   },
 ]
 
-// Comprehensive photo gallery - all available images
+// Photos sorted by category
 const photoGallery = [
-  // Basketball photos
-  { src: '/images/basketball/09C7861A-0733-4818-B9AF-077EC300A440.JPG', alt: 'Basketball action' },
-  { src: '/images/basketball/1DCFE9D5-F638-4842-A9D6-793DB9350066.JPG', alt: 'Basketball skills' },
-  { src: '/images/basketball/2516F603-3659-4D99-A163-D276CFF02C2F.JPG', alt: 'Gameplay' },
-  { src: '/images/basketball/342A3669-0A8F-4616-89F2-89B1C8B3DDF5.JPG', alt: 'Performance' },
-  { src: '/images/basketball/IMG_2493.JPG', alt: 'Jump shot' },
-  { src: '/images/basketball/IMG_5504.JPG', alt: 'Training' },
-  // Event photos - comprehensive list
-  { src: '/images/events/240C9647-1DCD-4045-8070-C69CC4C00920.jpg', alt: 'Event moment' },
-  { src: '/images/events/3ACAF232-CC27-4EB8-99DE-2322AC204F28.jpg', alt: 'Event moment' },
-  { src: '/images/events/3AFC5E5E-A1FA-4E30-9D2B-6263B98B922C.JPG', alt: 'Event' },
-  { src: '/images/events/3B027662-DE3B-4A1B-8441-8412D0215E16.JPG', alt: 'Event' },
-  { src: '/images/events/4430EAE3-2CD3-4285-9892-9494FA6EE94F.JPG', alt: 'Event' },
-  { src: '/images/events/44F18296-1548-499D-B085-A2B4998D80F9.jpg', alt: 'Event' },
-  { src: '/images/events/856B54AD-FCA3-4477-B871-A9D03CB7B1F3.JPG', alt: 'Event' },
-  { src: '/images/events/88BE14ED-B9D6-460B-BDA3-D892F086EDC4.JPG', alt: 'Event' },
-  { src: '/images/events/898f9a5d-4f08-4e70-b654-ae4cce89e350.JPG', alt: 'Brand shoot' },
-  { src: '/images/events/92C52557-B021-428B-A18B-476A08F37D37.JPG', alt: 'Event' },
-  { src: '/images/events/95A0BBC3-F879-4FEC-AA09-B1683ECF65B2.JPG', alt: 'Event' },
-  { src: '/images/events/A7407964.jpg', alt: 'Event' },
-  { src: '/images/events/B6641C04-9563-44EC-B211-6810D47B15E2.jpg', alt: 'Event' },
-  { src: '/images/events/BA2A6014.JPG', alt: 'Event' },
-  { src: '/images/events/BE564DC8-2241-4DC9-969F-8CA7F99D25AE.jpg', alt: 'Celebration' },
-  { src: '/images/events/C8593DE0-E4F4-4BBA-A145-B5318AB30E90.JPG', alt: 'Performance' },
-  { src: '/images/events/D43A39C2-2C80-40FF-A41C-5C28E99F1DB2.JPG', alt: 'Event' },
-  { src: '/images/events/DBAEFDA8-FB32-499C-BF46-4B55DCAEC8C6.JPG', alt: 'Event' },
-  { src: '/images/events/F904A20E-75E9-4FE9-B441-CB9F32BC68EB.jpg', alt: 'Event' },
-  { src: '/images/events/FullSizeRender.jpg', alt: 'Event' },
-  { src: '/images/events/Hero image.jpg', alt: 'Hero moment' },
-  { src: '/images/events/IMG_0176.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_0746.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_0813.JPG', alt: 'Event moment' },
-  { src: '/images/events/IMG_0899.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_0979.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_1424.jpg', alt: 'Stage' },
-  { src: '/images/events/IMG_1466.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_1754.JPG', alt: 'Event moment' },
-  { src: '/images/events/IMG_1835.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_1836.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_2014.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_2095.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_2102.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_2428.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_2480.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_2482.jpg', alt: 'Crowd' },
-  { src: '/images/events/IMG_3072.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_3307.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_3456.jpg', alt: 'Club hosting' },
-  { src: '/images/events/IMG_3457.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_3606.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_3735.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_3820.JPG', alt: 'Event moment' },
-  { src: '/images/events/IMG_4010.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_4129.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_4134.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_4139.jpg', alt: 'VIP section' },
-  { src: '/images/events/IMG_4158.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_4169.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_4205.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_4495.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_4501.jpg', alt: 'Event energy' },
-  { src: '/images/events/IMG_4508.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_4731.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_4847.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_4916.JPG', alt: 'Event moment' },
-  { src: '/images/events/IMG_5062.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_5130.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_5432.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_5893.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_6577.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_7115.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_7437.jpg', alt: 'Event moment' },
-  { src: '/images/events/IMG_8738.JPG', alt: 'Event moment' },
-  { src: '/images/events/MHF.jpg', alt: 'MH5 brand' },
-  { src: '/images/events/Sony-2666.JPG', alt: 'Showcase' },
-  { src: '/images/events/e0857ff9-f9da-4a3d-9d21-4f538c744511.JPG', alt: 'Tournament' },
-  // Brand campaign photos - all available
-  { src: '/images/brand-campaigns/278543FD-E8F1-48C4-B12D-F5014265F665.JPG', alt: 'Brand campaign' },
-  { src: '/images/brand-campaigns/A7407964.jpg', alt: 'Brand campaign' },
-  { src: '/images/brand-campaigns/A8A2681C-EE12-4329-B186-53D5C364CA5B.JPG', alt: 'Campaign' },
-  { src: '/images/brand-campaigns/B6641C04-9563-44EC-B211-6810D47B15E2.jpg', alt: 'Brand campaign' },
-  { src: '/images/brand-campaigns/IMG_4508.jpg', alt: 'Brand campaign' },
-  { src: '/images/brand-campaigns/IMG_5062.jpg', alt: 'Brand campaign' },
+  // Basketball photos - all 29 available
+  { src: '/images/basketball/09C7861A-0733-4818-B9AF-077EC300A440.JPG', alt: 'Basketball action', category: 'basketball' },
+  { src: '/images/basketball/1DCFE9D5-F638-4842-A9D6-793DB9350066.JPG', alt: 'Basketball skills', category: 'basketball' },
+  { src: '/images/basketball/240C9647-1DCD-4045-8070-C69CC4C00920.jpg', alt: 'Basketball action', category: 'basketball' },
+  { src: '/images/basketball/2516F603-3659-4D99-A163-D276CFF02C2F.JPG', alt: 'Gameplay', category: 'basketball' },
+  { src: '/images/basketball/342A3669-0A8F-4616-89F2-89B1C8B3DDF5.JPG', alt: 'Performance', category: 'basketball' },
+  { src: '/images/basketball/3B027662-DE3B-4A1B-8441-8412D0215E16.JPG', alt: 'Basketball action', category: 'basketball' },
+  { src: '/images/basketball/856B54AD-FCA3-4477-B871-A9D03CB7B1F3.JPG', alt: 'Basketball action', category: 'basketball' },
+  { src: '/images/basketball/92C52557-B021-428B-A18B-476A08F37D37.JPG', alt: 'Basketball action', category: 'basketball' },
+  { src: '/images/basketball/e0857ff9-f9da-4a3d-9d21-4f538c744511.JPG', alt: 'Basketball tournament', category: 'basketball' },
+  { src: '/images/basketball/Hero image.jpg', alt: 'Hero moment', category: 'basketball' },
+  { src: '/images/basketball/IMG_0746.jpg', alt: 'Basketball action', category: 'basketball' },
+  { src: '/images/basketball/IMG_0813.JPG', alt: 'Basketball action', category: 'basketball' },
+  { src: '/images/basketball/IMG_0899.jpg', alt: 'Basketball action', category: 'basketball' },
+  { src: '/images/basketball/IMG_1424.jpg', alt: 'Basketball action', category: 'basketball' },
+  { src: '/images/basketball/IMG_1466.jpg', alt: 'Basketball action', category: 'basketball' },
+  { src: '/images/basketball/IMG_1754.JPG', alt: 'Basketball action', category: 'basketball' },
+  { src: '/images/basketball/IMG_1835.jpg', alt: 'Basketball action', category: 'basketball' },
+  { src: '/images/basketball/IMG_1836.jpg', alt: 'Basketball action', category: 'basketball' },
+  { src: '/images/basketball/IMG_2014.jpg', alt: 'Basketball action', category: 'basketball' },
+  { src: '/images/basketball/IMG_2095.jpg', alt: 'Basketball action', category: 'basketball' },
+  { src: '/images/basketball/IMG_2102.jpg', alt: 'Basketball action', category: 'basketball' },
+  { src: '/images/basketball/IMG_2493.JPG', alt: 'Jump shot', category: 'basketball' },
+  { src: '/images/basketball/IMG_3072.jpg', alt: 'Basketball action', category: 'basketball' },
+  { src: '/images/basketball/IMG_4495.jpg', alt: 'Basketball action', category: 'basketball' },
+  { src: '/images/basketball/IMG_4501.jpg', alt: 'Basketball action', category: 'basketball' },
+  { src: '/images/basketball/IMG_4508.jpg', alt: 'Basketball action', category: 'basketball' },
+  { src: '/images/basketball/IMG_4731.jpg', alt: 'Basketball action', category: 'basketball' },
+  { src: '/images/basketball/IMG_5504.JPG', alt: 'Training', category: 'basketball' },
+  { src: '/images/basketball/IMG_7115.jpg', alt: 'Basketball action', category: 'basketball' },
+  { src: '/images/basketball/IMG_8738.JPG', alt: 'Basketball action', category: 'basketball' },
+  // Event photos - all 32 available
+  { src: '/images/events/240C9647-1DCD-4045-8070-C69CC4C00920.jpg', alt: 'Event moment', category: 'events' },
+  { src: '/images/events/3ACAF232-CC27-4EB8-99DE-2322AC204F28.jpg', alt: 'Event moment', category: 'events' },
+  { src: '/images/events/3AFC5E5E-A1FA-4E30-9D2B-6263B98B922C.JPG', alt: 'Event', category: 'events' },
+  { src: '/images/events/4430EAE3-2CD3-4285-9892-9494FA6EE94F.JPG', alt: 'Event', category: 'events' },
+  { src: '/images/events/88BE14ED-B9D6-460B-BDA3-D892F086EDC4.JPG', alt: 'Event', category: 'events' },
+  { src: '/images/events/95A0BBC3-F879-4FEC-AA09-B1683ECF65B2.JPG', alt: 'Event', category: 'events' },
+  { src: '/images/events/B6641C04-9563-44EC-B211-6810D47B15E2.jpg', alt: 'Event', category: 'events' },
+  { src: '/images/events/BE564DC8-2241-4DC9-969F-8CA7F99D25AE.jpg', alt: 'Celebration', category: 'events' },
+  { src: '/images/events/C8593DE0-E4F4-4BBA-A145-B5318AB30E90.JPG', alt: 'Performance', category: 'events' },
+  { src: '/images/events/DBAEFDA8-FB32-499C-BF46-4B55DCAEC8C6.JPG', alt: 'Event', category: 'events' },
+  { src: '/images/events/F904A20E-75E9-4FE9-B441-CB9F32BC68EB.jpg', alt: 'Event', category: 'events' },
+  { src: '/images/events/FullSizeRender.jpg', alt: 'Event', category: 'events' },
+  { src: '/images/events/IMG_0176.jpg', alt: 'Event moment', category: 'events' },
+  { src: '/images/events/IMG_0979.jpg', alt: 'Event moment', category: 'events' },
+  { src: '/images/events/IMG_3606.jpg', alt: 'Event moment', category: 'events' },
+  { src: '/images/events/IMG_3735.jpg', alt: 'Event moment', category: 'events' },
+  { src: '/images/events/IMG_3820.JPG', alt: 'Event moment', category: 'events' },
+  { src: '/images/events/IMG_4010.jpg', alt: 'Event moment', category: 'events' },
+  { src: '/images/events/IMG_4129.jpg', alt: 'Event moment', category: 'events' },
+  { src: '/images/events/IMG_4134.jpg', alt: 'Event moment', category: 'events' },
+  { src: '/images/events/IMG_4139.jpg', alt: 'VIP section', category: 'events' },
+  { src: '/images/events/IMG_4158.jpg', alt: 'Event moment', category: 'events' },
+  { src: '/images/events/IMG_4169.jpg', alt: 'Event moment', category: 'events' },
+  { src: '/images/events/IMG_4205.jpg', alt: 'Event moment', category: 'events' },
+  { src: '/images/events/IMG_4847.jpg', alt: 'Event moment', category: 'events' },
+  { src: '/images/events/IMG_5062.jpg', alt: 'Event moment', category: 'events' },
+  { src: '/images/events/IMG_5130.jpg', alt: 'Event moment', category: 'events' },
+  { src: '/images/events/IMG_5893.jpg', alt: 'Event moment', category: 'events' },
+  { src: '/images/events/IMG_6577.jpg', alt: 'Event moment', category: 'events' },
+  { src: '/images/events/IMG_7437.jpg', alt: 'Event moment', category: 'events' },
+  { src: '/images/events/MHF.jpg', alt: 'MH5 brand', category: 'events' },
+  { src: '/images/events/Sony-2666.JPG', alt: 'Showcase', category: 'events' },
+  // Brand campaign photos - all 7 available
+  { src: '/images/brand-campaigns/278543FD-E8F1-48C4-B12D-F5014265F665.JPG', alt: 'Brand campaign', category: 'brand' },
+  { src: '/images/brand-campaigns/A7407964.jpg', alt: 'Brand campaign', category: 'brand' },
+  { src: '/images/brand-campaigns/A8A2681C-EE12-4329-B186-53D5C364CA5B.JPG', alt: 'Campaign', category: 'brand' },
+  { src: '/images/brand-campaigns/B6641C04-9563-44EC-B211-6810D47B15E2.jpg', alt: 'Brand campaign', category: 'brand' },
+  { src: '/images/brand-campaigns/IMG_4508.jpg', alt: 'Brand campaign', category: 'brand' },
+  { src: '/images/brand-campaigns/IMG_4731.jpg', alt: 'Brand campaign', category: 'brand' },
+  { src: '/images/brand-campaigns/IMG_5062.jpg', alt: 'Brand campaign', category: 'brand' },
 ]
 
 export default function MediaPage() {
@@ -463,8 +499,8 @@ function PressSection() {
             >
               <div className="flex items-start justify-between gap-4 mb-2">
                 <span className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wide">
-                  {feature.outlet}
-                </span>
+                      {feature.outlet}
+                    </span>
                 <span className="text-xs text-gray-500">{feature.date}</span>
               </div>
               <h3 className="text-base sm:text-lg font-semibold text-white group-hover:text-[var(--color-primary)] transition-colors">
@@ -485,25 +521,25 @@ function CTASection() {
   return (
     <section className="py-12 sm:py-16 lg:py-20 px-5 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        transition={{ duration: 0.6 }}
+      >
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-4">
             Follow the Journey
-          </h2>
+        </h2>
           <p className="text-gray-400 text-base sm:text-lg mb-8 max-w-xl mx-auto">
             Stay connected with MH5 for the latest updates, events, and exclusive content.
-          </p>
-          <Link
+        </p>
+        <Link
             href="/events"
             className="inline-block px-8 py-4 bg-[var(--color-primary)] text-black font-bold uppercase tracking-widest rounded-lg hover:bg-[var(--color-secondary)] transition-colors"
-          >
+        >
             View Upcoming Events
-          </Link>
-        </motion.div>
+        </Link>
+      </motion.div>
       </div>
     </section>
   )

@@ -52,8 +52,8 @@ export default function CheckoutPage() {
     setProcessingPayment(true)
 
     try {
-      // Create payment intent
-      const response = await fetch('/api/stripe/create-payment-intent', {
+      // Step 1: Create Stripe payment intent
+      const paymentResponse = await fetch('/api/stripe/create-payment-intent', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -68,22 +68,65 @@ export default function CheckoutPage() {
         }),
       })
 
-      const data = await response.json()
+      const paymentData = await paymentResponse.json()
 
-      if (!data.success) {
-        throw new Error(data.error || 'Failed to create payment intent')
+      if (!paymentData.success) {
+        throw new Error(paymentData.error || 'Failed to create payment intent')
       }
 
-      // TODO: Redirect to Stripe Checkout or handle payment
-      // For now, simulate successful order
-      alert('Checkout functionality will be integrated with Stripe. Order total: $' + total.toFixed(2))
-      
-      // Clear cart after successful order
+      // Step 2: Process payment via Stripe Checkout
+      // TODO: Implement Stripe Checkout redirect or Elements
+      // For now, we'll create the TapStitch order after payment intent is created
+      // In production, you'd complete Stripe payment first, then create TapStitch order
+
+      // Step 3: Create order in TapStitch
+      const orderResponse = await fetch('/api/tapstitch/orders', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          items: items.map((item) => ({
+            productId: item.productId.toString(),
+            variantId: item.variantId.toString(),
+            quantity: item.quantity,
+            price: item.price,
+          })),
+          shipping: {
+            name: `${formData.firstName} ${formData.lastName}`,
+            address: formData.address,
+            city: formData.city,
+            state: formData.state,
+            zip: formData.zip,
+            country: formData.country,
+            phone: formData.phone || '',
+          },
+          paymentIntentId: paymentData.paymentIntentId,
+          email: formData.email,
+        }),
+      })
+
+      const orderData = await orderResponse.json()
+
+      if (!orderData.success) {
+        // Payment intent created but order failed - log for manual review
+        console.error('TapStitch order creation failed:', orderData.error)
+        // Still redirect but show warning
+        alert(
+          'Payment processed but order creation failed. Please contact support with payment ID: ' +
+            paymentData.paymentIntentId
+        )
+        clearCart()
+        router.push('/shop?order=warning&paymentId=' + paymentData.paymentIntentId)
+        return
+      }
+
+      // Step 4: Success - clear cart and redirect to confirmation
       clearCart()
-      router.push('/shop?order=success')
+      router.push(`/shop?order=success&orderId=${orderData.data?.order?.id || 'pending'}`)
     } catch (error: any) {
       console.error('Checkout error:', error)
-      alert('Payment failed: ' + error.message)
+      alert('Checkout failed: ' + error.message)
     } finally {
       setProcessingPayment(false)
     }

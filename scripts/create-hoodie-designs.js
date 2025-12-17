@@ -10,7 +10,7 @@ const { GoogleGenerativeAI } = require('@google/generative-ai')
 const fs = require('fs')
 const path = require('path')
 
-const API_KEY = 'AIzaSyAmOIJHGlsZdMYy1NJbbXTNAuB-Du0mrsc'
+const API_KEY = process.env.GOOGLE_AI_API_KEY || ''
 const HOODIE_FOLDER = '/Users/simeonreid/Downloads/Snow Wash Fleece Oversize Hoodie_gallery'
 const OUTPUT_FOLDER = path.join(__dirname, '../public/images/hoodie-designs')
 

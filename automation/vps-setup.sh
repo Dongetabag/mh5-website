@@ -15,7 +15,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 # Configuration
-GOOGLE_AI_API_KEY="AIzaSyAmOIJHGlsZdMYy1NJbbXTNAuB-Du0mrsc"
+GOOGLE_AI_API_KEY="${GOOGLE_AI_API_KEY:-YOUR_GOOGLE_AI_API_KEY_HERE}"
 PROJECT_DIR="/var/www/mh5-site"
 N8N_DIR="/root/.n8n"
 
@@ -219,7 +219,7 @@ cat > automation/scripts/claude-code-integration.sh << 'EOBASH'
 
 TASK="$1"
 COMPONENT_NAME="$2"
-GOOGLE_AI_API_KEY="${GOOGLE_AI_API_KEY:-AIzaSyAmOIJHGlsZdMYy1NJbbXTNAuB-Du0mrsc}"
+GOOGLE_AI_API_KEY="${GOOGLE_AI_API_KEY:-}"
 
 case "$TASK" in
     "generate-component")

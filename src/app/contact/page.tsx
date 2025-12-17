@@ -31,8 +31,8 @@ const socialLinks = [
   },
   {
     name: 'X (Twitter)',
-    handle: '@MH5Official',
-    href: '#',
+    handle: '@therealmilan5',
+    href: 'https://twitter.com/therealmilan5',
     color: 'from-gray-600 to-gray-800',
     icon: (
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

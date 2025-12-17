@@ -11,7 +11,7 @@ echo ""
 # Configuration
 PROJECT_DIR="/var/www/mh5-site"
 GITHUB_REPO="https://github.com/Dongetabag/mh5-website.git"
-GOOGLE_AI_API_KEY="AIzaSyAmOIJHGlsZdMYy1NJbbXTNAuB-Du0mrsc"
+GOOGLE_AI_API_KEY="${GOOGLE_AI_API_KEY:-YOUR_GOOGLE_AI_API_KEY_HERE}"
 
 # Colors
 GREEN='\033[0;32m'

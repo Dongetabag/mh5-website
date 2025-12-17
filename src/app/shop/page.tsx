@@ -1,9 +1,9 @@
 'use client'
 
 /**
- * SHOP PAGE - Printful Product Catalog
+ * SHOP PAGE - TapStitch Product Catalog
  * =====================================
- * Display products from Printful store
+ * Display products from TapStitch store
  * Integrated with shopping cart and checkout
  */
 
@@ -37,11 +37,12 @@ export default function ShopPage() {
   const fetchProducts = async () => {
     try {
       setLoading(true)
-      const response = await fetch('/api/printful/products?limit=20')
+      // TODO: Update endpoint once TapStitch API is configured
+      const response = await fetch('/api/tapstitch/products?limit=20')
       const data = await response.json()
 
       if (data.success) {
-        setProducts(data.data?.items || [])
+        setProducts(data.data?.products || data.data || [])
       } else {
         setError(data.error || 'Failed to load products')
       }

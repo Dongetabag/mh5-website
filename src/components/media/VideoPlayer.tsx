@@ -101,6 +101,10 @@ const VideoPlayer = ({
     return `${minutes}:${seconds.toString().padStart(2, '0')}`
   }
 
+  // Convert .MOV to .mp4 for better browser compatibility
+  const mp4Src = src.replace(/\.(MOV|mov)$/, '.mp4')
+  const hasMp4 = mp4Src !== src
+
   return (
     <div
       className={`relative group ${className}`}
@@ -109,14 +113,24 @@ const VideoPlayer = ({
     >
       <video
         ref={videoRef}
-        src={src}
         poster={poster}
         autoPlay={autoplay}
         loop={loop}
         muted={muted}
+        playsInline
+        preload="auto"
         className="w-full h-full object-cover"
         onClick={togglePlay}
-      />
+      >
+        {hasMp4 ? (
+          <>
+            <source src={mp4Src} type="video/mp4" />
+            <source src={src} type="video/quicktime" />
+          </>
+        ) : (
+          <source src={src} type="video/mp4" />
+        )}
+      </video>
 
       {/* Custom Play/Pause Button Overlay */}
       {!isPlaying && (

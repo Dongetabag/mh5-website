@@ -33,11 +33,47 @@ export default function FunnelHero() {
       if (isPlaying) {
         videoRef.current.pause()
       } else {
-        videoRef.current.play()
+        videoRef.current.play().catch((error) => {
+          console.warn('Video play failed:', error)
+        })
       }
       setIsPlaying(!isPlaying)
     }
   }
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    // Ensure video plays on load
+    const handleLoadedData = () => {
+      video.play().catch((error) => {
+        console.warn('Autoplay prevented:', error)
+      })
+    }
+
+    const handleError = (e: Event) => {
+      console.error('Video error:', e)
+      // Try to reload video on error
+      video.load()
+    }
+
+    video.addEventListener('loadeddata', handleLoadedData)
+    video.addEventListener('error', handleError)
+
+    // Force play attempt after a short delay
+    const playTimeout = setTimeout(() => {
+      if (video.paused) {
+        video.play().catch(() => {})
+      }
+    }, 500)
+
+    return () => {
+      video.removeEventListener('loadeddata', handleLoadedData)
+      video.removeEventListener('error', handleError)
+      clearTimeout(playTimeout)
+    }
+  }, [])
 
   const scrollToContent = () => {
     window.scrollTo({
@@ -57,10 +93,11 @@ export default function FunnelHero() {
           loop
           muted={isMuted}
           playsInline
+          preload="auto"
           className="w-full h-full object-cover opacity-40"
         >
+          <source src="/videos/hero/hero-bg.mp4" type="video/mp4" />
           <source src="/videos/hero/hero-bg.MOV" type="video/quicktime" />
-          <source src="/videos/hero/hero-bg.MOV" type="video/mp4" />
         </video>
       </div>
 
@@ -182,10 +219,11 @@ export default function FunnelHero() {
                     loop
                     muted
                     playsInline
+                    preload="auto"
                     className="absolute inset-0 w-full h-full object-cover"
                   >
+                    <source src="/videos/hero/vertical-highlight.mp4" type="video/mp4" />
                     <source src="/videos/hero/vertical-highlight.MOV" type="video/quicktime" />
-                    <source src="/videos/hero/vertical-highlight.MOV" type="video/mp4" />
                   </video>
 
                   {/* Video Overlay - TikTok Style */}

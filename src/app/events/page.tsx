@@ -6,23 +6,23 @@ import { useState } from 'react'
 import { IconBox, icons } from '@/components/ui/GlossIcon'
 
 const eventHighlights = [
-  { src: '/videos/events/9f90e8aa68434121b10f738f483e53f2.MOV', poster: '/images/events/e0857ff9-f9da-4a3d-9d21-4f538c744511.JPG', label: 'Tournament' },
+  { src: '/videos/events/9f90e8aa68434121b10f738f483e53f2.MOV', poster: '/images/events/BE564DC8-2241-4DC9-969F-8CA7F99D25AE.jpg', label: 'Tournament' },
   { src: '/videos/events/5893e5fd7bfc44d6a422765f2277d665.MOV', poster: '/images/events/BE564DC8-2241-4DC9-969F-8CA7F99D25AE.jpg', label: 'Club Night' },
   { src: '/videos/events/5089b366326446a49925a5305985a148.MOV', poster: '/images/events/IMG_3735.jpg', label: 'Crowd' },
   { src: '/videos/events/d478bfa5726949438ca2f506c332a6bc.MOV', poster: '/images/events/IMG_4847.jpg', label: 'VIP' },
-  { src: '/videos/events/3df6da7094b6454d8f0e196ad13ff583.MOV', poster: '/images/events/C8593DE0-E4F4-4BBA-A145-B5318AB30E90.JPG', label: 'Showcase' },
+  { src: '/videos/events/26b5dca7c1d348c0866fbb02e4f3d241.MOV', poster: '/images/events/C8593DE0-E4F4-4BBA-A145-B5318AB30E90.JPG', label: 'Showcase' },
   { src: '/videos/events/4e14c7c11ff043afbd523f184c7a3999.MOV', poster: '/images/events/3AFC5E5E-A1FA-4E30-9D2B-6263B98B922C.JPG', label: 'Energy' },
-  { src: '/videos/events/7efaf7eb3b9a4babb2b824c773d971b2.MOV', poster: '/images/events/3B027662-DE3B-4A1B-8441-8412D0215E16.JPG', label: 'Performance' },
+  { src: '/videos/events/7efaf7eb3b9a4babb2b824c773d971b2.MOV', poster: '/images/events/IMG_3735.jpg', label: 'Performance' },
   { src: '/videos/events/964f999e6f0f4496b7593e267ba109d1.MOV', poster: '/images/events/4430EAE3-2CD3-4285-9892-9494FA6EE94F.JPG', label: 'Action' },
 ]
 
 const pastEvents = [
-  { title: 'Winter Showcase 2023', date: '2023-12-10', location: 'Springfield, MA', attendance: 450, image: '/images/events/IMG_2482.jpg' },
-  { title: 'New Year\'s Eve Party', date: '2023-12-31', location: 'Miami, FL', attendance: 800, image: '/images/events/IMG_1466.jpg' },
-  { title: 'Fall Tournament', date: '2023-10-20', location: 'Boston, MA', attendance: 600, image: '/images/events/IMG_2428.jpg' },
-  { title: 'Summer Classic 2023', date: '2023-07-15', location: 'New York, NY', attendance: 720, image: '/images/events/IMG_5432.jpg' },
+  { title: 'Winter Showcase 2023', date: '2023-12-10', location: 'Springfield, MA', attendance: 450, image: '/images/events/IMG_4139.jpg' },
+  { title: 'New Year\'s Eve Party', date: '2023-12-31', location: 'Miami, FL', attendance: 800, image: '/images/events/BE564DC8-2241-4DC9-969F-8CA7F99D25AE.jpg' },
+  { title: 'Fall Tournament', date: '2023-10-20', location: 'Boston, MA', attendance: 600, image: '/images/events/IMG_4847.jpg' },
+  { title: 'Summer Classic 2023', date: '2023-07-15', location: 'New York, NY', attendance: 720, image: '/images/events/IMG_5893.jpg' },
   { title: 'Spring Invitational', date: '2023-04-08', location: 'Hartford, CT', attendance: 380, image: '/images/events/BE564DC8-2241-4DC9-969F-8CA7F99D25AE.jpg' },
-  { title: 'MH5 Launch Party', date: '2023-01-28', location: 'Springfield, MA', attendance: 550, image: '/images/events/e0857ff9-f9da-4a3d-9d21-4f538c744511.JPG' },
+  { title: 'MH5 Launch Party', date: '2023-01-28', location: 'Springfield, MA', attendance: 550, image: '/images/events/MHF.jpg' },
 ]
 
 export default function EventsPage() {

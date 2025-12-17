@@ -37,7 +37,9 @@ const pressFeatures = [
   },
 ]
 
+// All available videos - including new additions
 const verticalVideos = [
+  // Basketball videos
   {
     src: '/videos/basketball/26e44d220245495a8a592c0002ace524.MOV',
     label: 'Highlights',
@@ -55,21 +57,107 @@ const verticalVideos = [
     label: 'Workout',
   },
   {
-    src: '/videos/events/9f90e8aa68434121b10f738f483e53f2.MOV',
+    src: '/videos/basketball/69722150427940f68a4a967b2ba80576.MOV',
+    label: 'Training',
+  },
+  {
+    src: '/videos/basketball/13f27e29c219419d852eac4f5ef134dd.MOV',
+    label: 'Performance',
+  },
+  {
+    src: '/videos/basketball/88b0d1582ab545f8befd9ad80dabd80f.MOV',
+    label: 'Highlights',
+  },
+  // Event videos - all available
+  {
+    src: '/videos/events/26b5dca7c1d348c0866fbb02e4f3d241.MOV',
+    label: 'Event',
+  },
+  {
+    src: '/videos/events/37f8ca3c904745f7a7c16d2da3e44b5c.MOV',
     label: 'Tournament',
+  },
+  {
+    src: '/videos/events/4e14c7c11ff043afbd523f184c7a3999.MOV',
+    label: 'Event',
+  },
+  {
+    src: '/videos/events/5089b366326446a49925a5305985a148.MOV',
+    label: 'Crowd Energy',
   },
   {
     src: '/videos/events/5893e5fd7bfc44d6a422765f2277d665.MOV',
     label: 'Club Night',
   },
   {
+    src: '/videos/events/70965acdb9d5482c9035562525803230.MOV',
+    label: 'Live Event',
+  },
+  {
+    src: '/videos/events/74c0f77d-1a1a-478d-9184-c71c2c1a88db.MOV',
+    label: 'Event',
+  },
+  {
+    src: '/videos/events/7efaf7eb3b9a4babb2b824c773d971b2.MOV',
+    label: 'Event',
+  },
+  {
+    src: '/videos/events/8aa44a60cf7f4630996aa4d294ce9568.MOV',
+    label: 'Event',
+  },
+  {
+    src: '/videos/events/90d1467329ec4a3dac3a8658cba48dd8.MOV',
+    label: 'Event',
+  },
+  {
+    src: '/videos/events/964f999e6f0f4496b7593e267ba109d1.MOV',
+    label: 'Event',
+  },
+  {
+    src: '/videos/events/9f90e8aa68434121b10f738f483e53f2.MOV',
+    label: 'Tournament',
+  },
+  {
+    src: '/videos/events/F6401E28-2949-4092-BDFF-98C11CA5B439.MOV',
+    label: 'Event',
+  },
+  {
+    src: '/videos/events/IMG_0680.MOV',
+    label: 'Event',
+  },
+  {
+    src: '/videos/events/IMG_2421.mov',
+    label: 'Event',
+  },
+  {
+    src: '/videos/events/a49c7a65cf3549fba727b57bcec1bddc.MOV',
+    label: 'Event',
+  },
+  {
+    src: '/videos/events/c7ae7027582a43399c46595e1203d9a4.MOV',
+    label: 'Event',
+  },
+  {
+    src: '/videos/events/cb31bf2b613042c197eb1e91563637a0.MOV',
+    label: 'Event',
+  },
+  {
+    src: '/videos/events/d11f4e200d3d4174940ce130366e3698.MOV',
+    label: 'Event',
+  },
+  {
     src: '/videos/events/d478bfa5726949438ca2f506c332a6bc.MOV',
     label: 'VIP Section',
   },
   {
-    src: '/videos/events/5089b366326446a49925a5305985a148.MOV',
-    label: 'Crowd Energy',
+    src: '/videos/events/d9e745c8f9c848af8356513ac8b3daab.MOV',
+    label: 'Event',
   },
+  {
+    src: '/videos/events/ecdaf770de5641a49205034cc0bf0a66.MOV',
+    label: 'Event',
+  },
+  // Brand campaign videos
   {
     src: '/videos/brand-campaigns/37f8ca3c904745f7a7c16d2da3e44b5c.MOV',
     label: 'Brand Shoot',
@@ -80,32 +168,90 @@ const verticalVideos = [
   },
 ]
 
+// Comprehensive photo gallery - all available images
 const photoGallery = [
   // Basketball photos
-  { src: '/images/basketball/123_1.JPEG', alt: 'Game action' },
+  { src: '/images/basketball/09C7861A-0733-4818-B9AF-077EC300A440.JPG', alt: 'Basketball action' },
+  { src: '/images/basketball/1DCFE9D5-F638-4842-A9D6-793DB9350066.JPG', alt: 'Basketball skills' },
+  { src: '/images/basketball/2516F603-3659-4D99-A163-D276CFF02C2F.JPG', alt: 'Gameplay' },
+  { src: '/images/basketball/342A3669-0A8F-4616-89F2-89B1C8B3DDF5.JPG', alt: 'Performance' },
   { src: '/images/basketball/IMG_2493.JPG', alt: 'Jump shot' },
   { src: '/images/basketball/IMG_5504.JPG', alt: 'Training' },
-  { src: '/images/basketball/09C7861A-0733-4818-B9AF-077EC300A440.JPG', alt: 'Skills' },
-  { src: '/images/basketball/1DCFE9D5-F638-4842-A9D6-793DB9350066.JPG', alt: 'Action' },
-  { src: '/images/basketball/2516F603-3659-4D99-A163-D276CFF02C2F.JPG', alt: 'Gameplay' },
-  { src: '/images/basketball/278543FD-E8F1-48C4-B12D-F5014265F665.JPG', alt: 'Workout' },
-  { src: '/images/basketball/342A3669-0A8F-4616-89F2-89B1C8B3DDF5.JPG', alt: 'Performance' },
-  // Event photos
-  { src: '/images/events/e0857ff9-f9da-4a3d-9d21-4f538c744511.JPG', alt: 'Tournament' },
-  { src: '/images/events/IMG_3456.jpg', alt: 'Club hosting' },
-  { src: '/images/events/IMG_4139.jpg', alt: 'VIP section' },
-  { src: '/images/events/IMG_4501.jpg', alt: 'Event energy' },
-  { src: '/images/events/IMG_1424.jpg', alt: 'Stage' },
-  { src: '/images/events/IMG_2482.jpg', alt: 'Crowd' },
-  { src: '/images/events/Sony-2666.JPG', alt: 'Showcase' },
-  { src: '/images/events/C8593DE0-E4F4-4BBA-A145-B5318AB30E90.JPG', alt: 'Performance' },
-  { src: '/images/events/BE564DC8-2241-4DC9-969F-8CA7F99D25AE.jpg', alt: 'Celebration' },
+  // Event photos - comprehensive list
+  { src: '/images/events/240C9647-1DCD-4045-8070-C69CC4C00920.jpg', alt: 'Event moment' },
+  { src: '/images/events/3ACAF232-CC27-4EB8-99DE-2322AC204F28.jpg', alt: 'Event moment' },
   { src: '/images/events/3AFC5E5E-A1FA-4E30-9D2B-6263B98B922C.JPG', alt: 'Event' },
-  // Brand campaign photos
+  { src: '/images/events/3B027662-DE3B-4A1B-8441-8412D0215E16.JPG', alt: 'Event' },
+  { src: '/images/events/4430EAE3-2CD3-4285-9892-9494FA6EE94F.JPG', alt: 'Event' },
+  { src: '/images/events/44F18296-1548-499D-B085-A2B4998D80F9.jpg', alt: 'Event' },
+  { src: '/images/events/856B54AD-FCA3-4477-B871-A9D03CB7B1F3.JPG', alt: 'Event' },
+  { src: '/images/events/88BE14ED-B9D6-460B-BDA3-D892F086EDC4.JPG', alt: 'Event' },
   { src: '/images/events/898f9a5d-4f08-4e70-b654-ae4cce89e350.JPG', alt: 'Brand shoot' },
-  { src: '/images/brand-campaigns/A8A2681C-EE12-4329-B186-53D5C364CA5B.JPG', alt: 'Campaign' },
-  { src: '/images/brand-campaigns/A1905360-DC17-4045-A863-A0E4BAFE6DD2.JPG', alt: 'Partnership' },
+  { src: '/images/events/92C52557-B021-428B-A18B-476A08F37D37.JPG', alt: 'Event' },
+  { src: '/images/events/95A0BBC3-F879-4FEC-AA09-B1683ECF65B2.JPG', alt: 'Event' },
+  { src: '/images/events/A7407964.jpg', alt: 'Event' },
+  { src: '/images/events/B6641C04-9563-44EC-B211-6810D47B15E2.jpg', alt: 'Event' },
+  { src: '/images/events/BA2A6014.JPG', alt: 'Event' },
+  { src: '/images/events/BE564DC8-2241-4DC9-969F-8CA7F99D25AE.jpg', alt: 'Celebration' },
+  { src: '/images/events/C8593DE0-E4F4-4BBA-A145-B5318AB30E90.JPG', alt: 'Performance' },
+  { src: '/images/events/D43A39C2-2C80-40FF-A41C-5C28E99F1DB2.JPG', alt: 'Event' },
+  { src: '/images/events/DBAEFDA8-FB32-499C-BF46-4B55DCAEC8C6.JPG', alt: 'Event' },
+  { src: '/images/events/F904A20E-75E9-4FE9-B441-CB9F32BC68EB.jpg', alt: 'Event' },
+  { src: '/images/events/FullSizeRender.jpg', alt: 'Event' },
+  { src: '/images/events/Hero image.jpg', alt: 'Hero moment' },
+  { src: '/images/events/IMG_0176.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_0746.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_0813.JPG', alt: 'Event moment' },
+  { src: '/images/events/IMG_0899.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_0979.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_1424.jpg', alt: 'Stage' },
+  { src: '/images/events/IMG_1466.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_1754.JPG', alt: 'Event moment' },
+  { src: '/images/events/IMG_1835.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_1836.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_2014.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_2095.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_2102.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_2428.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_2480.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_2482.jpg', alt: 'Crowd' },
+  { src: '/images/events/IMG_3072.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_3307.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_3456.jpg', alt: 'Club hosting' },
+  { src: '/images/events/IMG_3457.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_3606.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_3735.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_3820.JPG', alt: 'Event moment' },
+  { src: '/images/events/IMG_4010.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_4129.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_4134.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_4139.jpg', alt: 'VIP section' },
+  { src: '/images/events/IMG_4158.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_4169.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_4205.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_4495.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_4501.jpg', alt: 'Event energy' },
+  { src: '/images/events/IMG_4508.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_4731.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_4847.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_4916.JPG', alt: 'Event moment' },
+  { src: '/images/events/IMG_5062.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_5130.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_5432.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_5893.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_6577.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_7115.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_7437.jpg', alt: 'Event moment' },
+  { src: '/images/events/IMG_8738.JPG', alt: 'Event moment' },
+  { src: '/images/events/MHF.jpg', alt: 'MH5 brand' },
+  { src: '/images/events/Sony-2666.JPG', alt: 'Showcase' },
+  { src: '/images/events/e0857ff9-f9da-4a3d-9d21-4f538c744511.JPG', alt: 'Tournament' },
+  // Brand campaign photos
+  { src: '/images/brand-campaigns/278543FD-E8F1-48C4-B12D-F5014265F665.JPG', alt: 'Brand campaign' },
   { src: '/images/brand-campaigns/69F59DD8-E162-4731-B2C3-4FE2654F2948.JPEG', alt: 'Collaboration' },
+  { src: '/images/brand-campaigns/A1905360-DC17-4045-A863-A0E4BAFE6DD2.JPG', alt: 'Partnership' },
+  { src: '/images/brand-campaigns/A8A2681C-EE12-4329-B186-53D5C364CA5B.JPG', alt: 'Campaign' },
+  { src: '/images/brand-campaigns/B0CACDEC-BE6E-4435-A8AF-523237E9974A.JPG', alt: 'Brand campaign' },
 ]
 
 export default function MediaPage() {
@@ -291,57 +437,38 @@ function PressSection() {
   const isInView = useInView(ref, { once: true })
 
   return (
-    <section ref={ref} className="py-10 sm:py-12 lg:py-16 px-5 sm:px-6 lg:px-8">
+    <section ref={ref} className="py-8 sm:py-10 lg:py-12 px-5 sm:px-6 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
-        className="max-w-3xl mx-auto"
       >
-        <div className="mb-5 sm:mb-6">
-          <h2 className="text-xl sm:text-2xl font-bold text-white">Press Coverage</h2>
-          <p className="text-xs sm:text-sm text-gray-500">Featured in the media</p>
+        <div className="mb-6 sm:mb-8">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Press Coverage</h2>
+          <p className="text-xs sm:text-sm text-gray-500">Media features and articles</p>
         </div>
 
-        <div className="space-y-3 sm:space-y-4">
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
           {pressFeatures.map((feature, index) => (
             <motion.a
-              key={feature.outlet}
+              key={index}
               href={feature.url}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, x: -20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: index * 0.1 }}
-              className="block bg-white/5 rounded-lg sm:rounded-xl p-4 sm:p-5 border border-white/10 hover:border-[var(--color-primary)]/30 transition-all group"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: index * 0.1, duration: 0.4 }}
+              className="block p-4 sm:p-6 bg-[#111] rounded-lg border border-[#222] hover:border-[var(--color-primary)] transition-colors group"
             >
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[var(--color-primary)] font-semibold text-xs sm:text-sm">
-                      {feature.outlet}
-                    </span>
-                    <span className="text-gray-600">•</span>
-                    <span className="text-gray-500 text-[10px] sm:text-xs">{feature.date}</span>
-                  </div>
-                  <h3 className="text-white text-sm sm:text-base font-medium line-clamp-2 group-hover:text-[var(--color-primary)] transition-colors">
-                    {feature.title}
-                  </h3>
-                </div>
-                <svg
-                  className="w-4 h-4 text-gray-500 group-hover:text-[var(--color-primary)] transition-colors flex-shrink-0 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-                  />
-                </svg>
+              <div className="flex items-start justify-between gap-4 mb-2">
+                <span className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wide">
+                  {feature.outlet}
+                </span>
+                <span className="text-xs text-gray-500">{feature.date}</span>
               </div>
+              <h3 className="text-base sm:text-lg font-semibold text-white group-hover:text-[var(--color-primary)] transition-colors">
+                {feature.title}
+              </h3>
             </motion.a>
           ))}
         </div>
@@ -354,31 +481,29 @@ function PressSection() {
 // CTA SECTION
 // ============================================
 function CTASection() {
-  const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: true })
-
   return (
-    <section ref={ref} className="py-16 sm:py-20 lg:py-24 px-5 sm:px-6 lg:px-8">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
-        className="text-center"
-      >
-        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-2 sm:mb-3">
-          Media <span className="text-[var(--color-primary)]">Inquiries</span>
-        </h2>
-        <p className="text-gray-400 text-sm sm:text-base mb-5 sm:mb-6 max-w-md mx-auto px-2">
-          For interview requests, press features, or additional media assets
-        </p>
-        <Link
-          href="/contact"
-          className="inline-flex items-center justify-center h-11 sm:h-12 px-5 sm:px-6 bg-[var(--color-primary)] text-black font-bold text-[13px] sm:text-[14px] uppercase tracking-widest hover:brightness-105 transition-all hover:-translate-y-0.5"
-          style={{ fontFamily: 'var(--font-heading)' }}
+    <section className="py-12 sm:py-16 lg:py-20 px-5 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
         >
-          Contact Media Team
-        </Link>
-      </motion.div>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-4">
+            Follow the Journey
+          </h2>
+          <p className="text-gray-400 text-base sm:text-lg mb-8 max-w-xl mx-auto">
+            Stay connected with MH5 for the latest updates, events, and exclusive content.
+          </p>
+          <Link
+            href="/events"
+            className="inline-block px-8 py-4 bg-[var(--color-primary)] text-black font-bold uppercase tracking-widest rounded-lg hover:bg-[var(--color-secondary)] transition-colors"
+          >
+            View Upcoming Events
+          </Link>
+        </motion.div>
+      </div>
     </section>
   )
 }

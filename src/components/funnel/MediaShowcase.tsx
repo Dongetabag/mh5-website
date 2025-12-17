@@ -20,58 +20,61 @@ interface MediaItem {
 }
 
 const mediaItems: MediaItem[] = [
+  // Basketball Highlights
   {
     id: '1',
-    src: '/videos/basketball/67df5ad85df7404a81f2d6e311e19d8c.MOV',
-    title: 'Full-Length Highlights',
+    src: '/videos/basketball/26e44d220245495a8a592c0002ace524.MOV',
+    title: 'Game Highlights',
     category: 'Highlights',
   },
   {
     id: '2',
-    src: '/videos/basketball/6f40c6f056194535a398d54f76c6f2da.MOV',
-    title: 'Intense Workout Session',
+    src: '/videos/basketball/67df5ad85df7404a81f2d6e311e19d8c.MOV',
+    title: 'Full Court Action',
     category: 'Highlights',
   },
   {
     id: '3',
-    src: '/videos/basketball/13f27e29c219419d852eac4f5ef134dd.MOV',
-    title: 'Game Day Energy',
+    src: '/videos/basketball/88b0d1582ab545f8befd9ad80dabd80f.MOV',
+    title: 'Training Session',
     category: 'Highlights',
   },
+  // Events
   {
     id: '4',
-    src: '/videos/events/9f90e8aa68434121b10f738f483e53f2.MOV',
-    title: 'MH5 Tournament Finals',
+    src: '/videos/events/26b5dca7c1d348c0866fbb02e4f3d241.MOV',
+    title: 'Main Event',
     category: 'Events',
   },
   {
     id: '5',
-    src: '/videos/events/5893e5fd7bfc44d6a422765f2277d665.MOV',
-    title: 'Club Night Experience',
+    src: '/videos/events/IMG_0680.MOV',
+    title: 'Event Highlights',
     category: 'Events',
   },
   {
     id: '6',
-    src: '/videos/events/70965acdb9d5482c9035562525803230.MOV',
-    title: 'Live Event Vibes',
+    src: '/videos/events/c7ae7027582a43399c46595e1203d9a4.MOV',
+    title: 'Live Experience',
     category: 'Events',
   },
+  // Brand Campaigns
   {
     id: '7',
-    src: '/videos/events/d478bfa5726949438ca2f506c332a6bc.MOV',
-    title: 'VIP Event Highlights',
-    category: 'Events',
-  },
-  {
-    id: '8',
-    src: '/videos/brand-campaigns/37f8ca3c904745f7a7c16d2da3e44b5c.MOV',
+    src: '/videos/brand-campaigns/964f999e6f0f4496b7593e267ba109d1.MOV',
     title: 'Brand Campaign',
     category: 'Brand',
   },
   {
+    id: '8',
+    src: '/videos/brand-campaigns/5089b366326446a49925a5305985a148.MOV',
+    title: 'Campaign Feature',
+    category: 'Brand',
+  },
+  {
     id: '9',
-    src: '/videos/brand-campaigns/90d1467329ec4a3dac3a8658cba48dd8.MOV',
-    title: 'Campaign Showcase',
+    src: '/videos/brand-campaigns/d478bfa5726949438ca2f506c332a6bc.MOV',
+    title: 'Brand Story',
     category: 'Brand',
   },
 ]

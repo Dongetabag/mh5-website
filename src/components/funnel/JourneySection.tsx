@@ -49,7 +49,7 @@ const journeyBlocks: JourneyBlock[] = [
     description: "Four consecutive years as a Super 7 selection. Every season, proving to be among the elite in Western Massachusetts. The numbers speak, but the game speaks louder.",
     media: {
       type: 'video',
-      src: '/videos/basketball/6536a9824ab348f29c26ce57c181f307.MOV',
+      src: '/videos/basketball/13f27e29c219419d852eac4f5ef134dd.MOV',
     },
     stats: [
       { value: '4x', label: 'Super 7 Selections' },

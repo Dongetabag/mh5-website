@@ -18,7 +18,6 @@ export default function ProductDetailPage() {
   
   const [product, setProduct] = useState<Product | null>(null)
   const [selectedImage, setSelectedImage] = useState(0)
-  const [selectedDesign, setSelectedDesign] = useState<string | null>(null)
   const [selectedSize, setSelectedSize] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
 
@@ -26,15 +25,10 @@ export default function ProductDetailPage() {
     const productData = getProductById(productId)
     if (productData) {
       setProduct(productData)
-      // Extract unique designs and sizes from variants
-      const designs = new Set(productData.variants.map(v => {
-        const parts = v.name.split(' - ')
-        return parts[0]
-      }))
+      // Get available sizes from variants
       const sizes = new Set(productData.variants.map(v => v.size).filter(Boolean))
       
-      // Set defaults
-      setSelectedDesign(Array.from(designs)[0] as string || null)
+      // Set default size
       setSelectedSize(Array.from(sizes)[0] as string || null)
       setSelectedImage(0)
       setLoading(false)
@@ -43,57 +37,24 @@ export default function ProductDetailPage() {
     }
   }, [productId])
 
-  // Get available designs
-  const availableDesigns = useMemo(() => {
-    if (!product) return []
-    const designs = new Set<string>()
-    product.variants.forEach(v => {
-      const parts = v.name.split(' - ')
-      if (parts[0]) designs.add(parts[0])
-    })
-    return Array.from(designs)
-  }, [product])
-
   // Get available sizes
   const availableSizes = useMemo(() => {
-    if (!product || !selectedDesign) return []
+    if (!product) return []
     const sizes = new Set<string>()
     product.variants.forEach(v => {
-      const parts = v.name.split(' - ')
-      if (parts[0] === selectedDesign && v.size) {
-        sizes.add(v.size)
-      }
+      if (v.size) sizes.add(v.size)
     })
     return Array.from(sizes).sort((a, b) => {
       const sizeOrder = ['S', 'M', 'L', 'XL', 'XXL']
       return sizeOrder.indexOf(a) - sizeOrder.indexOf(b)
     })
-  }, [product, selectedDesign])
+  }, [product])
 
-  // Get current variant based on selected design and size
+  // Get current variant based on selected size
   const currentVariant = useMemo(() => {
-    if (!product || !selectedDesign || !selectedSize) return null
-    return product.variants.find(v => {
-      const parts = v.name.split(' - ')
-      return parts[0] === selectedDesign && v.size === selectedSize && v.available !== false
-    })
-  }, [product, selectedDesign, selectedSize])
-
-  // Update image when design changes
-  useEffect(() => {
-    if (selectedDesign && product) {
-      const designIndex = availableDesigns.indexOf(selectedDesign)
-      if (designIndex >= 0 && designIndex < product.images.length) {
-        setSelectedImage(designIndex)
-      }
-    }
-  }, [selectedDesign, product, availableDesigns])
-
-  // Handle thumbnail click - update both image and design
-  const handleThumbnailClick = (index: number, design: string) => {
-    setSelectedImage(index)
-    setSelectedDesign(design)
-  }
+    if (!product || !selectedSize) return null
+    return product.variants.find(v => v.size === selectedSize && v.available !== false)
+  }, [product, selectedSize])
 
   if (loading) {
     return (
@@ -158,37 +119,27 @@ export default function ProductDetailPage() {
               )}
             </motion.div>
 
-            {/* Design Thumbnail Gallery */}
-            {product.images.length > 1 && availableDesigns.length > 0 && (
+            {/* Image Thumbnail Gallery */}
+            {product.images.length > 1 && (
               <div className="grid grid-cols-4 gap-3">
-                {availableDesigns.map((design, designIndex) => {
-                  const imageIndex = designIndex
-                  const isSelected = selectedDesign === design
+                {product.images.map((image, index) => {
+                  const isSelected = selectedImage === index
                   
                   return (
                     <button
-                      key={design}
-                      onClick={() => handleThumbnailClick(imageIndex, design)}
+                      key={index}
+                      onClick={() => setSelectedImage(index)}
                       className={`relative aspect-square rounded-lg overflow-hidden border-2 transition-all ${
                         isSelected
                           ? 'border-[var(--color-primary)] ring-2 ring-[var(--color-primary)]/30'
                           : 'border-white/10 hover:border-white/30'
                       }`}
                     >
-                      {product.images[imageIndex] && (
-                        <img
-                          src={product.images[imageIndex]}
-                          alt={design}
-                          className="w-full h-full object-cover"
-                        />
-                      )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex items-end p-2">
-                        <span className={`text-[10px] font-bold uppercase tracking-wider ${
-                          isSelected ? 'text-[var(--color-primary)]' : 'text-white'
-                        }`} style={{ fontFamily: 'var(--font-heading)' }}>
-                          {design.toUpperCase().replace(' ', ' ')}
-                        </span>
-                      </div>
+                      <img
+                        src={image}
+                        alt={`${product.name} view ${index + 1}`}
+                        className="w-full h-full object-cover"
+                      />
                     </button>
                   )
                 })}

@@ -63,18 +63,24 @@ export function ThemeProvider({ children, defaultTheme }: ThemeProviderProps) {
 
   // Apply theme CSS variables when theme changes
   useEffect(() => {
-    if (!mounted) return
+    if (!mounted || typeof window === 'undefined') return
 
-    const theme = getTheme(currentTheme)
-    applyTheme(theme)
-    localStorage.setItem('theme', currentTheme)
+    try {
+      const theme = getTheme(currentTheme)
+      applyTheme(theme)
+      localStorage.setItem('theme', currentTheme)
 
-    // Also set data attribute for potential CSS hooks
-    document.documentElement.setAttribute('data-theme', currentTheme)
+      // Also set data attribute for potential CSS hooks
+      document.documentElement.setAttribute('data-theme', currentTheme)
+    } catch (error) {
+      console.error('Theme application error:', error)
+    }
   }, [currentTheme, mounted])
 
   // Apply reduced motion class
   useEffect(() => {
+    if (typeof window === 'undefined') return
+    
     if (isReducedMotion) {
       document.documentElement.classList.add('reduce-motion')
     } else {

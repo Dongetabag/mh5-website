@@ -1,0 +1,1210 @@
+/* Elite Performance Typography - Oswald (display/headlines) + Inter (body) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-midnight: #050505;
+  --color-smoke: #111111;
+  --color-neon: #7DF9FF;
+  --color-ice: #7DF9FF;
+  --color-frost: #9DFBFF;
+  --color-diamond: #BDFCFF;
+  --color-crystal: #7DF9FF;
+  --color-offwhite: #F5F5F5;
+  --color-danger: #FF4444;
+}
+
+/* ============================================
+   APEX STUDIO ELITE - Theme CSS Variables
+   ============================================
+   These are the default values that get overridden
+   by JavaScript when the theme is applied
+*/
+
+:root {
+  /* Elite Performance Color Palette - Neon Cyan */
+  --midnight: #050505;
+  --smoke: #111111;
+  --neon: #7DF9FF;
+  --ice: #7DF9FF;
+  --frost: #9DFBFF;
+  --diamond: #BDFCFF;
+  --crystal: #7DF9FF;
+  --offwhite: #F5F5F5;
+  --danger: #FF4444;
+
+  /* Theme System Colors - Neon Cyan (Elite) */
+  --color-primary: #7DF9FF;
+  --color-secondary: #9DFBFF;
+  --color-accent: #BDFCFF;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+
+  /* Background colors - Deep black elite */
+  --color-bg-primary: #050505;
+  --color-bg-secondary: #111111;
+  --color-bg-tertiary: #1A1A1A;
+  --color-bg-secondary-rgb: 17, 17, 17;
+
+  /* Text colors */
+  --color-text-primary: #F5F5F5;
+  --color-text-secondary: rgba(245, 245, 245, 0.7);
+  --color-text-muted: rgba(245, 245, 245, 0.4);
+  --color-text-inverse: #0A0A0A;
+
+  /* Border colors */
+  --color-border-default: rgba(255, 255, 255, 0.1);
+  --color-border-hover: rgba(255, 255, 255, 0.2);
+  --color-border-active: #7DF9FF;
+
+  /* Shadow colors - Neon glow */
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --glow-primary: rgba(125, 249, 255, 0.4);
+  --glow-secondary: rgba(125, 249, 255, 0.3);
+
+  /* Typography - Elite Performance (Oswald + Inter) */
+  --font-heading: 'Oswald', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-logo: 'Oswald', sans-serif;
+
+  /* Animation */
+  --transition-fast: 150ms;
+  --transition-normal: 300ms;
+  --transition-slow: 500ms;
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* Spacing System - Mobile-First Responsive */
+  --spacing-xs: clamp(0.5rem, 0.4rem + 0.5vw, 0.75rem);
+  --spacing-sm: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+  --spacing-md: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
+  --spacing-lg: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+  --spacing-xl: clamp(3rem, 2rem + 5vw, 4rem);
+  --spacing-2xl: clamp(4rem, 3rem + 5vw, 6rem);
+  --spacing-3xl: clamp(6rem, 4rem + 10vw, 8rem);
+  
+  /* Section Spacing */
+  --spacing-section: clamp(3rem, 2.5rem + 2.5vw, 6rem);
+  --spacing-section-lg: clamp(4rem, 3rem + 5vw, 8rem);
+  
+  /* Container Padding */
+  --padding-container-mobile: 1rem;
+  --padding-container-tablet: 1.5rem;
+  --padding-container-desktop: 2rem;
+  --padding-container: clamp(1rem, 0.5rem + 2vw, 2rem);
+  
+  /* Vertical Rhythm */
+  --line-height-tight: 1.1;
+  --line-height-snug: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  /* Border Radius - Overtime style (clean, minimal) */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+}
+
+/* ============================================
+   Theme Variant: Clean Light
+   ============================================ */
+[data-theme="clean-light"] {
+  --color-primary: #4F46E5;
+  --color-secondary: #10B981;
+  --color-accent: #F97316;
+
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F9FAFB;
+  --color-bg-tertiary: #F3F4F6;
+  --color-bg-secondary-rgb: 249, 250, 251;
+
+  --color-text-primary: #111827;
+  --color-text-secondary: rgba(17, 24, 39, 0.7);
+  --color-text-muted: rgba(17, 24, 39, 0.4);
+  --color-text-inverse: #FFFFFF;
+
+  --color-border-default: rgba(0, 0, 0, 0.1);
+  --color-border-hover: rgba(0, 0, 0, 0.2);
+  --color-border-active: #4F46E5;
+
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --glow-primary: rgba(79, 70, 229, 0.3);
+  --glow-secondary: rgba(16, 185, 129, 0.3);
+}
+
+/* ============================================
+   Theme Variant: Bold Contrast
+   ============================================ */
+[data-theme="bold-contrast"] {
+  --color-primary: #39FF14;
+  --color-secondary: #FF00FF;
+  --color-accent: #FFFF00;
+
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #0D0D0D;
+  --color-bg-tertiary: #1A1A1A;
+  --color-bg-secondary-rgb: 13, 13, 13;
+
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: rgba(255, 255, 255, 0.8);
+  --color-text-muted: rgba(255, 255, 255, 0.5);
+  --color-text-inverse: #000000;
+
+  --color-border-default: rgba(57, 255, 20, 0.2);
+  --color-border-hover: rgba(57, 255, 20, 0.4);
+  --color-border-active: #39FF14;
+
+  --shadow-color: rgba(0, 0, 0, 0.8);
+  --glow-primary: rgba(57, 255, 20, 0.5);
+  --glow-secondary: rgba(255, 0, 255, 0.5);
+}
+
+/* ============================================
+   Reduced Motion Support
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+@font-face {
+  font-family: 'Inter';
+  src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hjp-Ek-_EeA.woff2') format('woff2');
+  font-weight: 400 900;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  background-color: #050505;
+  min-height: 100vh;
+  position: relative;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+
+/* Improved Text Readability - Overtime style */
+body {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p, li, span {
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings - Oswald - Bold & Uppercase */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  margin-bottom: var(--spacing-sm);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 2rem + 3vw, 4rem);
+  margin-bottom: var(--spacing-md);
+}
+
+h2 {
+  font-size: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+  margin-bottom: var(--spacing-sm);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 1.25rem + 1.5vw, 2rem);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Paragraph Spacing */
+p + p {
+  margin-top: var(--spacing-sm);
+}
+
+/* Mobile Text Optimization - Moises.ai style (Inter) */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.011em;
+  }
+  
+  p {
+    max-width: 65ch;
+    line-height: 1.5;
+  }
+}
+
+/* ============================================
+   Scrollbar Styles
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  filter: brightness(1.1);
+}
+
+/* ============================================
+   Elite Performance Neon Gradient Text
+   ============================================ */
+.text-gradient-diamond,
+.text-gradient-neon {
+  background: linear-gradient(180deg, #FFFFFF 0%, #7DF9FF 50%, #5DD9DF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-ice {
+  background: linear-gradient(135deg, #7DF9FF 0%, #9DFBFF 40%, #FFFFFF 50%, #BDFCFF 60%, #7DF9FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-frost {
+  background: linear-gradient(180deg, #FFFFFF 0%, #9DFBFF 50%, #7DF9FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Neon text color */
+.text-neon {
+  color: #7DF9FF;
+}
+
+/* Neon background */
+.bg-neon {
+  background-color: #7DF9FF;
+}
+
+/* Neon border */
+.border-neon {
+  border-color: #7DF9FF;
+}
+
+/* ============================================
+   Button Styles - Apple-Inspired Sizing
+   ============================================ */
+
+/* Apple-style button sizing system */
+.btn-apple-sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all var(--transition-fast) var(--ease-smooth);
+  text-decoration: none;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.btn-apple-md {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast) var(--ease-smooth);
+  text-decoration: none;
+  cursor: pointer;
+  gap: 8px;
+}
+
+.btn-apple-lg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding: 0 28px;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all var(--transition-fast) var(--ease-smooth);
+  text-decoration: none;
+  cursor: pointer;
+  gap: 10px;
+}
+
+.btn-diamond {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  height: 44px;
+  padding: 0 24px;
+  font-size: 13px;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast) var(--ease-smooth);
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  gap: 8px;
+}
+
+.btn-diamond:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--color-text-primary);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  height: 44px;
+  padding: 0 24px;
+  font-size: 13px;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast) var(--ease-smooth);
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
+  gap: 8px;
+}
+
+.btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Filled primary button */
+.btn-filled {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-weight: 500;
+  height: 44px;
+  padding: 0 20px;
+  font-size: 15px;
+  border-radius: 10px;
+  transition: all var(--transition-fast) var(--ease-smooth);
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  gap: 8px;
+}
+
+.btn-filled:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   Card & Hover Styles
+   ============================================ */
+.card-hover {
+  transition: all var(--transition-normal) var(--ease-smooth);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px var(--shadow-color);
+}
+
+/* ============================================
+   Overlay & Gradient Styles
+   ============================================ */
+.overlay-gradient {
+  background: linear-gradient(180deg,
+    rgba(var(--color-bg-secondary-rgb), 0) 0%,
+    rgba(var(--color-bg-secondary-rgb), 0.7) 50%,
+    var(--color-bg-primary) 100%
+  );
+}
+
+/* ============================================
+   Animation Utilities
+   ============================================ */
+.animated-underline {
+  position: relative;
+}
+
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--color-primary);
+  transition: width var(--transition-normal) var(--ease-smooth);
+}
+
+.animated-underline:hover::after {
+  width: 100%;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ============================================
+   Glow Effects - Icy Diamond Winter
+   ============================================ */
+.glow-diamond {
+  box-shadow: 0 0 20px rgba(184, 230, 242, 0.4);
+}
+
+.glow-ice {
+  box-shadow: 0 0 20px rgba(168, 216, 234, 0.3);
+}
+
+.glow-frost {
+  box-shadow: 0 0 20px rgba(224, 244, 255, 0.35);
+}
+
+/* ============================================
+   Dividers
+   ============================================ */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-primary) 50%, transparent 100%);
+}
+
+/* ============================================
+   Responsive Typography
+   ============================================ */
+.text-responsive-xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.text-responsive-lg {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-responsive-md {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .text-responsive-xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+  .text-responsive-lg {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+  .text-responsive-md {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-responsive-xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+  .text-responsive-lg {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+  .text-responsive-md {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .text-responsive-xl {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+}
+
+/* ============================================
+   Icy Diamond Winter Color Utilities (No Gold)
+   ============================================ */
+.bg-midnight { 
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+}
+.bg-smoke { 
+  background: rgba(26, 0, 51, 0.3);
+  backdrop-filter: blur(10px);
+}
+.bg-ice { background-color: #7DF9FF; }
+.bg-diamond { background-color: #BDFCFF; }
+.bg-frost { background-color: #9DFBFF; }
+.bg-crystal { background-color: #7DF9FF; }
+.bg-offwhite { background-color: #F5F5F5; }
+.bg-danger { background-color: #FF4444; }
+
+.text-midnight { color: #0A0A0A; }
+.text-smoke { color: #1A1A1A; }
+.text-ice { color: #7DF9FF; }
+.text-diamond { color: #BDFCFF; }
+.text-frost { color: #9DFBFF; }
+.text-crystal { color: #7DF9FF; }
+.text-offwhite { color: #F5F5F5; }
+.text-danger { color: #FF4444; }
+
+.border-midnight { border-color: #0A0A0A; }
+.border-smoke { border-color: #1A1A1A; }
+.border-ice { border-color: #7DF9FF; }
+.border-diamond { border-color: #BDFCFF; }
+.border-frost { border-color: #9DFBFF; }
+.border-crystal { border-color: #7DF9FF; }
+.border-offwhite { border-color: #F5F5F5; }
+.border-danger { border-color: #FF4444; }
+
+/* Logo Font Utility */
+.font-logo {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+/* Modern Typography Utilities - Clash Display */
+.font-display {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.font-display-bold {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.font-display-medium {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.font-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* ============================================
+   Overtime-Style Clean Components
+   ============================================ */
+
+/* Clean card with subtle border */
+.card-clean {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast) var(--ease-smooth);
+}
+
+.card-clean:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Clean badge/tag */
+.badge-clean {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+}
+
+.badge-clean.primary {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+/* Clean input style */
+.input-clean {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  transition: all var(--transition-fast) var(--ease-smooth);
+}
+
+.input-clean:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.input-clean::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Clean divider */
+.divider-clean {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 24px 0;
+}
+
+/* Thin icon stroke utility */
+.icon-thin {
+  stroke-width: 1.5;
+}
+
+.icon-thin svg {
+  stroke-width: 1.5;
+}
+
+/* ============================================
+   Basketball Heritage - Circular Design System
+   ============================================ */
+
+/* Basketball Ring Border */
+.basketball-ring {
+  border-radius: 50%;
+  border: 3px solid var(--color-primary);
+  position: relative;
+}
+
+.basketball-ring::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Court Line Accent */
+.court-line {
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--color-primary) 20%,
+    var(--color-primary) 80%,
+    transparent 100%
+  );
+  border-radius: 2px;
+}
+
+/* Circular Card Style */
+.card-circular {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-default);
+  transition: all var(--transition-normal) var(--ease-smooth);
+}
+
+.card-circular:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.15);
+}
+
+/* Ball Texture Overlay */
+.ball-texture {
+  background-image:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(0,0,0,0.2) 0%, transparent 50%);
+}
+
+/* Circular Avatar with Ring */
+.avatar-ring {
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+}
+
+.avatar-ring > * {
+  border-radius: 50%;
+}
+
+/* Court Corner Decoration */
+.corner-arc {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  opacity: 0.2;
+}
+
+.corner-arc.top-left {
+  top: -50px;
+  left: -50px;
+}
+
+.corner-arc.top-right {
+  top: -50px;
+  right: -50px;
+}
+
+.corner-arc.bottom-left {
+  bottom: -50px;
+  left: -50px;
+}
+
+.corner-arc.bottom-right {
+  bottom: -50px;
+  right: -50px;
+}
+
+/* Circular Progress/Stats Ring */
+.stat-ring {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-ring::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 4px solid var(--color-bg-tertiary);
+}
+
+.stat-ring::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top-color: var(--color-primary);
+  animation: ring-rotate 2s linear infinite;
+}
+
+@keyframes ring-rotate {
+  to { transform: rotate(360deg); }
+}
+
+/* Circular Badge */
+.badge-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+/* Platform Navigation Pills */
+.nav-pill {
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  transition: all var(--transition-normal) var(--ease-smooth);
+  border: 1px solid transparent;
+}
+
+.nav-pill:hover {
+  color: var(--color-text-primary);
+  background: var(--color-bg-tertiary);
+}
+
+.nav-pill.active {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+/* Insight Card - News Style */
+.insight-card {
+  border-radius: 1rem;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-default);
+  overflow: hidden;
+  transition: all var(--transition-normal) var(--ease-smooth);
+}
+
+.insight-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-primary);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 1px var(--color-primary);
+}
+
+.insight-card .image-wrapper {
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.insight-card:hover .image-wrapper img {
+  transform: scale(1.05);
+}
+
+/* Category Tag Pills */
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tag-pill.news {
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--color-primary);
+}
+.tag-pill.analysis {
+  background: rgba(0, 212, 255, 0.15);
+  color: var(--color-secondary);
+}
+.tag-pill.exclusive {
+  background: rgba(255, 68, 68, 0.15);
+  color: var(--color-accent);
+}
+.tag-pill.lifestyle {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--color-success);
+}
+
+/* Circular Hover Effect */
+.hover-circle {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-circle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s var(--ease-smooth);
+}
+
+.hover-circle:hover::before {
+  width: 300%;
+  height: 300%;
+}
+
+/* Basketball Court Background Pattern */
+.court-pattern {
+  background-image:
+    linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Circular Section Divider */
+.divider-circles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 0;
+}
+
+.divider-circles::before,
+.divider-circles::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border-default));
+}
+
+.divider-circles::after {
+  background: linear-gradient(90deg, var(--color-border-default), transparent);
+}
+
+.divider-circles .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+/* Floating Basketball Decoration */
+@keyframes float-ball {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+.float-ball {
+  animation: float-ball 6s ease-in-out infinite;
+}
+
+/* Arc Underline */
+.arc-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.arc-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 4px;
+  background: var(--color-primary);
+  border-radius: 4px;
+  transform: scaleX(0.3);
+  transition: transform var(--transition-normal) var(--ease-smooth);
+}
+
+.arc-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* ============================================
+   Mobile & Vertical Video Optimizations
+   ============================================ */
+
+/* Vertical Video Container */
+.video-vertical {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  aspect-ratio: 9 / 16;
+  background: #000;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.video-vertical video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Mobile-Optimized Images */
+img.vertical-photo {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+/* Scroll-Optimized Sections */
+.scroll-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.scroll-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+/* Improved Readability - Text Contrast */
+.text-readable {
+  color: var(--color-text-primary);
+  line-height: 1.7;
+  letter-spacing: 0.015em;
+}
+
+.text-readable p {
+  margin-bottom: 1.25rem;
+  max-width: 70ch;
+}
+
+.text-readable strong {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* Container Padding Utilities */
+.container-padding {
+  padding-left: var(--padding-container);
+  padding-right: var(--padding-container);
+}
+
+.container-padding-mobile {
+  padding-left: var(--padding-container-mobile);
+  padding-right: var(--padding-container-mobile);
+}
+
+/* Section Spacing Utilities */
+.section-spacing {
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+}
+
+.section-spacing-lg {
+  padding-top: var(--spacing-section-lg);
+  padding-bottom: var(--spacing-section-lg);
+}
+
+/* Mobile-First Responsive Text */
+@media (max-width: 768px) {
+  .text-readable {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  .text-readable p {
+    max-width: 100%;
+  }
+  
+  h1, h2, h3 {
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Touch-Friendly Targets */
+@media (hover: none) and (pointer: coarse) {
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Autoplay Video Styles */
+video[data-autoplay] {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+video[data-autoplay].vertical {
+  aspect-ratio: 9 / 16;
+  max-width: 400px;
+  margin: 0 auto;
+}

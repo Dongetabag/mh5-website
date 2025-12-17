@@ -9,6 +9,7 @@ import { useState, useEffect, useMemo } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { getProductById, type Product } from '@/data/products'
 import { useCart } from '@/context/CartContext'
 
@@ -114,10 +115,13 @@ export default function ProductDetailPage() {
               className="relative aspect-square rounded-2xl overflow-hidden bg-[#111] border border-white/10 mb-4"
             >
               {product.images[selectedImage] && (
-                <img
+                <Image
                   src={product.images[selectedImage]}
                   alt={product.name}
-                  className="w-full h-full object-contain"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-contain"
+                  unoptimized
                 />
               )}
             </motion.div>
@@ -138,10 +142,13 @@ export default function ProductDetailPage() {
                           : 'border-white/10 hover:border-white/30'
                       }`}
                     >
-                      <img
+                      <Image
                         src={image}
                         alt={`${product.name} view ${index + 1}`}
-                        className="w-full h-full object-cover"
+                        fill
+                        sizes="100px"
+                        className="object-cover"
+                        unoptimized
                       />
                     </button>
                   )

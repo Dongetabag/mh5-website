@@ -2,6 +2,7 @@
 
 import { useState, useEffect, ReactNode } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 
 /**
  * TESTIMONIAL CAROUSEL - Testimonials Component
@@ -106,11 +107,14 @@ const TestimonialCarousel = ({
             {/* Author Info */}
             <div className="flex items-center gap-4">
               {currentTestimonial.avatar && (
-                <div className="w-12 h-12 rounded-full overflow-hidden bg-[var(--color-bg-secondary)]">
-                  <img
+                <div className="relative w-12 h-12 rounded-full overflow-hidden bg-[var(--color-bg-secondary)]">
+                  <Image
                     src={currentTestimonial.avatar}
                     alt={currentTestimonial.author}
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="48px"
+                    className="object-cover"
+                    unoptimized
                   />
                 </div>
               )}

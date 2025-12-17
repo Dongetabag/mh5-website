@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useState, useRef } from 'react'
 
@@ -394,10 +395,13 @@ export default function PartnersPage() {
                   onClick={() => setActiveVideo(index)}
                 >
                   <div className={`relative aspect-[9/16] bg-[#111] overflow-hidden ${activeVideo === index ? 'ring-2 ring-[var(--color-primary)]' : ''}`}>
-                    <img
+                    <Image
                       src={video.thumbnail}
                       alt={video.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      fill
+                      sizes="300px"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      unoptimized
                     />
                     {/* Overlay */}
                     <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />

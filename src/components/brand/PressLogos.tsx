@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 /**
  * PRESS LOGOS - Brand Component
@@ -68,29 +69,31 @@ const PressLogos = ({
                 href={logo.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block"
+                className="block relative h-8 md:h-12 w-24 md:w-32"
               >
-                <img
+                <Image
                   src={logo.logo}
                   alt={logo.alt || logo.name}
-                  className="h-8 md:h-12 w-auto object-contain filter brightness-0 invert hover:brightness-100 hover:invert-0 transition-all"
+                  fill
+                  sizes="128px"
+                  className="object-contain filter brightness-0 invert hover:brightness-100 hover:invert-0 transition-all"
                   style={{
                     filter: 'brightness(0) invert(1)',
                   }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1) invert(0)'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.filter = 'brightness(0) invert(1)'
-                  }}
+                  unoptimized
                 />
               </a>
             ) : (
-              <img
-                src={logo.logo}
-                alt={logo.alt || logo.name}
-                className="h-8 md:h-12 w-auto object-contain filter brightness-0 invert"
-              />
+              <div className="relative h-8 md:h-12 w-24 md:w-32">
+                <Image
+                  src={logo.logo}
+                  alt={logo.alt || logo.name}
+                  fill
+                  sizes="128px"
+                  className="object-contain filter brightness-0 invert"
+                  unoptimized
+                />
+              </div>
             )}
           </motion.div>
         ))}

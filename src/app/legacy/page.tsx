@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 
@@ -380,10 +381,13 @@ export default function LegacyPage() {
                       viewport={{ once: true }}
                       className="relative aspect-[4/5] rounded-2xl lg:rounded-3xl overflow-hidden"
                     >
-                      <img
+                      <Image
                         src={era.photos[0]}
                         alt={era.title}
-                        className="w-full h-full object-cover"
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover"
+                        unoptimized
                       />
                       <div className={`absolute inset-0 bg-gradient-to-t ${era.color} to-transparent opacity-60`} />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -407,12 +411,15 @@ export default function LegacyPage() {
                       {era.photos.slice(1).map((photo, photoIndex) => (
                         <div
                           key={photoIndex}
-                          className="w-20 h-28 sm:w-24 sm:h-32 lg:w-28 lg:h-36 rounded-xl overflow-hidden border-2 border-[#0a0a0a] shadow-2xl"
+                          className="relative w-20 h-28 sm:w-24 sm:h-32 lg:w-28 lg:h-36 rounded-xl overflow-hidden border-2 border-[#0a0a0a] shadow-2xl"
                         >
-                          <img
+                          <Image
                             src={photo}
                             alt={`${era.title} ${photoIndex + 2}`}
-                            className="w-full h-full object-cover"
+                            fill
+                            sizes="112px"
+                            className="object-cover"
+                            unoptimized
                           />
                         </div>
                       ))}
@@ -501,11 +508,14 @@ export default function LegacyPage() {
                   index % 5 === 0 ? 'row-span-2' : ''
                 }`}
               >
-                <div className={`${index % 5 === 0 ? 'aspect-[3/4]' : 'aspect-square'} w-full`}>
-                  <img
+                <div className={`relative ${index % 5 === 0 ? 'aspect-[3/4]' : 'aspect-square'} w-full`}>
+                  <Image
                     src={photo}
                     alt={`Gallery ${index + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    fill
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    unoptimized
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { IconBox, icons } from '@/components/ui/GlossIcon'
@@ -310,10 +311,13 @@ export default function EventsPage() {
                 transition={{ delay: index * 0.1 }}
                 className="group relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden"
               >
-                <img
+                <Image
                   src={event.image}
                   alt={event.title}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
 

@@ -10,6 +10,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { shopConfig } from '@/config/shop.config'
 
@@ -132,10 +133,13 @@ export default function ShopPage() {
                   <Link href={`/shop/${product.id}`} className="block">
                     <div className="relative aspect-square rounded-xl sm:rounded-2xl overflow-hidden bg-[#111] border border-white/10 group-hover:border-[var(--color-primary)]/50 transition-all duration-300">
                       {product.thumbnail_url ? (
-                        <img
+                        <Image
                           src={product.thumbnail_url}
                           alt={product.name}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          unoptimized
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[var(--color-primary)]/20 to-[var(--color-secondary)]/20">

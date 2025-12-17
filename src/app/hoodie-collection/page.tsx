@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 interface HoodieDesign {
   image: string
@@ -105,12 +106,14 @@ export default function HoodieCollectionPage() {
               key={index}
               className="bg-[#1A1A1A] rounded-xl overflow-hidden border-2 border-[#7DF9FF]/20 hover:border-[#7DF9FF] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(125,249,255,0.2)]"
             >
-              <div className="aspect-square bg-[#2A2A2A] overflow-hidden">
-                <img
+              <div className="relative aspect-square bg-[#2A2A2A] overflow-hidden">
+                <Image
                   src={hoodie.image}
                   alt={hoodie.variant}
-                  className="w-full h-full object-contain"
-                  loading="lazy"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-contain"
+                  unoptimized
                 />
               </div>
               <div className="p-6">

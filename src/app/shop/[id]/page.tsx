@@ -10,6 +10,7 @@ import { useParams, useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { getProductById, type Product } from '@/data/products'
+import { useCart } from '@/context/CartContext'
 
 export default function ProductDetailPage() {
   const params = useParams()
@@ -20,6 +21,8 @@ export default function ProductDetailPage() {
   const [selectedImage, setSelectedImage] = useState(0)
   const [selectedSize, setSelectedSize] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
+  const [addingToCart, setAddingToCart] = useState(false)
+  const { addItem, openCart } = useCart()
 
   useEffect(() => {
     const productData = getProductById(productId)
@@ -228,13 +231,34 @@ export default function ProductDetailPage() {
 
               {/* Add to Cart Button */}
               <button
-                disabled={!currentVariant}
+                disabled={!currentVariant || addingToCart}
+                onClick={() => {
+                  if (!currentVariant || !product) return
+                  
+                  setAddingToCart(true)
+                  addItem({
+                    id: `product-${product.id}-variant-${currentVariant.id}`,
+                    productId: product.id,
+                    variantId: currentVariant.id,
+                    name: product.name,
+                    size: currentVariant.size || '',
+                    color: currentVariant.color,
+                    price: parseFloat(currentVariant.retail_price || currentVariant.price),
+                    image: product.images[0] || product.thumbnail_url,
+                  })
+                  
+                  // Open cart and reset button state
+                  setTimeout(() => {
+                    openCart()
+                    setAddingToCart(false)
+                  }, 300)
+                }}
                 className={`w-full h-14 px-8 bg-[var(--color-primary)] text-black font-bold uppercase tracking-widest text-sm hover:brightness-110 active:scale-[0.98] transition-all duration-200 mb-8 ${
-                  !currentVariant ? 'opacity-50 cursor-not-allowed' : ''
+                  !currentVariant || addingToCart ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
                 style={{ fontFamily: 'var(--font-heading)' }}
               >
-                {currentVariant ? 'ADD TO CART' : 'SELECT SIZE'}
+                {addingToCart ? 'ADDING...' : currentVariant ? 'ADD TO CART' : 'SELECT SIZE'}
               </button>
 
               {/* Additional Info */}

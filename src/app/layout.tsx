@@ -3,10 +3,12 @@ import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { ThemeProvider } from '@/context'
+import { CartProvider } from '@/context/CartContext'
 import { siteConfig } from '@/config/site.config'
 import ScrollAutoplayInit from '@/components/common/ScrollAutoplayInit'
 import FluidBackground from '@/components/FluidBackground'
 import CustomCursor from '@/components/CustomCursor'
+import CartDrawer from '@/components/cart/CartDrawer'
 
 export const metadata: Metadata = {
   title: `${siteConfig.meta.siteName} | ${siteConfig.meta.tagline}`,
@@ -43,14 +45,17 @@ export default function RootLayout({
         }}
       >
         <ThemeProvider>
-          <FluidBackground />
-          <CustomCursor />
-          <Navigation />
-          <ScrollAutoplayInit />
-          <main className="relative z-10 cursor-auto md:cursor-none">
-            {children}
-          </main>
-          <Footer />
+          <CartProvider>
+            <FluidBackground />
+            <CustomCursor />
+            <Navigation />
+            <ScrollAutoplayInit />
+            <CartDrawer />
+            <main className="relative z-10 cursor-auto md:cursor-none">
+              {children}
+            </main>
+            <Footer />
+          </CartProvider>
         </ThemeProvider>
       </body>
     </html>

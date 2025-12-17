@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import CartIcon from '@/components/cart/CartIcon'
 
 /**
  * ELITE PERFORMANCE NAVIGATION
@@ -67,6 +68,7 @@ const Navigation = () => {
           >
             Start Now
           </Link>
+          <CartIcon />
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -107,6 +109,9 @@ const Navigation = () => {
           >
             Start Now
           </Link>
+          <div className="mt-4" onClick={() => setIsMobileMenuOpen(false)}>
+            <CartIcon />
+          </div>
         </div>
       )}
     </>

@@ -70,13 +70,14 @@ export default function LegacyPage() {
     },
   ]
 
+  // All basketball videos from basketball folder - 6 videos total
   const verticalVideos = [
-    { src: '/videos/basketball/26e44d220245495a8a592c0002ace524.MOV', poster: '/images/basketball/123_1.JPEG', label: 'Highlights' },
-    { src: '/videos/basketball/67df5ad85df7404a81f2d6e311e19d8c.MOV', poster: '/images/basketball/IMG_2493.JPG', label: 'Training' },
-    { src: '/videos/basketball/13f27e29c219419d852eac4f5ef134dd.MOV', poster: '/images/basketball/IMG_5504.JPG', label: 'Game Day' },
-    { src: '/videos/basketball/6536a9824ab348f29c26ce57c181f307.MOV', poster: '/images/basketball/342A3669-0A8F-4616-89F2-89B1C8B3DDF5.JPG', label: 'Skills' },
-    { src: '/videos/basketball/69722150427940f68a4a967b2ba80576.MOV', poster: '/images/basketball/2516F603-3659-4D99-A163-D276CFF02C2F.JPG', label: 'Showcase' },
-    { src: '/videos/basketball/6f40c6f056194535a398d54f76c6f2da.MOV', poster: '/images/basketball/278543FD-E8F1-48C4-B12D-F5014265F665.JPG', label: 'Workout' },
+    { src: '/videos/basketball/26e44d220245495a8a592c0002ace524.MOV', poster: '/images/basketball/IMG_2493.JPG', label: 'Highlights' },
+    { src: '/videos/basketball/67df5ad85df7404a81f2d6e311e19d8c.MOV', poster: '/images/basketball/IMG_5504.JPG', label: 'Training' },
+    { src: '/videos/basketball/13f27e29c219419d852eac4f5ef134dd.MOV', poster: '/images/basketball/IMG_8738.JPG', label: 'Game Day' },
+    { src: '/videos/basketball/69722150427940f68a4a967b2ba80576.MOV', poster: '/images/basketball/342A3669-0A8F-4616-89F2-89B1C8B3DDF5.JPG', label: 'Skills' },
+    { src: '/videos/basketball/6f40c6f056194535a398d54f76c6f2da.MOV', poster: '/images/basketball/2516F603-3659-4D99-A163-D276CFF02C2F.JPG', label: 'Showcase' },
+    { src: '/videos/basketball/88b0d1582ab545f8befd9ad80dabd80f.MOV', poster: '/images/basketball/IMG_3072.jpg', label: 'Workout' },
   ]
 
   return (
@@ -95,12 +96,24 @@ export default function LegacyPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-white/5 border border-white/10 rounded-sm text-xs sm:text-sm text-gray-400 mb-6 sm:mb-8">
-              <span className="w-2 h-2 rounded-sm bg-[var(--color-primary)] animate-pulse" />
-              The Story Behind The Movement
-            </span>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="mb-6"
+            >
+              <span className="inline-block bg-[var(--color-primary)] text-black px-4 py-1.5 text-xs md:text-sm font-bold uppercase tracking-[0.3em]" style={{ fontFamily: 'var(--font-heading)' }}>
+                The Story Behind The Movement
+              </span>
+            </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-8xl font-black leading-[0.9] mb-5 sm:mb-6">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-4xl sm:text-5xl lg:text-8xl font-bold leading-[0.9] mb-5 sm:mb-6"
+              style={{ fontFamily: 'var(--font-heading)' }}
+            >
               <span className="text-white">FROM</span>
               <br />
               <span className="bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-secondary)] to-white bg-clip-text text-transparent">
@@ -108,12 +121,18 @@ export default function LegacyPage() {
               </span>
               <br />
               <span className="text-white">TO STARDOM</span>
-            </h1>
+            </motion.h1>
 
-            <p className="text-base sm:text-lg lg:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed px-2">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto uppercase tracking-widest leading-relaxed"
+              style={{ fontFamily: 'var(--font-heading)' }}
+            >
               Every champion has an origin story. This is Milan Harrison&apos;s journey from
               the birthplace of basketball to the global stage.
-            </p>
+            </motion.p>
           </motion.div>
 
           {/* Scroll indicator - hidden on mobile */}
@@ -146,7 +165,7 @@ export default function LegacyPage() {
             viewport={{ once: true }}
             className="text-center mb-8 sm:mb-10 lg:mb-12"
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
               Watch The <span className="text-[var(--color-primary)]">Journey</span>
             </h2>
             <p className="text-gray-500 text-sm sm:text-base max-w-lg mx-auto px-2">
@@ -248,7 +267,7 @@ export default function LegacyPage() {
             viewport={{ once: true }}
             className="text-center mb-10 sm:mb-12 lg:mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-3 sm:mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-3 sm:mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
               The <span className="text-[var(--color-primary)]">Timeline</span>
             </h2>
             <p className="text-gray-500 text-sm sm:text-base max-w-lg mx-auto px-2">
@@ -280,7 +299,7 @@ export default function LegacyPage() {
                     {/* Content */}
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-1.5 sm:mb-2">
-                        <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white">
+                        <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
                           {event.title}
                         </h3>
                         <span className="px-2 sm:px-3 py-0.5 sm:py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-[10px] sm:text-xs font-medium rounded-lg">
@@ -315,7 +334,7 @@ export default function LegacyPage() {
             viewport={{ once: true }}
             className="text-center mb-8 sm:mb-10 lg:mb-12"
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
               In His <span className="text-[var(--color-primary)]">Words</span>
             </h2>
           </motion.div>
@@ -379,15 +398,11 @@ export default function LegacyPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/30 rounded-lg text-xs sm:text-sm text-[var(--color-primary)] mb-5 sm:mb-6">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                </svg>
+              <span className="inline-block bg-[var(--color-primary)] text-black px-4 py-1.5 text-xs md:text-sm font-bold uppercase tracking-[0.3em] mb-5 sm:mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
                 Springfield, MA
               </span>
 
-              <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight" style={{ fontFamily: 'var(--font-heading)' }}>
                 Giving Back to<br />
                 <span className="text-[var(--color-primary)]">The Community</span>
               </h2>
@@ -405,7 +420,7 @@ export default function LegacyPage() {
 
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 h-11 sm:h-12 px-5 sm:px-6 bg-[var(--color-primary)] text-black font-bold text-[13px] sm:text-[14px] uppercase tracking-widest hover:brightness-105 transition-all duration-150 group hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 h-12 sm:h-14 px-8 bg-[var(--color-primary)] text-black font-bold text-sm uppercase tracking-widest hover:brightness-110 transition-all group"
                 style={{ fontFamily: 'var(--font-heading)' }}
               >
                 Book Milan for Your Event
@@ -423,7 +438,7 @@ export default function LegacyPage() {
             >
               <div className="aspect-[4/5] rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden relative">
                 <img
-                  src="/images/events/IMG_1466.jpg"
+                  src="/images/basketball/IMG_1466.jpg"
                   alt="Community Event"
                   className="w-full h-full object-cover"
                 />
@@ -465,7 +480,7 @@ export default function LegacyPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-4 sm:mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
               The Story<br />
               <span className="text-[var(--color-primary)]">Continues</span>
             </h2>
@@ -478,14 +493,14 @@ export default function LegacyPage() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
                 href="/events"
-                className="inline-flex items-center justify-center h-11 sm:h-12 px-5 sm:px-6 bg-[var(--color-primary)] text-black font-bold text-[13px] sm:text-[14px] uppercase tracking-widest hover:brightness-105 transition-all duration-150 shadow-sm hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center h-12 sm:h-14 px-8 bg-[var(--color-primary)] text-black font-bold text-sm uppercase tracking-widest hover:brightness-110 transition-all"
                 style={{ fontFamily: 'var(--font-heading)' }}
               >
                 Upcoming Events
               </Link>
               <Link
                 href="/partners"
-                className="inline-flex items-center justify-center h-11 sm:h-12 px-5 sm:px-6 bg-white/5 text-white font-bold text-[13px] sm:text-[14px] uppercase tracking-widest hover:bg-white/10 transition-all duration-150 border border-white/20 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center h-12 sm:h-14 px-8 border border-white/20 bg-white/5 text-white font-bold text-sm uppercase tracking-widest hover:bg-white/10 hover:border-white/30 transition-all"
                 style={{ fontFamily: 'var(--font-heading)' }}
               >
                 Partner With MH5

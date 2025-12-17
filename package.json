@@ -4,7 +4,7 @@
   "description": "MH5 - Milan Harrison Official Website",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/postbuild.js",
     "start": "next start",
     "lint": "next lint"
   },

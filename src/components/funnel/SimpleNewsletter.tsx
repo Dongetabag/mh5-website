@@ -43,7 +43,7 @@ export default function SimpleNewsletter() {
           </h2>
 
           {/* Subtext */}
-          <p className="text-gray-400 mb-10 max-w-lg mx-auto text-base sm:text-lg">
+          <p className="text-gray-400 mb-10 max-w-lg mx-auto text-sm md:text-base uppercase tracking-widest leading-relaxed" style={{ fontFamily: 'var(--font-heading)' }}>
             Get daily intelligence briefs, workout tips, and early access to drops. No spam, only value.
           </p>
 
@@ -52,26 +52,30 @@ export default function SimpleNewsletter() {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="flex items-center justify-center gap-2 py-4 px-6 max-w-md mx-auto"
+              className="flex items-center justify-center gap-3 py-5 px-6 max-w-lg mx-auto bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/30 rounded-2xl backdrop-blur-sm"
             >
-              <svg className="w-5 h-5 text-[var(--color-primary)] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-6 h-6 text-[var(--color-primary)] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
-              <span className="text-[var(--color-primary)] font-medium text-lg">You're on the list!</span>
+              <span className="text-[var(--color-primary)] font-semibold text-base sm:text-lg" style={{ fontFamily: 'var(--font-heading)' }}>You're on the list!</span>
             </motion.div>
           ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="ENTER YOUR EMAIL"
-                className="flex-1 bg-transparent border-b-2 border-white/20 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[var(--color-primary)] transition-colors text-center md:text-left uppercase tracking-wider text-sm"
-                required
-              />
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+              <div className="relative group flex-1">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  className="w-full h-12 sm:h-14 px-6 bg-white/5 border border-white/20 rounded-sm text-white placeholder:text-gray-400 text-sm focus:outline-none focus:border-[var(--color-primary)]/50 transition-all duration-300"
+                  required
+                  aria-label="Email address for newsletter subscription"
+                  style={{ fontFamily: 'var(--font-heading)' }}
+                />
+              </div>
               <button
                 type="submit"
-                className="bg-white text-black px-8 py-3 font-bold uppercase tracking-widest hover:bg-[var(--color-primary)] transition-colors"
+                className="h-12 sm:h-14 px-8 bg-[var(--color-primary)] text-black font-bold uppercase tracking-widest text-sm hover:brightness-110 transition-all whitespace-nowrap"
                 style={{ fontFamily: 'var(--font-heading)' }}
               >
                 Subscribe

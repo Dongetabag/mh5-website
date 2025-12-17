@@ -4,29 +4,30 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { IconBox, icons } from '@/components/ui/GlossIcon'
+import VideoPlayer from '@/components/VideoPlayer'
 
 // All event videos from events folder - 20 videos total
 const eventHighlights = [
-  { src: '/videos/events/26b5dca7c1d348c0866fbb02e4f3d241.MOV', poster: '/images/events/240C9647-1DCD-4045-8070-C69CC4C00920.jpg', label: 'Highlight' },
-  { src: '/videos/events/37f8ca3c904745f7a7c16d2da3e44b5c.MOV', poster: '/images/events/3ACAF232-CC27-4EB8-99DE-2322AC204F28.jpg', label: 'Highlight' },
-  { src: '/videos/events/4e14c7c11ff043afbd523f184c7a3999.MOV', poster: '/images/events/3AFC5E5E-A1FA-4E30-9D2B-6263B98B922C.JPG', label: 'Highlight' },
-  { src: '/videos/events/5089b366326446a49925a5305985a148.MOV', poster: '/images/events/4430EAE3-2CD3-4285-9892-9494FA6EE94F.JPG', label: 'Highlight' },
-  { src: '/videos/events/5893e5fd7bfc44d6a422765f2277d665.MOV', poster: '/images/events/88BE14ED-B9D6-460B-BDA3-D892F086EDC4.JPG', label: 'Highlight' },
-  { src: '/videos/events/70965acdb9d5482c9035562525803230.MOV', poster: '/images/events/95A0BBC3-F879-4FEC-AA09-B1683ECF65B2.JPG', label: 'Highlight' },
-  { src: '/videos/events/7efaf7eb3b9a4babb2b824c773d971b2.MOV', poster: '/images/events/B6641C04-9563-44EC-B211-6810D47B15E2.jpg', label: 'Highlight' },
-  { src: '/videos/events/8aa44a60cf7f4630996aa4d294ce9568.MOV', poster: '/images/events/BE564DC8-2241-4DC9-969F-8CA7F99D25AE.jpg', label: 'Highlight' },
-  { src: '/videos/events/9f90e8aa68434121b10f738f483e53f2.MOV', poster: '/images/events/D43A39C2-2C80-40FF-A41C-5C28E99F1DB2.JPG.jpg', label: 'Highlight' },
-  { src: '/videos/events/90d1467329ec4a3dac3a8658cba48dd8.MOV', poster: '/images/events/DBAEFDA8-FB32-499C-BF46-4B55DCAEC8C6.JPG', label: 'Highlight' },
-  { src: '/videos/events/F6401E28-2949-4092-BDFF-98C11CA5B439.MOV', poster: '/images/events/F904A20E-75E9-4FE9-B441-CB9F32BC68EB.jpg', label: 'Highlight' },
-  { src: '/videos/events/IMG_0680.MOV', poster: '/images/events/FullSizeRender.jpg', label: 'Highlight' },
-  { src: '/videos/events/IMG_2421.mov', poster: '/images/events/IMG_0176.jpg', label: 'Highlight' },
-  { src: '/videos/events/a49c7a65cf3549fba727b57bcec1bddc.MOV', poster: '/images/events/IMG_0979.jpg', label: 'Highlight' },
-  { src: '/videos/events/c7ae7027582a43399c46595e1203d9a4.MOV', poster: '/images/events/IMG_3606.jpg', label: 'Highlight' },
-  { src: '/videos/events/cb31bf2b613042c197eb1e91563637a0.MOV', poster: '/images/events/IMG_3735.jpg', label: 'Highlight' },
-  { src: '/videos/events/d11f4e200d3d4174940ce130366e3698.MOV', poster: '/images/events/IMG_3820.JPG', label: 'Highlight' },
-  { src: '/videos/events/d478bfa5726949438ca2f506c332a6bc.MOV', poster: '/images/events/IMG_4010.jpg', label: 'Highlight' },
-  { src: '/videos/events/d9e745c8f9c848af8356513ac8b3daab.MOV', poster: '/images/events/IMG_4129.jpg', label: 'Highlight' },
-  { src: '/videos/events/ecdaf770de5641a49205034cc0bf0a66.MOV', poster: '/images/events/IMG_4134.jpg', label: 'Highlight' },
+  '/videos/events/26b5dca7c1d348c0866fbb02e4f3d241.MOV',
+  '/videos/events/37f8ca3c904745f7a7c16d2da3e44b5c.MOV',
+  '/videos/events/4e14c7c11ff043afbd523f184c7a3999.MOV',
+  '/videos/events/5089b366326446a49925a5305985a148.MOV',
+  '/videos/events/5893e5fd7bfc44d6a422765f2277d665.MOV',
+  '/videos/events/70965acdb9d5482c9035562525803230.MOV',
+  '/videos/events/7efaf7eb3b9a4babb2b824c773d971b2.MOV',
+  '/videos/events/8aa44a60cf7f4630996aa4d294ce9568.MOV',
+  '/videos/events/9f90e8aa68434121b10f738f483e53f2.MOV',
+  '/videos/events/90d1467329ec4a3dac3a8658cba48dd8.MOV',
+  '/videos/events/F6401E28-2949-4092-BDFF-98C11CA5B439.MOV',
+  '/videos/events/IMG_0680.MOV',
+  '/videos/events/IMG_2421.mov',
+  '/videos/events/a49c7a65cf3549fba727b57bcec1bddc.MOV',
+  '/videos/events/c7ae7027582a43399c46595e1203d9a4.MOV',
+  '/videos/events/cb31bf2b613042c197eb1e91563637a0.MOV',
+  '/videos/events/d11f4e200d3d4174940ce130366e3698.MOV',
+  '/videos/events/d478bfa5726949438ca2f506c332a6bc.MOV',
+  '/videos/events/d9e745c8f9c848af8356513ac8b3daab.MOV',
+  '/videos/events/ecdaf770de5641a49205034cc0bf0a66.MOV',
 ]
 
 // All event photos from events folder - 34 photos for Past Events grid
@@ -198,49 +199,20 @@ export default function EventsPage() {
 
           {/* Horizontal scroll video feed */}
           <div className="flex gap-3 sm:gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-5 sm:-mx-6 px-5 sm:px-6">
-            {eventHighlights.map((video, index) => (
+            {eventHighlights.map((videoSrc, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="flex-shrink-0 snap-center"
+                transition={{ delay: Math.min(index * 0.05, 0.5) }}
+                className="flex-shrink-0 snap-center w-[140px] sm:w-[180px] lg:w-[220px]"
               >
-                <div className="relative w-[140px] sm:w-[180px] lg:w-[220px] aspect-[9/16] rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden bg-[#111] group cursor-pointer">
-                  <video
-                    className="absolute inset-0 w-full h-full object-cover"
-                    poster={video.poster}
-                    loop
-                    muted
-                    playsInline
-                    preload="metadata"
-                    onMouseEnter={(e) => e.currentTarget.play().catch(() => {})}
-                    onMouseLeave={(e) => { e.currentTarget.pause(); e.currentTarget.currentTime = 0; }}
-                  >
-                    <source src={video.src} type="video/quicktime" />
-                    <source src={video.src} type="video/mp4" />
-                  </video>
-
-                  {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
-
-                  {/* Play indicator */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                      <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
-                    </div>
-                  </div>
-
-                  {/* Label */}
-                  <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4">
-                    <span className="px-2 sm:px-3 py-1 sm:py-1.5 bg-[var(--color-primary)] text-black text-[10px] sm:text-xs font-bold rounded-lg">
-                      {video.label}
-                    </span>
-                  </div>
-                </div>
+                <VideoPlayer
+                  src={videoSrc}
+                  className="rounded-xl sm:rounded-2xl lg:rounded-3xl"
+                  aspectRatio="aspect-[9/16]"
+                />
               </motion.div>
             ))}
           </div>

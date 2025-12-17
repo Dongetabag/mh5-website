@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
+import VideoPlayer from '@/components/VideoPlayer'
 
 /**
  * MEDIA SHOWCASE - Curated Vertical Video Grid
@@ -13,206 +14,69 @@ import Link from 'next/link'
 
 interface MediaItem {
   id: string
-  type: 'video' | 'image'
   src: string
   title: string
   category: string
-  views: string
-  duration?: string
 }
 
 const mediaItems: MediaItem[] = [
   {
     id: '1',
-    type: 'video',
     src: '/videos/basketball/67df5ad85df7404a81f2d6e311e19d8c.MOV',
     title: 'Full-Length Highlights',
     category: 'Highlights',
-    views: '89K',
-    duration: '0:32'
   },
   {
     id: '2',
-    type: 'video',
     src: '/videos/basketball/6f40c6f056194535a398d54f76c6f2da.MOV',
     title: 'Intense Workout Session',
     category: 'Highlights',
-    views: '67K',
-    duration: '1:15'
   },
   {
     id: '3',
-    type: 'video',
     src: '/videos/basketball/13f27e29c219419d852eac4f5ef134dd.MOV',
     title: 'Game Day Energy',
     category: 'Highlights',
-    views: '125K',
-    duration: '0:45'
   },
   {
     id: '4',
-    type: 'video',
     src: '/videos/events/9f90e8aa68434121b10f738f483e53f2.MOV',
     title: 'MH5 Tournament Finals',
     category: 'Events',
-    views: '203K',
-    duration: '2:30'
   },
   {
     id: '5',
-    type: 'video',
     src: '/videos/events/5893e5fd7bfc44d6a422765f2277d665.MOV',
     title: 'Club Night Experience',
     category: 'Events',
-    views: '156K',
-    duration: '3:45'
   },
   {
     id: '6',
-    type: 'video',
     src: '/videos/events/70965acdb9d5482c9035562525803230.MOV',
     title: 'Live Event Vibes',
     category: 'Events',
-    views: '312K',
-    duration: '4:20'
   },
   {
     id: '7',
-    type: 'video',
     src: '/videos/events/d478bfa5726949438ca2f506c332a6bc.MOV',
     title: 'VIP Event Highlights',
     category: 'Events',
-    views: '178K',
-    duration: '2:15'
   },
   {
     id: '8',
-    type: 'video',
     src: '/videos/brand-campaigns/37f8ca3c904745f7a7c16d2da3e44b5c.MOV',
     title: 'Brand Campaign',
     category: 'Brand',
-    views: '245K',
-    duration: '1:30'
   },
   {
     id: '9',
-    type: 'video',
     src: '/videos/brand-campaigns/90d1467329ec4a3dac3a8658cba48dd8.MOV',
     title: 'Campaign Showcase',
     category: 'Brand',
-    views: '198K',
-    duration: '3:00'
   },
 ]
 
 const categories = ['All', 'Highlights', 'Events', 'Brand']
-
-function MediaCard({ item, index }: { item: MediaItem; index: number }) {
-  const [isHovered, setIsHovered] = useState(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
-
-  const handleMouseEnter = () => {
-    setIsHovered(true)
-    if (videoRef.current) {
-      videoRef.current.play()
-    }
-  }
-
-  const handleMouseLeave = () => {
-    setIsHovered(false)
-    if (videoRef.current) {
-      videoRef.current.pause()
-      videoRef.current.currentTime = 0
-    }
-  }
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
-      className="group relative aspect-[9/16] rounded-lg overflow-hidden bg-[#111] cursor-pointer"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      {/* Video/Image */}
-      {item.type === 'video' ? (
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src={item.src} type="video/quicktime" />
-          <source src={item.src} type="video/mp4" />
-        </video>
-      ) : (
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${item.src})` }}
-        />
-      )}
-
-      {/* Overlay */}
-      <div className={`absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30 transition-opacity ${isHovered ? 'opacity-100' : 'opacity-80'}`} />
-
-      {/* Play Button */}
-      <div className={`absolute inset-0 flex items-center justify-center transition-opacity ${isHovered ? 'opacity-0' : 'opacity-100'}`}>
-        <div className="w-14 h-14 rounded-md bg-white/20 backdrop-blur-sm flex items-center justify-center">
-          <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-        </div>
-      </div>
-
-      {/* Category Badge */}
-      <div className="absolute top-3 left-3">
-        <span className="px-2 py-1 bg-black/60 backdrop-blur-sm rounded-sm text-[10px] font-medium text-white uppercase tracking-wide" style={{ fontFamily: 'var(--font-heading)' }}>
-          {item.category}
-        </span>
-      </div>
-
-      {/* Duration */}
-      {item.duration && (
-        <div className="absolute top-3 right-3">
-          <span className="px-2 py-0.5 bg-black/70 rounded text-[10px] text-white font-medium">
-            {item.duration}
-          </span>
-        </div>
-      )}
-
-      {/* Bottom Content */}
-      <div className="absolute bottom-0 left-0 right-0 p-5">
-        <h4 className="font-semibold text-white text-sm lg:text-base mb-2 line-clamp-2">
-          {item.title}
-        </h4>
-        <div className="flex items-center gap-2 text-xs text-gray-400">
-          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-          </svg>
-          <span>{item.views} views</span>
-        </div>
-      </div>
-
-      {/* Hover Actions */}
-      <div className={`absolute bottom-4 right-4 flex flex-col gap-2 transition-opacity ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
-        <button className="w-9 h-9 rounded-md bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-white/30 transition">
-          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-          </svg>
-        </button>
-        <button className="w-9 h-9 rounded-md bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-white/30 transition">
-          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
-          </svg>
-        </button>
-      </div>
-    </motion.div>
-  )
-}
 
 export default function MediaShowcase() {
   const [activeCategory, setActiveCategory] = useState('All')
@@ -265,7 +129,19 @@ export default function MediaShowcase() {
         {/* Media Grid - Mobile: 2 cols, Desktop: 3 cols */}
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 lg:gap-8">
           {filteredMedia.map((item, index) => (
-            <MediaCard key={item.id} item={item} index={index} />
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: Math.min(index * 0.1, 0.5) }}
+            >
+              <VideoPlayer
+                src={item.src}
+                className="rounded-lg"
+                aspectRatio="aspect-[9/16]"
+              />
+            </motion.div>
           ))}
         </div>
 

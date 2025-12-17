@@ -97,27 +97,27 @@ export default function MediaShowcase() {
           animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
           className="text-center mb-8 sm:mb-10 lg:mb-12"
         >
-          <span className="inline-block px-4 py-2 bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/20 rounded-sm text-[var(--color-primary)] text-[11px] font-medium uppercase tracking-wide mb-5 sm:mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
+          <span className="inline-block bg-[var(--color-primary)] text-black px-4 py-1.5 text-xs md:text-sm font-bold uppercase tracking-[0.3em] mb-5 sm:mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
             Featured Content
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black text-white mb-4 sm:mb-5 px-2">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-5 px-2" style={{ fontFamily: 'var(--font-heading)' }}>
             Watch <span className="text-[var(--color-primary)]">The Movement</span>
           </h2>
-          <p className="text-gray-400 text-base sm:text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto px-2">
+          <p className="text-gray-400 text-sm md:text-base uppercase tracking-widest leading-relaxed max-w-2xl mx-auto px-2" style={{ fontFamily: 'var(--font-heading)' }}>
             Highlights, training sessions, behind-the-scenes, and more. Curated content from the MH5 journey.
           </p>
         </motion.div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-2 mb-8 sm:mb-10 lg:mb-14">
+        <div className="flex flex-wrap justify-center gap-3 mb-8 sm:mb-10 lg:mb-14">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`h-10 sm:h-11 px-4 sm:px-5 rounded-lg text-[11px] sm:text-[12px] font-medium uppercase tracking-wide transition ${
+              className={`h-12 sm:h-14 px-8 rounded-sm text-sm font-bold uppercase tracking-widest transition ${
                 activeCategory === category
                   ? 'bg-[var(--color-primary)] text-black'
-                  : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/10'
+                  : 'bg-white/5 text-white hover:bg-white/10 border border-white/20 hover:border-white/30'
               }`}
               style={{ fontFamily: 'var(--font-heading)' }}
             >
@@ -154,7 +154,7 @@ export default function MediaShowcase() {
         >
           <Link
             href="/media"
-            className="inline-flex items-center justify-center gap-2 h-12 px-8 bg-white/5 hover:bg-white/10 text-white text-[13px] font-medium uppercase tracking-wide rounded-md transition group border border-white/10 hover:border-white/20"
+            className="inline-flex items-center justify-center gap-2 h-12 sm:h-14 px-8 border border-white/20 bg-white/5 text-white font-bold uppercase tracking-widest text-sm hover:bg-white/10 hover:border-white/30 transition-all group"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
             View Full Gallery

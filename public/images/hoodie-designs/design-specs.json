@@ -1,0 +1,299 @@
+[
+  {
+    "image": "Snow Wash Fleece Oversize Hoodie-gallery-1.png",
+    "variants": [
+      {
+        "success": true,
+        "variant": "classic-front",
+        "imageFile": "Snow Wash Fleece Oversize Hoodie-gallery-1.png",
+        "designSpec": {
+          "placement": "Center of the chest, approximately 3 inches (7.6cm) below the base of the collar.",
+          "size": "Approximately 3 inches (7.6cm) in width. This equates to roughly 15% of the visible hoodie width.",
+          "color": "#7DF9FF",
+          "coordinates": {
+            "top": "18%",
+            "left": "42.5%",
+            "width": "15%",
+            "height": "3%"
+          },
+          "colorContrast": "Excellent. The neon cyan will provide a strong, vibrant contrast against the muted grey/blue color of the hoodie, ensuring the logo stands out prominently.",
+          "notes": "Given the texture of the hoodie, ensure the print method allows for a smooth application that prevents distortion of the logo. The 'MH5' text should be clean and crisp for maximum impact. Consider using a slightly thicker stroke on the font to enhance legibility. The Frost secondary color (#9DFBFF) is too close to the primary color to be effective on this background, so its usage should be avoided in this case. A single application of the primary color will yield the best results.",
+          "alternativePlacements": [
+            "Sleeve placement: Upper left sleeve, centered between shoulder seam and cuff.",
+            "Hood placement: Centered on the back of the hood, smaller size."
+          ]
+        },
+        "rawResponse": "```json\n{\n  \"placement\": \"Center of the chest, approximately 3 inches (7.6cm) below the base of the collar.\",\n  \"size\": \"Approximately 3 inches (7.6cm) in width. This equates to roughly 15% of the visible hoodie width.\",\n  \"color\": \"#7DF9FF\",\n  \"coordinates\": {\n    \"top\": \"18%\",\n    \"left\": \"42.5%\",\n    \"width\": \"15%\",\n    \"height\": \"3%\"\n  },\n  \"colorContrast\": \"Excellent. The neon cyan will provide a strong, vibrant contrast against the muted grey/blue color of the hoodie, ensuring the logo stands out prominently.\",\n  \"notes\": \"Given the texture of the hoodie, ensure the print method allows for a smooth application that prevents distortion of the logo. The 'MH5' text should be clean and crisp for maximum impact. Consider using a slightly thicker stroke on the font to enhance legibility. The Frost secondary color (#9DFBFF) is too close to the primary color to be effective on this background, so its usage should be avoided in this case. A single application of the primary color will yield the best results.\",\n  \"alternativePlacements\": [\n    \"Sleeve placement: Upper left sleeve, centered between shoulder seam and cuff.\",\n    \"Hood placement: Centered on the back of the hood, smaller size.\"\n  ]\n}\n```"
+      },
+      {
+        "success": true,
+        "variant": "classic-back",
+        "imageFile": "Snow Wash Fleece Oversize Hoodie-gallery-1.png",
+        "designSpec": {
+          "placement": "Back center, approximately 4 inches below the base of the hood. Adjust vertical position slightly to achieve visual balance, considering hood placement and overall aesthetic.",
+          "size": "Approximately 10-12 inches wide, or roughly 40-45% of the hoodie's width at the back. Adjust the height proportionally to maintain the aspect ratio of the \"MH5\" logo and to ensure it remains impactful without appearing cramped.",
+          "color": "#7DF9FF",
+          "coordinates": {
+            "top": "20%",
+            "left": "30%",
+            "width": "40%",
+            "height": "10%"
+          },
+          "colorContrast": "Excellent. The neon cyan will strongly contrast with the muted grey-blue of the hoodie, making the logo highly visible and eye-catching.",
+          "notes": "Given the textured/vintage wash of the hoodie fabric, ensure the logo application method (e.g., screen printing, DTG) is suitable for potentially uneven surfaces. Consider a slightly thicker stroke or offset on the logo for improved legibility against the fabric texture. Avoid overly intricate designs; keep the logo clean and bold. Before final production, create a digital mockup to verify the logo size and placement are visually balanced.",
+          "alternativePlacements": [
+            "Small 'MH5' on the left chest, subtly placed above the heart.",
+            "Vertical 'MH5' running down the left sleeve, starting near the shoulder seam."
+          ]
+        },
+        "rawResponse": "```json\n{\n  \"placement\": \"Back center, approximately 4 inches below the base of the hood. Adjust vertical position slightly to achieve visual balance, considering hood placement and overall aesthetic.\",\n  \"size\": \"Approximately 10-12 inches wide, or roughly 40-45% of the hoodie's width at the back. Adjust the height proportionally to maintain the aspect ratio of the \\\"MH5\\\" logo and to ensure it remains impactful without appearing cramped.\",\n  \"color\": \"#7DF9FF\",\n  \"coordinates\": {\n    \"top\": \"20%\",\n    \"left\": \"30%\",\n    \"width\": \"40%\",\n    \"height\": \"10%\"\n  },\n  \"colorContrast\": \"Excellent. The neon cyan will strongly contrast with the muted grey-blue of the hoodie, making the logo highly visible and eye-catching.\",\n  \"notes\": \"Given the textured/vintage wash of the hoodie fabric, ensure the logo application method (e.g., screen printing, DTG) is suitable for potentially uneven surfaces. Consider a slightly thicker stroke or offset on the logo for improved legibility against the fabric texture. Avoid overly intricate designs; keep the logo clean and bold. Before final production, create a digital mockup to verify the logo size and placement are visually balanced.\",\n  \"alternativePlacements\": [\n    \"Small 'MH5' on the left chest, subtly placed above the heart.\",\n    \"Vertical 'MH5' running down the left sleeve, starting near the shoulder seam.\"\n  ]\n}\n```"
+      },
+      {
+        "success": true,
+        "variant": "minimal-corner",
+        "imageFile": "Snow Wash Fleece Oversize Hoodie-gallery-1.png",
+        "designSpec": {
+          "placement": "Front left chest, approximately 2 inches below the shoulder seam and 2 inches from the center of the chest.",
+          "size": "2 inches wide",
+          "color": "#7DF9FF",
+          "coordinates": {
+            "top": "15%",
+            "left": "15%",
+            "width": "5%",
+            "height": "2%"
+          },
+          "colorContrast": "Excellent. The neon cyan will pop vibrantly against the gray/blue of the hoodie, ensuring high visibility.",
+          "notes": "Ensure the logo is properly aligned horizontally and vertically. Consider the textured fabric of the hoodie and ensure the print is clean and crisp. A single layer print will be most effective given the bold color choice. Placement should feel intentional and balanced with the overall design.",
+          "alternativePlacements": [
+            "Slightly smaller version (1.5 inches wide) centered on the hood, just below the seam.",
+            "Small version (1.5 inches wide) on the left sleeve cuff."
+          ]
+        },
+        "rawResponse": "```json\n{\n  \"placement\": \"Front left chest, approximately 2 inches below the shoulder seam and 2 inches from the center of the chest.\",\n  \"size\": \"2 inches wide\",\n  \"color\": \"#7DF9FF\",\n  \"coordinates\": {\n    \"top\": \"15%\",\n    \"left\": \"15%\",\n    \"width\": \"5%\",\n    \"height\": \"2%\"\n  },\n  \"colorContrast\": \"Excellent. The neon cyan will pop vibrantly against the gray/blue of the hoodie, ensuring high visibility.\",\n  \"notes\": \"Ensure the logo is properly aligned horizontally and vertically. Consider the textured fabric of the hoodie and ensure the print is clean and crisp. A single layer print will be most effective given the bold color choice. Placement should feel intentional and balanced with the overall design.\",\n  \"alternativePlacements\": [\n    \"Slightly smaller version (1.5 inches wide) centered on the hood, just below the seam.\",\n    \"Small version (1.5 inches wide) on the left sleeve cuff.\"\n  ]\n}\n```"
+      },
+      {
+        "success": true,
+        "variant": "oversized-back",
+        "imageFile": "Snow Wash Fleece Oversize Hoodie-gallery-1.png",
+        "designSpec": {
+          "placement": "Center of the back, spanning from just below the shoulder seams to approximately 4 inches above the bottom hem of the hoodie.",
+          "size": "Width: Approximately 70% of the hoodie's total width. Height will be dictated by the aspect ratio of the 'MH5' logo.",
+          "color": "#7DF9FF",
+          "coordinates": {
+            "top": "25%",
+            "left": "15%",
+            "width": "70%",
+            "height": "40%"
+          },
+          "colorContrast": "Excellent. The neon cyan will provide a high degree of contrast against the heather grey/blue of the hoodie, making it highly visible and impactful.",
+          "notes": "Ensure the print quality is high to showcase the vibrant neon color accurately. Consider a slight gradient within the logo using the frost color (#9DFBFF) for subtle detail and added visual interest, possibly a subtle bottom-to-top fade. Test print is crucial to ensure the color vibrancy is maintained on this particular fabric. Double check logo distortion upon print due to the hoodie's contours. Check if the logo has a solid filled background or is transparent. With solid fill, the visibility on the hoodie will be maximum.",
+          "alternativePlacements": [
+            "Small, centered chest logo (approx. 4 inches wide).",
+            "Vertical placement along the left sleeve, starting from the shoulder seam."
+          ]
+        },
+        "rawResponse": "```json\n{\n  \"placement\": \"Center of the back, spanning from just below the shoulder seams to approximately 4 inches above the bottom hem of the hoodie.\",\n  \"size\": \"Width: Approximately 70% of the hoodie's total width. Height will be dictated by the aspect ratio of the 'MH5' logo.\",\n  \"color\": \"#7DF9FF\",\n  \"coordinates\": {\n    \"top\": \"25%\",\n    \"left\": \"15%\",\n    \"width\": \"70%\",\n    \"height\": \"40%\"\n  },\n  \"colorContrast\": \"Excellent. The neon cyan will provide a high degree of contrast against the heather grey/blue of the hoodie, making it highly visible and impactful.\",\n  \"notes\": \"Ensure the print quality is high to showcase the vibrant neon color accurately. Consider a slight gradient within the logo using the frost color (#9DFBFF) for subtle detail and added visual interest, possibly a subtle bottom-to-top fade. Test print is crucial to ensure the color vibrancy is maintained on this particular fabric. Double check logo distortion upon print due to the hoodie's contours. Check if the logo has a solid filled background or is transparent. With solid fill, the visibility on the hoodie will be maximum.\",\n  \"alternativePlacements\": [\n    \"Small, centered chest logo (approx. 4 inches wide).\",\n    \"Vertical placement along the left sleeve, starting from the shoulder seam.\"\n  ]\n}\n```"
+      }
+    ]
+  },
+  {
+    "image": "Snow Wash Fleece Oversize Hoodie-gallery-10.png",
+    "variants": [
+      {
+        "success": true,
+        "variant": "classic-front",
+        "imageFile": "Snow Wash Fleece Oversize Hoodie-gallery-10.png",
+        "designSpec": {
+          "placement": "Center of the chest, approximately 3 inches (7.6 cm) below the base of the hood seam.",
+          "size": "Approximately 3-4 inches (7.6-10cm) wide or 15-20% of the hoodie width, whichever is smaller, to maintain a subtle and premium aesthetic.",
+          "color": "#7DF9FF",
+          "coordinates": {
+            "top": "22%",
+            "left": "42%",
+            "width": "16%",
+            "height": "5%"
+          },
+          "colorContrast": "Excellent. The neon cyan will create a high contrast and stand out well against the dark grey/charcoal color of the hoodie.",
+          "notes": "Ensure the logo is perfectly centered. The 'MH5' text should be crisp and clear. Consider adding a very subtle Frost (#9DFBFF) drop shadow for extra depth and legibility, if needed, but only if it doesn't compromise the clean aesthetic. Check for distortions when scaling the logo to the required size for the print-on-demand platform.",
+          "alternativePlacements": [
+            "Left chest, aligned with the shoulder seam, slightly angled.",
+            "Right sleeve, near the cuff."
+          ]
+        },
+        "rawResponse": "```json\n{\n  \"placement\": \"Center of the chest, approximately 3 inches (7.6 cm) below the base of the hood seam.\",\n  \"size\": \"Approximately 3-4 inches (7.6-10cm) wide or 15-20% of the hoodie width, whichever is smaller, to maintain a subtle and premium aesthetic.\",\n  \"color\": \"#7DF9FF\",\n  \"coordinates\": {\n    \"top\": \"22%\",\n    \"left\": \"42%\",\n    \"width\": \"16%\",\n    \"height\": \"5%\"\n  },\n  \"colorContrast\": \"Excellent. The neon cyan will create a high contrast and stand out well against the dark grey/charcoal color of the hoodie.\",\n  \"notes\": \"Ensure the logo is perfectly centered. The 'MH5' text should be crisp and clear. Consider adding a very subtle Frost (#9DFBFF) drop shadow for extra depth and legibility, if needed, but only if it doesn't compromise the clean aesthetic. Check for distortions when scaling the logo to the required size for the print-on-demand platform.\",\n  \"alternativePlacements\": [\n    \"Left chest, aligned with the shoulder seam, slightly angled.\",\n    \"Right sleeve, near the cuff.\"\n  ]\n}\n```"
+      },
+      {
+        "success": true,
+        "variant": "classic-back",
+        "imageFile": "Snow Wash Fleece Oversize Hoodie-gallery-10.png",
+        "designSpec": {
+          "placement": "Back center, positioned approximately 4 inches below the base of the hood seam/collar ribbing.",
+          "size": "Approximately 10 inches wide. Ensure it's large and impactful but doesn't extend too close to the sleeves or bottom hem of the hoodie. Should occupy roughly 50-60% of the hoodie width.",
+          "color": "#7DF9FF",
+          "coordinates": {
+            "top": "25%",
+            "left": "50%",
+            "width": "55%",
+            "height": "15%"
+          },
+          "colorContrast": "Excellent. The neon cyan will strongly contrast with the dark grey of the hoodie, making it highly visible and attention-grabbing.",
+          "notes": "Given the large size and bold color, ensure the print quality is top-notch to prevent any blurring or pixelation. Consider a slightly thicker font weight for enhanced visibility. Before final production, a mockup should be created and scaled on the actual hoodie size to verify final appearance and placement. Due to the texture of the hoodie, consider underbase layer for increased vibrancy. ",
+          "alternativePlacements": [
+            "Left chest - Smaller, more subtle logo (3-4 inches wide).",
+            "Sleeve - Vertically aligned along the length of the sleeve (approx 8-10 inches tall)"
+          ]
+        },
+        "rawResponse": "```json\n{\n  \"placement\": \"Back center, positioned approximately 4 inches below the base of the hood seam/collar ribbing.\",\n  \"size\": \"Approximately 10 inches wide. Ensure it's large and impactful but doesn't extend too close to the sleeves or bottom hem of the hoodie. Should occupy roughly 50-60% of the hoodie width.\",\n  \"color\": \"#7DF9FF\",\n  \"coordinates\": {\n    \"top\": \"25%\",\n    \"left\": \"50%\",\n    \"width\": \"55%\",\n    \"height\": \"15%\"\n  },\n  \"colorContrast\": \"Excellent. The neon cyan will strongly contrast with the dark grey of the hoodie, making it highly visible and attention-grabbing.\",\n  \"notes\": \"Given the large size and bold color, ensure the print quality is top-notch to prevent any blurring or pixelation. Consider a slightly thicker font weight for enhanced visibility. Before final production, a mockup should be created and scaled on the actual hoodie size to verify final appearance and placement. Due to the texture of the hoodie, consider underbase layer for increased vibrancy. \",\n  \"alternativePlacements\": [\n    \"Left chest - Smaller, more subtle logo (3-4 inches wide).\",\n    \"Sleeve - Vertically aligned along the length of the sleeve (approx 8-10 inches tall)\"\n  ]\n}\n```"
+      },
+      {
+        "success": true,
+        "variant": "minimal-corner",
+        "imageFile": "Snow Wash Fleece Oversize Hoodie-gallery-10.png",
+        "designSpec": {
+          "placement": "Front left chest corner, approximately 3 inches down from the shoulder seam and 2.5 inches in from the center.",
+          "size": "Approximately 2.5 inches wide and 0.75 inches high. The height should depend on the font chosen but try to keep logo height under an inch",
+          "color": "#7DF9FF",
+          "coordinates": {
+            "top": "13%",
+            "left": "18%",
+            "width": "9%",
+            "height": "2%"
+          },
+          "colorContrast": "Excellent. The neon cyan will stand out strongly against the dark grey/black color of the hoodie, ensuring high visibility.",
+          "notes": "Ensure the placement is consistent across all sizes of the hoodie. Consider using a slightly thinner font weight if the bold font appears too large at the recommended size. Use Neon Cyan (#7DF9FF) as the primary color. No secondary color needed as a simple, clean look is ideal for a single-color placement. Due to the vintage wash, the surface of the material is rough. The logo must be of high quality for this reason.",
+          "alternativePlacements": [
+            "Centered on the back yoke, just below the hood seam (small, subtle).",
+            "On the left sleeve cuff (small, subtle)."
+          ]
+        },
+        "rawResponse": "```json\n{\n  \"placement\": \"Front left chest corner, approximately 3 inches down from the shoulder seam and 2.5 inches in from the center.\",\n  \"size\": \"Approximately 2.5 inches wide and 0.75 inches high. The height should depend on the font chosen but try to keep logo height under an inch\",\n  \"color\": \"#7DF9FF\",\n  \"coordinates\": {\n    \"top\": \"13%\",\n    \"left\": \"18%\",\n    \"width\": \"9%\",\n    \"height\": \"2%\"\n  },\n  \"colorContrast\": \"Excellent. The neon cyan will stand out strongly against the dark grey/black color of the hoodie, ensuring high visibility.\",\n  \"notes\": \"Ensure the placement is consistent across all sizes of the hoodie. Consider using a slightly thinner font weight if the bold font appears too large at the recommended size. Use Neon Cyan (#7DF9FF) as the primary color. No secondary color needed as a simple, clean look is ideal for a single-color placement. Due to the vintage wash, the surface of the material is rough. The logo must be of high quality for this reason.\",\n  \"alternativePlacements\": [\n    \"Centered on the back yoke, just below the hood seam (small, subtle).\",\n    \"On the left sleeve cuff (small, subtle).\"\n  ]\n}\n```"
+      },
+      {
+        "success": true,
+        "variant": "oversized-back",
+        "imageFile": "Snow Wash Fleece Oversize Hoodie-gallery-10.png",
+        "designSpec": {
+          "placement": "Center of the back, starting approximately 4 inches below the hood seam.",
+          "size": "Approximately 60% of the hoodie's back width. Height should be scaled proportionally to maintain the logo's aspect ratio.",
+          "color": "#7DF9FF",
+          "coordinates": {
+            "top": "20%",
+            "left": "20%",
+            "width": "60%",
+            "height": "25%"
+          },
+          "colorContrast": "Excellent. The neon cyan will strongly contrast with the dark gray of the hoodie, ensuring high visibility and impact.",
+          "notes": "Ensure the logo is centered and straight. Due to the hoodie's material texture, consider adding a slight stroke (thin, black or very dark gray) around the logo for enhanced definition if print quality is a concern. Test print recommended to verify clarity and color accuracy. The goal is an oversized, impactful placement, while still appearing balanced on the garment.",
+          "alternativePlacements": [
+            "Upper back, centered, smaller size (approx. 30% of hoodie width), positioned just below the hood seam.",
+            "Small, discreet logo (3-4 inches wide) on the left sleeve near the cuff."
+          ]
+        },
+        "rawResponse": "```json\n{\n  \"placement\": \"Center of the back, starting approximately 4 inches below the hood seam.\",\n  \"size\": \"Approximately 60% of the hoodie's back width. Height should be scaled proportionally to maintain the logo's aspect ratio.\",\n  \"color\": \"#7DF9FF\",\n  \"coordinates\": {\n    \"top\": \"20%\",\n    \"left\": \"20%\",\n    \"width\": \"60%\",\n    \"height\": \"25%\"\n  },\n  \"colorContrast\": \"Excellent. The neon cyan will strongly contrast with the dark gray of the hoodie, ensuring high visibility and impact.\",\n  \"notes\": \"Ensure the logo is centered and straight. Due to the hoodie's material texture, consider adding a slight stroke (thin, black or very dark gray) around the logo for enhanced definition if print quality is a concern. Test print recommended to verify clarity and color accuracy. The goal is an oversized, impactful placement, while still appearing balanced on the garment.\",\n  \"alternativePlacements\": [\n    \"Upper back, centered, smaller size (approx. 30% of hoodie width), positioned just below the hood seam.\",\n    \"Small, discreet logo (3-4 inches wide) on the left sleeve near the cuff.\"\n  ]\n}\n```"
+      }
+    ]
+  },
+  {
+    "image": "Snow Wash Fleece Oversize Hoodie-gallery-11.png",
+    "variants": [
+      {
+        "success": true,
+        "variant": "classic-front",
+        "imageFile": "Snow Wash Fleece Oversize Hoodie-gallery-11.png",
+        "designSpec": {
+          "placement": "Center of chest, approximately 3 inches (7.62 cm) below the base of the collar (where the hood connects to the body of the hoodie). Align the logo horizontally with the center of the chest.",
+          "size": "Approximately 3 inches (7.62 cm) in width. Adjust proportionally to maintain the correct aspect ratio of the logo.",
+          "color": "#7DF9FF",
+          "coordinates": {
+            "top": "20%",
+            "left": "42%",
+            "width": "16%",
+            "height": "5%"
+          },
+          "colorContrast": "Excellent. The neon cyan will provide a very high contrast against the light grey/beige of the hoodie, ensuring visibility and impact.",
+          "notes": "The small size and centered placement will provide a subtle yet premium aesthetic. Ensure the font used for \"MH5\" is a bold, clean, sans-serif font similar to Oswald to align with the brand aesthetic. Consider testing a slightly larger size to see if it enhances the visual impact without compromising the minimalist feel. The logo should be placed high enough to be visible when the hoodie is zipped or worn open, but not so high that it disappears when the hood is up. No secondary color is recommended for this placement.",
+          "alternativePlacements": [
+            "Left chest, small (2.5 inches wide).",
+            "Right sleeve cuff, small (2 inches wide)."
+          ]
+        },
+        "rawResponse": "```json\n{\n  \"placement\": \"Center of chest, approximately 3 inches (7.62 cm) below the base of the collar (where the hood connects to the body of the hoodie). Align the logo horizontally with the center of the chest.\",\n  \"size\": \"Approximately 3 inches (7.62 cm) in width. Adjust proportionally to maintain the correct aspect ratio of the logo.\",\n  \"color\": \"#7DF9FF\",\n  \"coordinates\": {\n    \"top\": \"20%\",\n    \"left\": \"42%\",\n    \"width\": \"16%\",\n    \"height\": \"5%\"\n  },\n  \"colorContrast\": \"Excellent. The neon cyan will provide a very high contrast against the light grey/beige of the hoodie, ensuring visibility and impact.\",\n  \"notes\": \"The small size and centered placement will provide a subtle yet premium aesthetic. Ensure the font used for \\\"MH5\\\" is a bold, clean, sans-serif font similar to Oswald to align with the brand aesthetic. Consider testing a slightly larger size to see if it enhances the visual impact without compromising the minimalist feel. The logo should be placed high enough to be visible when the hoodie is zipped or worn open, but not so high that it disappears when the hood is up. No secondary color is recommended for this placement.\",\n  \"alternativePlacements\": [\n    \"Left chest, small (2.5 inches wide).\",\n    \"Right sleeve cuff, small (2 inches wide).\"\n  ]\n}\n```"
+      },
+      {
+        "success": true,
+        "variant": "classic-back",
+        "imageFile": "Snow Wash Fleece Oversize Hoodie-gallery-11.png",
+        "designSpec": {
+          "placement": "Center of the back, 6 inches below the collar seam.",
+          "size": "Approximately 10 inches wide, adjusting height proportionally to maintain the logo's aspect ratio. This translates to roughly 40% of the hoodie's width across the back.",
+          "color": "#7DF9FF",
+          "coordinates": {
+            "top": "25%",
+            "left": "30%",
+            "width": "40%",
+            "height": "15%"
+          },
+          "colorContrast": "Excellent. The neon cyan will strongly contrast with the neutral, light grey/beige color of the hoodie, ensuring high visibility and a modern aesthetic.",
+          "notes": "Given the hoodie's washed/vintage appearance, ensure the logo's application method (e.g., screen printing, DTG) is compatible and maintains its vibrant color. Consider a slight distressing effect on the logo edges to complement the hoodie's texture, but only if it aligns with the premium and clean aesthetic. Double-check logo placement on a physical sample to account for any back curvature.",
+          "alternativePlacements": [
+            {
+              "location": "Upper left chest, subtle placement.",
+              "size": "Around 3 inches wide, keeping it minimal."
+            },
+            {
+              "location": "Down the left sleeve, vertically aligned.",
+              "size": "Approximately 2 inches wide and 8 inches in height."
+            }
+          ]
+        },
+        "rawResponse": "```json\n{\n  \"placement\": \"Center of the back, 6 inches below the collar seam.\",\n  \"size\": \"Approximately 10 inches wide, adjusting height proportionally to maintain the logo's aspect ratio. This translates to roughly 40% of the hoodie's width across the back.\",\n  \"color\": \"#7DF9FF\",\n  \"coordinates\": {\n    \"top\": \"25%\",\n    \"left\": \"30%\",\n    \"width\": \"40%\",\n    \"height\": \"15%\"\n  },\n  \"colorContrast\": \"Excellent. The neon cyan will strongly contrast with the neutral, light grey/beige color of the hoodie, ensuring high visibility and a modern aesthetic.\",\n  \"notes\": \"Given the hoodie's washed/vintage appearance, ensure the logo's application method (e.g., screen printing, DTG) is compatible and maintains its vibrant color. Consider a slight distressing effect on the logo edges to complement the hoodie's texture, but only if it aligns with the premium and clean aesthetic. Double-check logo placement on a physical sample to account for any back curvature.\",\n  \"alternativePlacements\": [\n    {\n      \"location\": \"Upper left chest, subtle placement.\",\n      \"size\": \"Around 3 inches wide, keeping it minimal.\"\n    },\n    {\n      \"location\": \"Down the left sleeve, vertically aligned.\",\n      \"size\": \"Approximately 2 inches wide and 8 inches in height.\"\n    }\n  ]\n}\n```"
+      },
+      {
+        "success": true,
+        "variant": "minimal-corner",
+        "imageFile": "Snow Wash Fleece Oversize Hoodie-gallery-11.png",
+        "designSpec": {
+          "placement": "Front left chest corner, approximately 3 inches down from the shoulder seam and 2 inches from the center of the hoodie.",
+          "size": "Approximately 2.5 inches wide, scaling height appropriately to maintain aspect ratio.",
+          "color": "#7DF9FF",
+          "coordinates": {
+            "top": "15%",
+            "left": "18%",
+            "width": "7%",
+            "height": "Auto (maintain aspect ratio)"
+          },
+          "colorContrast": "Excellent. The neon cyan will provide a high degree of contrast against the light neutral color of the hoodie, ensuring the logo is clearly visible and legible.",
+          "notes": "Ensure the logo is horizontally aligned with the shoulder seam for a professional appearance. Consider the texture of the hoodie fabric when applying the logo to avoid any distortion or readability issues. A test print is highly recommended to confirm size and color accuracy.",
+          "alternativePlacements": [
+            "Slightly higher on the left chest, closer to the shoulder seam (around 2 inches down).",
+            "On the left sleeve, near the cuff."
+          ]
+        },
+        "rawResponse": "```json\n{\n  \"placement\": \"Front left chest corner, approximately 3 inches down from the shoulder seam and 2 inches from the center of the hoodie.\",\n  \"size\": \"Approximately 2.5 inches wide, scaling height appropriately to maintain aspect ratio.\",\n  \"color\": \"#7DF9FF\",\n  \"coordinates\": {\n    \"top\": \"15%\",\n    \"left\": \"18%\",\n    \"width\": \"7%\",\n    \"height\": \"Auto (maintain aspect ratio)\"\n  },\n  \"colorContrast\": \"Excellent. The neon cyan will provide a high degree of contrast against the light neutral color of the hoodie, ensuring the logo is clearly visible and legible.\",\n  \"notes\": \"Ensure the logo is horizontally aligned with the shoulder seam for a professional appearance. Consider the texture of the hoodie fabric when applying the logo to avoid any distortion or readability issues. A test print is highly recommended to confirm size and color accuracy.\",\n  \"alternativePlacements\": [\n    \"Slightly higher on the left chest, closer to the shoulder seam (around 2 inches down).\",\n    \"On the left sleeve, near the cuff.\"\n  ]\n}\n```"
+      },
+      {
+        "success": true,
+        "variant": "oversized-back",
+        "imageFile": "Snow Wash Fleece Oversize Hoodie-gallery-11.png",
+        "designSpec": {
+          "placement": "Center of the back, spanning from approximately 4 inches below the base of the hood to just above the hem ribbing.",
+          "size": "Height approximately 12 inches, Width approximately 8 inches (adjust to fit proportionally within the placement area and maintain readability and impact)",
+          "color": "#7DF9FF",
+          "coordinates": {
+            "top": "20%",
+            "left": "35%",
+            "width": "30%",
+            "height": "30%"
+          },
+          "colorContrast": "Excellent. The neon cyan will strongly contrast against the light grey/beige of the hoodie, ensuring high visibility.",
+          "notes": "Ensure the 'MH5' logo is vertically centered within the defined placement area. Consider adding a subtle shadow effect or very thin Frost (#9DFBFF) outline to the logo to enhance its visibility and premium feel, especially if there are any subtle tonal variations on the hoodie fabric. The modern, bold sans-serif font should be selected carefully to ensure a clean and easily readable logo, even at a distance. Given the garment's dye pattern, ensure the color remains consistent during print and the design avoids placement across any significant creases or folds.",
+          "alternativePlacements": [
+            "Small logo on the left chest, approximately 2 inches wide and 1 inch high.",
+            "Sleeve placement, running vertically down the left sleeve from shoulder to cuff, approximately 1 inch wide."
+          ]
+        },
+        "rawResponse": "```json\n{\n  \"placement\": \"Center of the back, spanning from approximately 4 inches below the base of the hood to just above the hem ribbing.\",\n  \"size\": \"Height approximately 12 inches, Width approximately 8 inches (adjust to fit proportionally within the placement area and maintain readability and impact)\",\n  \"color\": \"#7DF9FF\",\n  \"coordinates\": {\n    \"top\": \"20%\",\n    \"left\": \"35%\",\n    \"width\": \"30%\",\n    \"height\": \"30%\"\n  },\n  \"colorContrast\": \"Excellent. The neon cyan will strongly contrast against the light grey/beige of the hoodie, ensuring high visibility.\",\n  \"notes\": \"Ensure the 'MH5' logo is vertically centered within the defined placement area. Consider adding a subtle shadow effect or very thin Frost (#9DFBFF) outline to the logo to enhance its visibility and premium feel, especially if there are any subtle tonal variations on the hoodie fabric. The modern, bold sans-serif font should be selected carefully to ensure a clean and easily readable logo, even at a distance. Given the garment's dye pattern, ensure the color remains consistent during print and the design avoids placement across any significant creases or folds.\",\n  \"alternativePlacements\": [\n    \"Small logo on the left chest, approximately 2 inches wide and 1 inch high.\",\n    \"Sleeve placement, running vertically down the left sleeve from shoulder to cuff, approximately 1 inch wide.\"\n  ]\n}\n```"
+      }
+    ]
+  }
+]

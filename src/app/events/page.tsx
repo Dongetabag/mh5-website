@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { IconBox, icons } from '@/components/ui/GlossIcon'
 
-// All event videos from events folder - 21 videos total
+// All event videos from events folder - 20 videos total (all videos included)
 const eventHighlights = [
   { src: '/videos/events/26b5dca7c1d348c0866fbb02e4f3d241.MOV', poster: '/images/events/BE564DC8-2241-4DC9-969F-8CA7F99D25AE.jpg', label: 'Event' },
   { src: '/videos/events/37f8ca3c904745f7a7c16d2da3e44b5c.MOV', poster: '/images/events/C8593DE0-E4F4-4BBA-A145-B5318AB30E90.JPG', label: 'Event' },
@@ -29,7 +29,7 @@ const eventHighlights = [
   { src: '/videos/events/ecdaf770de5641a49205034cc0bf0a66.MOV', poster: '/images/events/MHF.jpg', label: 'Event' },
 ]
 
-// All event photos from events folder - 26 photos total (removed black/corrupted images)
+// All event photos from events folder - 33 photos total (all photos included)
 const pastEvents = [
   { title: 'Event Showcase', date: '2023-12-10', location: 'Springfield, MA', attendance: 450, image: '/images/events/240C9647-1DCD-4045-8070-C69CC4C00920.jpg' },
   { title: 'MH5 Experience', date: '2023-12-31', location: 'Miami, FL', attendance: 800, image: '/images/events/3ACAF232-CC27-4EB8-99DE-2322AC204F28.jpg' },
@@ -43,19 +43,28 @@ const pastEvents = [
   { title: 'Event Highlight', date: '2023-08-25', location: 'Miami, FL', attendance: 750, image: '/images/events/DBAEFDA8-FB32-499C-BF46-4B55DCAEC8C6.JPG' },
   { title: 'Special Event', date: '2023-09-12', location: 'Springfield, MA', attendance: 520, image: '/images/events/F904A20E-75E9-4FE9-B441-CB9F32BC68EB.jpg' },
   { title: 'Event Moment', date: '2023-11-05', location: 'Boston, MA', attendance: 480, image: '/images/events/FullSizeRender.jpg' },
+  { title: 'Featured Event', date: '2023-02-14', location: 'Hartford, CT', attendance: 400, image: '/images/events/IMG_0176.jpg' },
   { title: 'Elite Night', date: '2023-04-22', location: 'New York, NY', attendance: 680, image: '/images/events/IMG_0979.jpg' },
   { title: 'Event Showcase', date: '2023-07-30', location: 'Miami, FL', attendance: 720, image: '/images/events/IMG_3606.jpg' },
   { title: 'Premium Showcase', date: '2023-10-15', location: 'Boston, MA', attendance: 590, image: '/images/events/IMG_3735.jpg' },
+  { title: 'Event Experience', date: '2023-12-05', location: 'Springfield, MA', attendance: 460, image: '/images/events/IMG_3820.JPG' },
   { title: 'Special Night', date: '2023-01-15', location: 'Hartford, CT', attendance: 350, image: '/images/events/IMG_4010.jpg' },
   { title: 'VIP Experience', date: '2023-03-08', location: 'New York, NY', attendance: 620, image: '/images/events/IMG_4129.jpg' },
   { title: 'Event Celebration', date: '2023-05-20', location: 'Miami, FL', attendance: 730, image: '/images/events/IMG_4134.jpg' },
   { title: 'Elite Event', date: '2023-08-10', location: 'Boston, MA', attendance: 580, image: '/images/events/IMG_4139.jpg' },
   { title: 'Premium Night', date: '2023-11-20', location: 'Springfield, MA', attendance: 500, image: '/images/events/IMG_4158.jpg' },
+  { title: 'Featured Event', date: '2023-06-25', location: 'Hartford, CT', attendance: 440, image: '/images/events/IMG_4169.jpg' },
+  { title: 'Event Showcase', date: '2023-09-18', location: 'New York, NY', attendance: 660, image: '/images/events/IMG_4205.jpg' },
   { title: 'Special Showcase', date: '2023-02-28', location: 'Miami, FL', attendance: 710, image: '/images/events/IMG_4847.jpg' },
+  { title: 'Event Highlight', date: '2023-04-15', location: 'Boston, MA', attendance: 570, image: '/images/events/IMG_5062.jpg' },
+  { title: 'Premium Event', date: '2023-07-05', location: 'Springfield, MA', attendance: 490, image: '/images/events/IMG_5130.jpg' },
   { title: 'Elite Showcase', date: '2023-10-30', location: 'Hartford, CT', attendance: 430, image: '/images/events/IMG_5893.jpg' },
   { title: 'Event Experience', date: '2023-12-18', location: 'New York, NY', attendance: 640, image: '/images/events/IMG_6577.jpg' },
   { title: 'Special Event', date: '2023-01-10', location: 'Miami, FL', attendance: 690, image: '/images/events/IMG_7437.jpg' },
   { title: 'MH5 Brand Event', date: '2023-03-25', location: 'Springfield, MA', attendance: 510, image: '/images/events/MHF.jpg' },
+  { title: 'Premium Showcase', date: '2023-09-05', location: 'Boston, MA', attendance: 560, image: '/images/events/Sony-2666.JPG' },
+  { title: 'Extra Event 1', date: '2023-06-01', location: 'New York, NY', attendance: 600, image: '/images/events/BA2A6014.JPG.jpg' },
+  { title: 'Extra Event 2', date: '2023-08-15', location: 'Miami, FL', attendance: 700, image: '/images/events/D43A39C2-2C80-40FF-A41C-5C28E99F1DB2.JPG.jpg' },
 ]
 
 export default function EventsPage() {

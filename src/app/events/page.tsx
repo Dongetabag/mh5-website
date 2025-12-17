@@ -144,35 +144,44 @@ export default function EventsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="max-w-md mx-auto"
+              className="max-w-lg mx-auto"
             >
               {isSubmitted ? (
-                <div className="flex items-center justify-center gap-2 py-4 px-6 bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/30 rounded-xl">
-                  <svg className="w-5 h-5 text-[var(--color-primary)] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <motion.div
+                  initial={{ scale: 0.95, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  className="flex items-center justify-center gap-3 py-5 px-6 bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/30 rounded-2xl backdrop-blur-sm"
+                >
+                  <svg className="w-6 h-6 text-[var(--color-primary)] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-[var(--color-primary)] font-medium">You&apos;ll be first to know!</span>
-                </div>
+                  <span className="text-[var(--color-primary)] font-semibold text-base sm:text-lg">You&apos;ll be first to know!</span>
+                </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter email for early access"
-                    className="flex-1 h-14 px-5 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-gray-500 focus:outline-none focus:border-[var(--color-primary)]/50 text-base"
-                    required
-                  />
+                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
+                  <div className="relative group flex-1">
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Enter your email"
+                      className="w-full h-14 sm:h-16 px-6 bg-white/5 border border-white/10 rounded-2xl text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50 focus:border-[var(--color-primary)]/50 text-base sm:text-lg transition-all duration-300 backdrop-blur-sm"
+                      required
+                      aria-label="Email address for early access notifications"
+                      aria-describedby="email-help"
+                    />
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[var(--color-primary)]/0 via-[var(--color-primary)]/0 to-[var(--color-primary)]/0 group-focus-within:via-[var(--color-primary)]/10 group-focus-within:to-[var(--color-primary)]/5 pointer-events-none transition-all duration-300" />
+                  </div>
                   <button
                     type="submit"
-                    className="h-14 px-8 bg-[var(--color-primary)] text-black font-bold uppercase tracking-widest hover:brightness-110 transition whitespace-nowrap"
+                    className="h-14 sm:h-16 px-8 sm:px-12 bg-[var(--color-primary)] text-black font-bold uppercase tracking-wider hover:brightness-110 active:scale-[0.98] transition-all duration-200 rounded-2xl shadow-lg shadow-[var(--color-primary)]/20 hover:shadow-[var(--color-primary)]/30 text-base sm:text-lg whitespace-nowrap"
                     style={{ fontFamily: 'var(--font-heading)' }}
                   >
                     Notify Me
                   </button>
                 </form>
               )}
-              <p className="text-gray-500 text-sm mt-4">
+              <p id="email-help" className="text-gray-400 text-sm sm:text-base mt-4 text-center">
                 Be the first to know when tickets go on sale
               </p>
             </motion.div>

@@ -70,7 +70,7 @@ const mediaItems: MediaItem[] = [
   {
     id: '6',
     type: 'video',
-    src: '/videos/events/1b1484eba7bd4bce88563e9525889552.MOV',
+    src: '/videos/events/70965acdb9d5482c9035562525803230.MOV',
     title: 'Live Event Vibes',
     category: 'Events',
     views: '312K',

@@ -1,0 +1,185 @@
+{
+  "name": "MH5 Website Completion Automation",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 1
+            }
+          ]
+        }
+      },
+      "id": "schedule-trigger",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "command": "cd /var/www/mh5-site && node automation/scripts/google-ai-helper.js analyze",
+        "options": {}
+      },
+      "id": "analyze-project",
+      "name": "Analyze Project",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse analysis and extract incomplete components\nconst analysis = $input.item.json.stdout || '';\n\n// Extract component names from analysis\nconst componentPattern = /(CountdownTimer|ScrollProgress|ParallaxSection|AnimatedCard|ImageReveal|TestimonialCarousel|PressLogos|VideoPlayer|CursorFollower|TextSplitter|GlowCard|MorphingText|LoadingScreen|PageTransition|SmoothScroll|Marquee)/g;\nconst matches = analysis.match(componentPattern) || [];\nconst uniqueComponents = [...new Set(matches)];\n\n// Priority components from roadmap\nconst priorityComponents = [\n  'CountdownTimer',\n  'ScrollProgress',\n  'ParallaxSection',\n  'AnimatedCard',\n  'ImageReveal',\n  'TestimonialCarousel',\n  'PressLogos',\n  'VideoPlayer'\n];\n\n// Get next component to generate\nconst nextComponent = priorityComponents.find(comp => !uniqueComponents.includes(comp)) || priorityComponents[0];\n\nreturn [{\n  json: {\n    nextComponent,\n    analysis,\n    allComponents: uniqueComponents,\n    timestamp: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "parse-analysis",
+      "name": "Parse Analysis",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.nextComponent }}",
+              "operation": "notEmpty"
+            }
+          ]
+        }
+      },
+      "id": "check-component",
+      "name": "Check If Component Needed",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "command": "=cd /var/www/mh5-site && node automation/scripts/google-ai-helper.js generate {{ $json.nextComponent }} 'Create a production-ready React component following MH5 design system. Include TypeScript types, Tailwind CSS styling, and Framer Motion animations. Component should be in src/components/ directory.'",
+        "options": {}
+      },
+      "id": "generate-component",
+      "name": "Generate Component",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1050, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.n8n.io/webhook/mh5-component-created",
+        "authentication": "genericCredentialType",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "component",
+              "value": "={{ $('Parse Analysis').item.json.nextComponent }}"
+            },
+            {
+              "name": "code",
+              "value": "={{ $json.stdout }}"
+            },
+            {
+              "name": "timestamp",
+              "value": "={{ $json.timestamp }}"
+            }
+          ]
+        }
+      },
+      "id": "notify-completion",
+      "name": "Notify Component Created",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1250, 200]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "log-completion",
+              "name": "log",
+              "value": "=Component {{ $('Parse Analysis').item.json.nextComponent }} generated successfully",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "log-result",
+      "name": "Log Result",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [1450, 200]
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [[{
+        "node": "Analyze Project",
+        "type": "main",
+        "index": 0
+      }]]
+    },
+    "Analyze Project": {
+      "main": [[{
+        "node": "Parse Analysis",
+        "type": "main",
+        "index": 0
+      }]]
+    },
+    "Parse Analysis": {
+      "main": [[{
+        "node": "Check If Component Needed",
+        "type": "main",
+        "index": 0
+      }]]
+    },
+    "Check If Component Needed": {
+      "main": [[{
+        "node": "Generate Component",
+        "type": "main",
+        "index": 0
+      }], [{
+        "node": "Log Result",
+        "type": "main",
+        "index": 0
+      }]]
+    },
+    "Generate Component": {
+      "main": [[{
+        "node": "Notify Component Created",
+        "type": "main",
+        "index": 0
+      }]]
+    },
+    "Notify Component Created": {
+      "main": [[{
+        "node": "Log Result",
+        "type": "main",
+        "index": 0
+      }]]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-12-17T00:00:00.000Z",
+      "updatedAt": "2024-12-17T00:00:00.000Z",
+      "id": "mh5-automation",
+      "name": "MH5 Website"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-12-17T00:00:00.000Z",
+  "versionId": "1"
+}
+

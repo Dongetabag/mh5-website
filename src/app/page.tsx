@@ -8,6 +8,7 @@
  * Elite Performance Style
  */
 
+import { useEffect } from 'react'
 import {
   FunnelHero,
   JourneySection,
@@ -17,6 +18,11 @@ import {
 import StatsTicker from '@/components/StatsTicker'
 
 export default function Home() {
+  useEffect(() => {
+    // Log to help debug if page loads
+    console.log('Home page mounted')
+  }, [])
+
   return (
     <>
       <FunnelHero />

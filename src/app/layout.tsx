@@ -9,6 +9,7 @@ import ScrollAutoplayInit from '@/components/common/ScrollAutoplayInit'
 import FluidBackground from '@/components/FluidBackground'
 import CustomCursor from '@/components/CustomCursor'
 import CartDrawer from '@/components/cart/CartDrawer'
+import ErrorBoundary from '@/components/ErrorBoundary'
 
 export const metadata: Metadata = {
   title: `${siteConfig.meta.siteName} | ${siteConfig.meta.tagline}`,
@@ -44,19 +45,21 @@ export default function RootLayout({
           color: 'var(--color-text-primary)',
         }}
       >
-        <ThemeProvider>
-          <CartProvider>
-            <FluidBackground />
-            <CustomCursor />
-            <Navigation />
-            <ScrollAutoplayInit />
-            <CartDrawer />
-            <main className="relative z-10 cursor-auto md:cursor-none">
-              {children}
-            </main>
-            <Footer />
-          </CartProvider>
-        </ThemeProvider>
+        <ErrorBoundary>
+          <ThemeProvider>
+            <CartProvider>
+              <FluidBackground />
+              <CustomCursor />
+              <Navigation />
+              <ScrollAutoplayInit />
+              <CartDrawer />
+              <main className="relative z-10 cursor-auto md:cursor-none">
+                {children}
+              </main>
+              <Footer />
+            </CartProvider>
+          </ThemeProvider>
+        </ErrorBoundary>
       </body>
     </html>
   )

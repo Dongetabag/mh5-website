@@ -37,22 +37,28 @@ export function ThemeProvider({ children, defaultTheme }: ThemeProviderProps) {
   useEffect(() => {
     setMounted(true)
 
-    // Check for saved preference
-    const savedTheme = localStorage.getItem('theme') as ThemeVariant | null
-    if (savedTheme && savedTheme !== 'custom' && savedTheme in themes) {
-      setCurrentTheme(savedTheme)
+    // Check for saved preference (only on client)
+    if (typeof window !== 'undefined') {
+      try {
+        const savedTheme = localStorage.getItem('theme') as ThemeVariant | null
+        if (savedTheme && savedTheme !== 'custom' && savedTheme in themes) {
+          setCurrentTheme(savedTheme)
+        }
+
+        // Check for reduced motion preference
+        const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+        setIsReducedMotion(motionQuery.matches)
+
+        const handleMotionChange = (e: MediaQueryListEvent) => {
+          setIsReducedMotion(e.matches)
+        }
+
+        motionQuery.addEventListener('change', handleMotionChange)
+        return () => motionQuery.removeEventListener('change', handleMotionChange)
+      } catch (error) {
+        console.error('Theme initialization error:', error)
+      }
     }
-
-    // Check for reduced motion preference
-    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-    setIsReducedMotion(motionQuery.matches)
-
-    const handleMotionChange = (e: MediaQueryListEvent) => {
-      setIsReducedMotion(e.matches)
-    }
-
-    motionQuery.addEventListener('change', handleMotionChange)
-    return () => motionQuery.removeEventListener('change', handleMotionChange)
   }, [])
 
   // Apply theme CSS variables when theme changes

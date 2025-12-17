@@ -1,7 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Standalone output for Hostinger deployment
-  output: 'standalone',
   images: {
     // Allow unoptimized images for local static files
     unoptimized: true,

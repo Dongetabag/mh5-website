@@ -34,7 +34,7 @@ const journeyBlocks: JourneyBlock[] = [
     description: "Born in Springfield, Massachusetts - the birthplace of basketball. From the neighborhood courts to Western Mass legend status, the journey started where the game itself began over 130 years ago.",
     media: {
       type: 'video',
-      src: '/videos/basketball/26e44d220245495a8a592c0002ace524.MOV',
+      src: '/videos/basketball/88b0d1582ab545f8befd9ad80dabd80f.MOV',
     },
     stats: [
       { value: 'Springfield, MA', label: 'Hometown' },
@@ -49,7 +49,7 @@ const journeyBlocks: JourneyBlock[] = [
     description: "Four consecutive years as a Super 7 selection. Every season, proving to be among the elite in Western Massachusetts. The numbers speak, but the game speaks louder.",
     media: {
       type: 'video',
-      src: '/videos/basketball/13f27e29c219419d852eac4f5ef134dd.MOV',
+      src: '/videos/basketball/6f40c6f056194535a398d54f76c6f2da.MOV',
     },
     stats: [
       { value: '4x', label: 'Super 7 Selections' },
@@ -64,7 +64,7 @@ const journeyBlocks: JourneyBlock[] = [
     description: "Joining forces with Julian Newman at Prodigy Prep in Florida. Making an immediate impact with 65 points in the first two games. Leading the program to its historic first win with 27 points.",
     media: {
       type: 'video',
-      src: '/videos/basketball/69722150427940f68a4a967b2ba80576.MOV',
+      src: '/videos/basketball/26e44d220245495a8a592c0002ace524.MOV',
     },
     stats: [
       { value: '65', label: 'Points First Weekend' },
@@ -80,7 +80,7 @@ const journeyBlocks: JourneyBlock[] = [
     description: "More than basketball. The Movement Has 5ive represents excellence, entertainment, and elevation. From hosting tournaments to nightlife events, MH5 is a lifestyle brand built on authenticity.",
     media: {
       type: 'video',
-      src: '/videos/events/26b5dca7c1d348c0866fbb02e4f3d241.MOV',
+      src: '/videos/events/c7ae7027582a43399c46595e1203d9a4.MOV',
     },
     stats: [
       { value: '500K+', label: 'Followers' },

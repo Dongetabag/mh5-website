@@ -58,28 +58,67 @@ const partnershipTiers = [
   },
 ]
 
-// SVG Icon Components
+// Elegant SVG Icon Components with Gradient
 const SportsIcon = () => (
-  <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 2c1.85 0 3.55.63 4.9 1.69-1.79 1.59-2.9 3.73-2.9 6.06s1.11 4.47 2.9 6.06c-1.35 1.06-3.05 1.69-4.9 1.69-1.85 0-3.55-.63-4.9-1.69 1.79-1.59 2.9-3.73 2.9-6.06S8.89 7.28 7.1 5.69C8.45 4.63 10.15 4 12 4zm-6.18 3.22C7.05 8.49 8 9.93 8 11.75s-.95 3.26-2.18 4.53C4.63 15.05 4 13.57 4 12s.63-3.05 1.82-4.28zm12.36 0C19.37 8.95 20 10.43 20 12s-.63 3.05-1.82 4.28C17.05 15.01 16 13.57 16 11.75s.95-3.26 2.18-4.53z" />
+  <svg className="w-14 h-14" fill="none" viewBox="0 0 24 24">
+    <defs>
+      <linearGradient id="sportsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="var(--color-primary)" />
+        <stop offset="100%" stopColor="var(--color-secondary)" />
+      </linearGradient>
+    </defs>
+    <circle cx="12" cy="12" r="9" stroke="url(#sportsGrad)" strokeWidth="1.2" fill="none" opacity="0.25" />
+    <circle cx="12" cy="12" r="9" stroke="url(#sportsGrad)" strokeWidth="1.5" fill="none" />
+    <path d="M8 12h8M12 8v8" stroke="url(#sportsGrad)" strokeWidth="1.5" strokeLinecap="round" />
+    <circle cx="12" cy="12" r="1.5" fill="url(#sportsGrad)" />
   </svg>
 )
 
 const LifestyleIcon = () => (
-  <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+  <svg className="w-14 h-14" fill="none" viewBox="0 0 24 24">
+    <defs>
+      <linearGradient id="lifestyleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="var(--color-primary)" />
+        <stop offset="100%" stopColor="var(--color-secondary)" />
+      </linearGradient>
+    </defs>
+    <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z" stroke="url(#lifestyleGrad)" strokeWidth="1.5" fill="url(#lifestyleGrad)" fillOpacity="0.15" />
+    <circle cx="12" cy="10" r="1.5" fill="url(#lifestyleGrad)" />
+    <circle cx="8" cy="6" r="0.8" fill="url(#lifestyleGrad)" fillOpacity="0.5" />
+    <circle cx="16" cy="6" r="0.8" fill="url(#lifestyleGrad)" fillOpacity="0.5" />
+    <circle cx="8" cy="14" r="0.8" fill="url(#lifestyleGrad)" fillOpacity="0.5" />
+    <circle cx="16" cy="14" r="0.8" fill="url(#lifestyleGrad)" fillOpacity="0.5" />
   </svg>
 )
 
 const MediaIcon = () => (
-  <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+  <svg className="w-14 h-14" fill="none" viewBox="0 0 24 24">
+    <defs>
+      <linearGradient id="mediaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="var(--color-primary)" />
+        <stop offset="100%" stopColor="var(--color-secondary)" />
+      </linearGradient>
+    </defs>
+    <rect x="4" y="6" width="14" height="12" rx="2" stroke="url(#mediaGrad)" strokeWidth="1.5" fill="none" />
+    <path d="M18 8L20 9L18 10V8Z" fill="url(#mediaGrad)" />
+    <circle cx="11" cy="12" r="2.5" stroke="url(#mediaGrad)" strokeWidth="1.2" fill="none" opacity="0.2" />
+    <circle cx="11" cy="12" r="1" fill="url(#mediaGrad)" />
+    <path d="M8 6V4M16 6V4" stroke="url(#mediaGrad)" strokeWidth="1.5" strokeLinecap="round" />
   </svg>
 )
 
 const FinanceIcon = () => (
-  <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+  <svg className="w-14 h-14" fill="none" viewBox="0 0 24 24">
+    <defs>
+      <linearGradient id="financeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="var(--color-primary)" />
+        <stop offset="100%" stopColor="var(--color-secondary)" />
+      </linearGradient>
+    </defs>
+    <rect x="6" y="4" width="12" height="16" rx="2" stroke="url(#financeGrad)" strokeWidth="1.5" fill="none" />
+    <path d="M10 8H14M10 12H14M10 16H14" stroke="url(#financeGrad)" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M8 6V4C8 3.44772 8.44772 3 9 3H15C15.5523 3 16 3.44772 16 4V6" stroke="url(#financeGrad)" strokeWidth="1.5" strokeLinecap="round" />
+    <circle cx="12" cy="10" r="0.5" fill="url(#financeGrad)" />
   </svg>
 )
 
@@ -468,8 +507,11 @@ export default function PartnersPage() {
                 transition={{ delay: index * 0.1 }}
                 className="bg-[#111] border border-[#222] p-6 hover:border-[var(--color-primary)]/50 transition-colors group"
               >
-                <div className="text-[var(--color-primary)] mb-4 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  {category.icon}
+                <div className="mb-6 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+                  <div className="relative">
+                    {category.icon}
+                    <div className="absolute inset-0 blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300" style={{ background: 'var(--color-primary)', borderRadius: '50%' }} />
+                  </div>
                 </div>
                 <h3
                   className="text-xl font-bold text-white mb-3 uppercase group-hover:text-[var(--color-primary)] transition-colors"

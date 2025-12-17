@@ -202,6 +202,16 @@ export default function PartnersPage() {
   const [activeVideo, setActiveVideo] = useState(0)
   const carouselRef = useRef<HTMLDivElement>(null)
 
+  const scrollCarousel = (direction: 'left' | 'right') => {
+    if (carouselRef.current) {
+      const scrollAmount = 320
+      carouselRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      })
+    }
+  }
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
@@ -215,25 +225,32 @@ export default function PartnersPage() {
     }
   }
 
-  const scrollCarousel = (direction: 'left' | 'right') => {
-    if (carouselRef.current) {
-      const scrollAmount = 320
-      carouselRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth'
-      })
-    }
-  }
-
   return (
     <div className="bg-black min-h-screen">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[var(--color-primary)] rounded-full filter blur-[200px] opacity-10 pointer-events-none" />
+        {/* Background video */}
+        <div className="absolute inset-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-30"
+          >
+            <source src="/videos/brand-campaigns/37f8ca3c904745f7a7c16d2da3e44b5c.MOV" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#0a0a0a]" />
+        </div>
 
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 opacity-5">
+        {/* Animated gradient orbs */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[var(--color-primary)]/10 rounded-full blur-[150px] animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[var(--color-secondary)]/10 rounded-full blur-[120px]" />
+        </div>
+
+        {/* Grid Pattern Overlay */}
+        <div className="absolute inset-0 opacity-5 z-0">
           <div className="absolute inset-0" style={{
             backgroundImage: 'linear-gradient(var(--color-primary) 1px, transparent 1px), linear-gradient(90deg, var(--color-primary) 1px, transparent 1px)',
             backgroundSize: '50px 50px'

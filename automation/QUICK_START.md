@@ -26,35 +26,58 @@
 
 ## 3-Step Quick Start
 
-### Step 1: Upload Files to VPS
+### Step 1: Deploy to VPS (Recommended: GitHub Clone)
+
+**Option A: Clone from GitHub (Easiest)**
+
+```bash
+# SSH into VPS
+ssh root@72.61.72.94
+
+# Download and run deployment script
+curl -O https://raw.githubusercontent.com/Dongetabag/mh5-website/main/automation/DEPLOY_FROM_GITHUB.sh
+bash DEPLOY_FROM_GITHUB.sh
+```
+
+**Option B: Manual Clone**
+
+```bash
+ssh root@72.61.72.94
+cd /var/www
+git clone https://github.com/Dongetabag/mh5-website.git mh5-site
+cd mh5-site
+bash automation/vps-setup.sh
+```
+
+**Option C: SCP Upload (If SSH keys configured)**
 
 ```bash
 cd "/Users/simeonreid/MH5 Website/mh5-site"
 scp -r automation root@72.61.72.94:/var/www/mh5-site/
+ssh root@72.61.72.94 "cd /var/www/mh5-site && bash automation/vps-setup.sh"
 ```
 
-**Note:** You'll need SSH access configured. If you get permission errors, check your SSH keys or use password authentication.
-
-### Step 2: Run Setup on VPS
+### Step 2: Verify Installation
 
 ```bash
 ssh root@72.61.72.94
 cd /var/www/mh5-site
-bash automation/vps-setup.sh
+node automation/scripts/google-ai-helper.js analyze
 ```
 
 This will:
-- Install Google AI SDK (Node.js & Python)
-- Create helper scripts
-- Configure environment variables
-- Set up automation directories
+- ✅ Install Google AI SDK (Node.js & Python)
+- ✅ Create helper scripts
+- ✅ Configure environment variables
+- ✅ Set up automation directories
 
 ### Step 3: Import n8n Workflow
 
 1. Go to: `https://n8n.srv1167160.hstgr.cloud`
-2. Import: `automation/workflows/mh5-website-automation.json`
-3. Activate the workflow
-4. Done! Automation will start running
+2. Click **"Workflows"** → **"Import from File"**
+3. Upload: `automation/workflows/mh5-website-automation.json`
+4. Activate the workflow
+5. Done! Automation will start running
 
 ---
 

@@ -328,14 +328,6 @@ export default function PartnersPage() {
                     />
                     {/* Overlay */}
                     <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
-                    {/* Play Button */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-[var(--color-primary)]/90 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <svg className="w-6 h-6 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </div>
-                    </div>
                     {/* Stats */}
                     <div className="absolute bottom-4 left-4 right-4">
                       <h3 className="text-white font-bold mb-2">{video.title}</h3>

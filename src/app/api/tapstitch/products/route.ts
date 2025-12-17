@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server'
-import { getTapStitchProducts } from '@/lib/tapstitch'
+import { getAllProducts } from '@/data/products'
 
 /**
  * GET /api/tapstitch/products
- * Fetch products from TapStitch store
+ * Fetch products from local data (will be replaced with TapStitch API once configured)
  * 
  * Query params:
  * - limit: number of products to return (default: 20)
@@ -15,31 +15,30 @@ export async function GET(request: Request) {
     const limit = parseInt(searchParams.get('limit') || '20')
     const offset = parseInt(searchParams.get('offset') || '0')
 
-    // Fetch products from TapStitch
-    const products = await getTapStitchProducts()
-
+    // Get all products from local data
+    const allProducts = getAllProducts()
+    
     // Apply pagination
-    const paginatedProducts = products.slice(offset, offset + limit)
+    const paginatedProducts = allProducts.slice(offset, offset + limit)
 
     return NextResponse.json({
       success: true,
       data: {
-        products: paginatedProducts,
-        total: products.length,
-        limit,
+        items: paginatedProducts,
+        products: paginatedProducts, // Support both formats
+        total: allProducts.length,
         offset,
+        limit,
       },
     })
   } catch (error: any) {
-    console.error('TapStitch products API error:', error)
+    console.error('Products API error:', error)
     return NextResponse.json(
       {
         success: false,
         error: error.message || 'Failed to fetch products',
-        message: 'Please configure TapStitch API credentials. See TAPSTITCH_INTEGRATION_PLAN.md',
       },
       { status: 500 }
     )
   }
 }
-

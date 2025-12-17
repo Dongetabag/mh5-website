@@ -214,9 +214,11 @@ export default function EventsPage() {
                     loop
                     muted
                     playsInline
-                    onMouseEnter={(e) => e.currentTarget.play()}
+                    preload="metadata"
+                    onMouseEnter={(e) => e.currentTarget.play().catch(() => {})}
                     onMouseLeave={(e) => { e.currentTarget.pause(); e.currentTarget.currentTime = 0; }}
                   >
+                    <source src={video.src} type="video/quicktime" />
                     <source src={video.src} type="video/mp4" />
                   </video>
 

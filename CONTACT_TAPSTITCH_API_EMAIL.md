@@ -19,6 +19,7 @@ I hope this email finds you well. I'm reaching out to request API access for int
 - Platform: Next.js (React framework)
 - Hosting: Hostinger
 - Website: [YOUR_DOMAIN_HERE]
+- Contact Email: contact@therealmh5.com
 - Use Case: Print-on-demand fulfillment for custom apparel (hoodies, t-shirts, etc.)
 
 **What I Need:**
@@ -50,7 +51,7 @@ Thank you for your time and assistance!
 
 Best regards,
 [YOUR_NAME]
-[YOUR_EMAIL]
+contact@therealmh5.com
 [YOUR_PHONE_OPTIONAL]
 ```
 

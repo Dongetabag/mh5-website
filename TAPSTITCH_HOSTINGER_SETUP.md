@@ -31,6 +31,7 @@ Could you please provide:
 5. Authentication method
 
 My website URL: [YOUR_DOMAIN]
+Contact Email: contact@therealmh5.com
 Use case: Custom e-commerce store needing POD fulfillment
 
 Thank you!

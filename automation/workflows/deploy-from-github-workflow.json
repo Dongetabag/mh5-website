@@ -1,0 +1,200 @@
+{
+  "name": "MH5 Website - Deploy from GitHub",
+  "nodes": [
+    {
+      "parameters": {
+        "mode": "webhook"
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [250, 300],
+      "webhookId": "mh5-deploy"
+    },
+    {
+      "parameters": {
+        "command": "cd /var/www && rm -rf mh5-site && git clone https://github.com/Dongetabag/mh5-website.git mh5-site",
+        "options": {}
+      },
+      "id": "clone-repo",
+      "name": "Clone Repository",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json.exitCode }}",
+              "operation": "equal",
+              "value2": 0
+            }
+          ]
+        }
+      },
+      "id": "check-clone",
+      "name": "Check Clone Success",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "command": "cd /var/www/mh5-site && bash automation/vps-setup.sh",
+        "options": {}
+      },
+      "id": "run-setup",
+      "name": "Run Setup Script",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [850, 200]
+    },
+    {
+      "parameters": {
+        "command": "cd /var/www/mh5-site && node automation/scripts/google-ai-helper.js analyze",
+        "options": {}
+      },
+      "id": "verify-install",
+      "name": "Verify Installation",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1050, 200]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json.exitCode }}",
+              "operation": "equal",
+              "value2": 0
+            }
+          ]
+        }
+      },
+      "id": "check-verification",
+      "name": "Check Verification",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1250, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "const result = $input.item.json.stdout || 'Setup completed successfully';\nreturn [{\n  json: {\n    status: 'success',\n    message: 'MH5 Website automation deployed successfully',\n    output: result,\n    timestamp: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "success-response",
+      "name": "Success Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1450, 100]
+    },
+    {
+      "parameters": {
+        "jsCode": "const error = $input.item.json.stderr || 'Unknown error occurred';\nreturn [{\n  json: {\n    status: 'error',\n    message: 'Deployment failed',\n    error: error,\n    timestamp: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "error-response",
+      "name": "Error Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1450, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "webhook-response",
+      "name": "Webhook Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1650, 200]
+    }
+  ],
+  "connections": {
+    "Webhook Trigger": {
+      "main": [[{
+        "node": "Clone Repository",
+        "type": "main",
+        "index": 0
+      }]]
+    },
+    "Clone Repository": {
+      "main": [[{
+        "node": "Check Clone Success",
+        "type": "main",
+        "index": 0
+      }]]
+    },
+    "Check Clone Success": {
+      "main": [[{
+        "node": "Run Setup Script",
+        "type": "main",
+        "index": 0
+      }], [{
+        "node": "Error Response",
+        "type": "main",
+        "index": 0
+      }]]
+    },
+    "Run Setup Script": {
+      "main": [[{
+        "node": "Verify Installation",
+        "type": "main",
+        "index": 0
+      }]]
+    },
+    "Verify Installation": {
+      "main": [[{
+        "node": "Check Verification",
+        "type": "main",
+        "index": 0
+      }]]
+    },
+    "Check Verification": {
+      "main": [[{
+        "node": "Success Response",
+        "type": "main",
+        "index": 0
+      }], [{
+        "node": "Error Response",
+        "type": "main",
+        "index": 0
+      }]]
+    },
+    "Success Response": {
+      "main": [[{
+        "node": "Webhook Response",
+        "type": "main",
+        "index": 0
+      }]]
+    },
+    "Error Response": {
+      "main": [[{
+        "node": "Webhook Response",
+        "type": "main",
+        "index": 0
+      }]]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-12-17T00:00:00.000Z",
+      "updatedAt": "2024-12-17T00:00:00.00000.000Z",
+      "id": "mh5-deployment",
+      "name": "MH5 Deployment"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-12-17T00:00:00.000Z",
+  "versionId": "1"
+}
+

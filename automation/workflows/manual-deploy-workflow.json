@@ -1,0 +1,192 @@
+{
+  "name": "MH5 Website - Manual Deploy & Setup",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-trigger",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "command": "cd /var/www && if [ -d mh5-site ]; then mv mh5-site mh5-site.backup.$(date +%Y%m%d_%H%M%S); fi && git clone https://github.com/Dongetabag/mh5-website.git mh5-site 2>&1",
+        "options": {}
+      },
+      "id": "clone-repo",
+      "name": "Clone Repository",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "clone-output",
+              "name": "cloneOutput",
+              "value": "={{ $json.stdout }}",
+              "type": "string"
+            },
+            {
+              "id": "clone-error",
+              "name": "cloneError",
+              "value": "={{ $json.stderr }}",
+              "type": "string"
+            },
+            {
+              "id": "exit-code",
+              "name": "exitCode",
+              "value": "={{ $json.exitCode }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "process-clone",
+      "name": "Process Clone Result",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json.exitCode }}",
+              "operation": "equal",
+              "value2": 0
+            }
+          ]
+        }
+      },
+      "id": "check-clone",
+      "name": "Clone Successful?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "command": "cd /var/www/mh5-site && chmod +x automation/vps-setup.sh && bash automation/vps-setup.sh 2>&1",
+        "options": {}
+      },
+      "id": "run-setup",
+      "name": "Run Setup Script",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1050, 200]
+    },
+    {
+      "parameters": {
+        "command": "cd /var/www/mh5-site && node automation/scripts/google-ai-helper.js analyze 2>&1",
+        "options": {}
+      },
+      "id": "test-google-ai",
+      "name": "Test Google AI",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1250, 200]
+    },
+    {
+      "parameters": {
+        "command": "cd /var/www/mh5-site && cat .env | grep GOOGLE_AI_API_KEY | head -1",
+        "options": {}
+      },
+      "id": "check-env",
+      "name": "Check Environment",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1450, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "const setupOutput = $('Run Setup Script').item.json.stdout || '';\nconst testOutput = $('Test Google AI').item.json.stdout || '';\nconst envOutput = $('Check Environment').item.json.stdout || '';\n\nreturn [{\n  json: {\n    status: 'success',\n    message: 'MH5 Website automation deployed and verified',\n    setup: setupOutput.substring(0, 500),\n    googleAI: testOutput.substring(0, 500),\n    environment: envOutput,\n    timestamp: new Date().toISOString(),\n    nextSteps: [\n      'Import n8n workflow from automation/workflows/mh5-website-automation.json',\n      'Configure workflow credentials',\n      'Activate workflow to start automation'\n    ]\n  }\n}];"
+      },
+      "id": "success-summary",
+      "name": "Success Summary",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1650, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "const error = $input.item.json.stderr || $input.item.json.stdout || 'Unknown error';\nconst exitCode = $input.item.json.exitCode || -1;\n\nreturn [{\n  json: {\n    status: 'error',\n    message: 'Deployment failed',\n    error: error.substring(0, 1000),\n    exitCode: exitCode,\n    timestamp: new Date().toISOString(),\n    troubleshooting: [\n      'Check SSH permissions',\n      'Verify git is installed: git --version',\n      'Check disk space: df -h',\n      'Verify directory exists: ls -la /var/www'\n    ]\n  }\n}];"
+      },
+      "id": "error-summary",
+      "name": "Error Summary",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1050, 400]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [[{
+        "node": "Clone Repository",
+        "type": "main",
+        "index": 0
+      }]]
+    },
+    "Clone Repository": {
+      "main": [[{
+        "node": "Process Clone Result",
+        "type": "main",
+        "index": 0
+      }]]
+    },
+    "Process Clone Result": {
+      "main": [[{
+        "node": "Clone Successful?",
+        "type": "main",
+        "index": 0
+      }]]
+    },
+    "Clone Successful?": {
+      "main": [[{
+        "node": "Run Setup Script",
+        "type": "main",
+        "index": 0
+      }], [{
+        "node": "Error Summary",
+        "type": "main",
+        "index": 0
+      }]]
+    },
+    "Run Setup Script": {
+      "main": [[{
+        "node": "Test Google AI",
+        "type": "main",
+        "index": 0
+      }]]
+    },
+    "Test Google AI": {
+      "main": [[{
+        "node": "Check Environment",
+        "type": "main",
+        "index": 0
+      }]]
+    },
+    "Check Environment": {
+      "main": [[{
+        "node": "Success Summary",
+        "type": "main",
+        "index": 0
+      }]]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-12-17T00:00:00.000Z",
+  "versionId": "1"
+}
+

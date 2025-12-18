@@ -123,14 +123,23 @@ function JourneyBlock({ block, index }: { block: JourneyBlock; index: number }) 
                 console.error('Video error:', block.media.src, e)
               }}
             >
-              {block.media.src.endsWith('.MOV') || block.media.src.endsWith('.mov') ? (
-                <>
-                  <source src={block.media.src.replace(/\.(MOV|mov)$/, '.mp4')} type="video/mp4" />
-                  <source src={block.media.src} type="video/quicktime" />
-                </>
-              ) : (
-                <source src={block.media.src} type="video/mp4" />
-              )}
+              {(() => {
+                const src = block.media.src
+                const isMov = src.toLowerCase().endsWith('.mov')
+                const baseName = src.replace(/\.(MOV|mov|mp4)$/i, '')
+                
+                if (isMov) {
+                  return (
+                    <>
+                      <source src={`${baseName}.mp4`} type="video/mp4" />
+                      <source src={`${baseName}.mov`} type="video/quicktime" />
+                      <source src={`${baseName}.MOV`} type="video/quicktime" />
+                      <source src={src} type="video/quicktime" />
+                    </>
+                  )
+                }
+                return <source src={src} type="video/mp4" />
+              })()}
             </video>
           ) : (
             <div

@@ -35,6 +35,7 @@ const journeyBlocks: JourneyBlock[] = [
     media: {
       type: 'video',
       src: '/videos/basketball/88b0d1582ab545f8befd9ad80dabd80f.MOV',
+      poster: '/images/basketball/IMG_1424.jpg',
     },
     stats: [
       { value: 'Springfield, MA', label: 'Hometown' },
@@ -50,6 +51,7 @@ const journeyBlocks: JourneyBlock[] = [
     media: {
       type: 'video',
       src: '/videos/basketball/6f40c6f056194535a398d54f76c6f2da.MOV',
+      poster: '/images/basketball/IMG_4501.jpg',
     },
     stats: [
       { value: '4x', label: 'Super 7 Selections' },
@@ -65,6 +67,7 @@ const journeyBlocks: JourneyBlock[] = [
     media: {
       type: 'video',
       src: '/videos/basketball/26e44d220245495a8a592c0002ace524.MOV',
+      poster: '/images/basketball/IMG_1836.jpg',
     },
     stats: [
       { value: '65', label: 'Points First Weekend' },
@@ -81,6 +84,7 @@ const journeyBlocks: JourneyBlock[] = [
     media: {
       type: 'video',
       src: '/videos/events/c7ae7027582a43399c46595e1203d9a4.MOV',
+      poster: '/images/events/IMG_4139.jpg',
     },
     stats: [
       { value: '500K+', label: 'Followers' },

@@ -225,6 +225,7 @@ export default function FunnelHero() {
                 <div className="relative aspect-[9/16] bg-[#111] rounded-[2rem] overflow-hidden">
                   {/* Vertical Video */}
                   <video
+                    ref={verticalVideoRef}
                     autoPlay
                     loop
                     muted
@@ -233,6 +234,7 @@ export default function FunnelHero() {
                     className="absolute inset-0 w-full h-full object-cover"
                   >
                     <source src="/videos/hero/vertical-highlight.mp4" type="video/mp4" />
+                    <source src="/videos/hero/vertical-highlight.mov" type="video/quicktime" />
                     <source src="/videos/hero/vertical-highlight.MOV" type="video/quicktime" />
                   </video>
 

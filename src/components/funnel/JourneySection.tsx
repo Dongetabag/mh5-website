@@ -35,7 +35,6 @@ const journeyBlocks: JourneyBlock[] = [
     media: {
       type: 'video',
       src: '/videos/basketball/88b0d1582ab545f8befd9ad80dabd80f.MOV',
-      poster: '/images/basketball/IMG_1424.jpg',
     },
     stats: [
       { value: 'Springfield, MA', label: 'Hometown' },
@@ -51,7 +50,6 @@ const journeyBlocks: JourneyBlock[] = [
     media: {
       type: 'video',
       src: '/videos/basketball/6f40c6f056194535a398d54f76c6f2da.MOV',
-      poster: '/images/basketball/IMG_4501.jpg',
     },
     stats: [
       { value: '4x', label: 'Super 7 Selections' },
@@ -67,7 +65,6 @@ const journeyBlocks: JourneyBlock[] = [
     media: {
       type: 'video',
       src: '/videos/basketball/26e44d220245495a8a592c0002ace524.MOV',
-      poster: '/images/basketball/IMG_1836.jpg',
     },
     stats: [
       { value: '65', label: 'Points First Weekend' },
@@ -84,7 +81,6 @@ const journeyBlocks: JourneyBlock[] = [
     media: {
       type: 'video',
       src: '/videos/events/c7ae7027582a43399c46595e1203d9a4.MOV',
-      poster: '/images/events/IMG_4139.jpg',
     },
     stats: [
       { value: '500K+', label: 'Followers' },
@@ -124,41 +120,10 @@ function JourneyBlock({ block, index }: { block: JourneyBlock; index: number }) 
               preload="auto"
               className="absolute inset-0 w-full h-full object-cover"
               onError={(e) => {
-                const video = e.target as HTMLVideoElement
-                console.error('Video error:', {
-                  src: block.media.src,
-                  error: video.error,
-                  networkState: video.networkState,
-                  readyState: video.readyState
-                })
-                // Try to reload
-                video.load()
-              }}
-              onLoadStart={() => {
-                console.log('Video load started:', block.media.src)
-              }}
-              onCanPlay={() => {
-                console.log('Video can play:', block.media.src)
+                console.error('Video error:', block.media.src, e)
               }}
             >
-              {(() => {
-                const src = block.media.src
-                const isMov = src.toLowerCase().endsWith('.mov')
-                
-                if (isMov) {
-                  // Try .mp4 first, then fallback to .MOV/.mov
-                  const baseName = src.replace(/\.(MOV|mov)$/i, '')
-                  return (
-                    <>
-                      <source src={`${baseName}.mp4`} type="video/mp4" />
-                      <source src={src} type="video/quicktime" />
-                      <source src={`${baseName}.mov`} type="video/quicktime" />
-                      <source src={`${baseName}.MOV`} type="video/quicktime" />
-                    </>
-                  )
-                }
-                return <source src={src} type="video/mp4" />
-              })()}
+              <source src={block.media.src} type={block.media.src.toLowerCase().endsWith('.mov') ? 'video/quicktime' : 'video/mp4'} />
             </video>
           ) : (
             <div

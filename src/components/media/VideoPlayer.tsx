@@ -107,14 +107,14 @@ const VideoPlayer = ({
     const isMov = srcLower.endsWith('.mov')
     
     if (isMov) {
-      // Try .mp4 first, then fallback to original .MOV/.mov
+      // For .MOV files, prioritize original file first, then try .mp4
       const baseName = src.replace(/\.(MOV|mov)$/i, '')
       return (
         <>
-          <source src={`${baseName}.mp4`} type="video/mp4" />
           <source src={src} type="video/quicktime" />
-          <source src={`${baseName}.mov`} type="video/quicktime" />
           <source src={`${baseName}.MOV`} type="video/quicktime" />
+          <source src={`${baseName}.mov`} type="video/quicktime" />
+          <source src={`${baseName}.mp4`} type="video/mp4" />
         </>
       )
     }
@@ -138,7 +138,21 @@ const VideoPlayer = ({
         className="w-full h-full object-cover"
         onClick={togglePlay}
         onError={(e) => {
-          console.error('VideoPlayer error:', e, videoRef.current?.error)
+          const video = e.target as HTMLVideoElement
+          console.error('VideoPlayer error:', {
+            src: src,
+            error: video.error,
+            networkState: video.networkState,
+            readyState: video.readyState
+          })
+          // Try to reload
+          video.load()
+        }}
+        onLoadStart={() => {
+          console.log('VideoPlayer load started:', src)
+        }}
+        onCanPlay={() => {
+          console.log('VideoPlayer can play:', src)
         }}
       >
         {getVideoSources()}

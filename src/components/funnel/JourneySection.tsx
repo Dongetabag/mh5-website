@@ -120,7 +120,21 @@ function JourneyBlock({ block, index }: { block: JourneyBlock; index: number }) 
               preload="auto"
               className="absolute inset-0 w-full h-full object-cover"
               onError={(e) => {
-                console.error('Video error:', block.media.src, e)
+                const video = e.target as HTMLVideoElement
+                console.error('Video error:', {
+                  src: block.media.src,
+                  error: video.error,
+                  networkState: video.networkState,
+                  readyState: video.readyState
+                })
+                // Try to reload
+                video.load()
+              }}
+              onLoadStart={() => {
+                console.log('Video load started:', block.media.src)
+              }}
+              onCanPlay={() => {
+                console.log('Video can play:', block.media.src)
               }}
             >
               {(() => {

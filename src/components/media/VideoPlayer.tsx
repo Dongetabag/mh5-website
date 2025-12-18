@@ -101,19 +101,19 @@ const VideoPlayer = ({
     return `${minutes}:${seconds.toString().padStart(2, '0')}`
   }
 
-  // Generate source elements with fallbacks for better browser compatibility
-  const getSourceElements = () => {
-    const isMov = src.toLowerCase().endsWith('.mov')
+  // Handle multiple source formats for better browser compatibility
+  const getVideoSources = () => {
+    const srcLower = src.toLowerCase()
+    const isMov = srcLower.endsWith('.mov')
     const baseName = src.replace(/\.(MOV|mov|mp4)$/i, '')
     
     if (isMov) {
-      // Try MP4 first (if it exists), then MOV as fallback
       return (
         <>
           <source src={`${baseName}.mp4`} type="video/mp4" />
-          <source src={src} type="video/quicktime" />
-          <source src={`${baseName}.MOV`} type="video/quicktime" />
           <source src={`${baseName}.mov`} type="video/quicktime" />
+          <source src={`${baseName}.MOV`} type="video/quicktime" />
+          <source src={src} type="video/quicktime" />
         </>
       )
     }
@@ -137,12 +137,10 @@ const VideoPlayer = ({
         className="w-full h-full object-cover"
         onClick={togglePlay}
         onError={(e) => {
-          console.error('VideoPlayer error:', src, e)
-          const video = e.target as HTMLVideoElement
-          console.error('Video error details:', video.error)
+          console.error('VideoPlayer error:', e, videoRef.current?.error)
         }}
       >
-        {getSourceElements()}
+        {getVideoSources()}
       </video>
 
       {/* Custom Play/Pause Button Overlay */}

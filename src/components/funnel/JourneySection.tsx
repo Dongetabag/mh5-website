@@ -121,29 +121,16 @@ function JourneyBlock({ block, index }: { block: JourneyBlock; index: number }) 
               className="absolute inset-0 w-full h-full object-cover"
               onError={(e) => {
                 console.error('Video error:', block.media.src, e)
-                // Try to reload on error
-                const video = e.target as HTMLVideoElement
-                setTimeout(() => video.load(), 1000)
               }}
             >
-              {(() => {
-                const src = block.media.src
-                const isMov = src.toLowerCase().endsWith('.mov')
-                const baseName = src.replace(/\.(MOV|mov|mp4)$/i, '')
-                
-                if (isMov) {
-                  // Try MP4 first (if it exists), then MOV as fallback
-                  return (
-                    <>
-                      <source src={`${baseName}.mp4`} type="video/mp4" />
-                      <source src={src} type="video/quicktime" />
-                      <source src={`${baseName}.MOV`} type="video/quicktime" />
-                      <source src={`${baseName}.mov`} type="video/quicktime" />
-                    </>
-                  )
-                }
-                return <source src={src} type="video/mp4" />
-              })()}
+              {block.media.src.endsWith('.MOV') || block.media.src.endsWith('.mov') ? (
+                <>
+                  <source src={block.media.src.replace(/\.(MOV|mov)$/, '.mp4')} type="video/mp4" />
+                  <source src={block.media.src} type="video/quicktime" />
+                </>
+              ) : (
+                <source src={block.media.src} type="video/mp4" />
+              )}
             </video>
           ) : (
             <div

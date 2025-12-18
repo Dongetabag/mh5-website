@@ -106,7 +106,6 @@ export default function FunnelHero() {
           className="w-full h-full object-cover opacity-40"
         >
           <source src="/videos/hero/hero-bg.mp4" type="video/mp4" />
-          <source src="/videos/hero/hero-bg.mov" type="video/quicktime" />
           <source src="/videos/hero/hero-bg.MOV" type="video/quicktime" />
         </video>
       </div>
@@ -234,7 +233,6 @@ export default function FunnelHero() {
                     className="absolute inset-0 w-full h-full object-cover"
                   >
                     <source src="/videos/hero/vertical-highlight.mp4" type="video/mp4" />
-                    <source src="/videos/hero/vertical-highlight.mov" type="video/quicktime" />
                     <source src="/videos/hero/vertical-highlight.MOV" type="video/quicktime" />
                   </video>
 

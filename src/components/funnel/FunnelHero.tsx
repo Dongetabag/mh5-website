@@ -17,6 +17,7 @@ export default function FunnelHero() {
   const [isMuted, setIsMuted] = useState(true)
   const [isPlaying, setIsPlaying] = useState(true)
   const videoRef = useRef<HTMLVideoElement>(null)
+  const verticalVideoRef = useRef<HTMLVideoElement>(null)
   const { scrollYProgress } = useScroll()
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 200])
   const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0])

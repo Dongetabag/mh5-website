@@ -41,38 +41,46 @@ export default function FunnelHero() {
     }
   }
 
+  // Effect for background video error handling
   useEffect(() => {
     const video = videoRef.current
     if (!video) return
 
-    // Ensure video plays on load
-    const handleLoadedData = () => {
-      video.play().catch((error) => {
-        console.warn('Autoplay prevented:', error)
-      })
-    }
-
-    const handleError = (e: Event) => {
-      console.error('Video error:', e)
-      // Try to reload video on error
+    const handleVideoError = (e: Event) => {
+      console.error("Hero background video error:", e, video.error)
+      // Try to reload or switch source
       video.load()
     }
 
-    video.addEventListener('loadeddata', handleLoadedData)
-    video.addEventListener('error', handleError)
-
-    // Force play attempt after a short delay
-    const playTimeout = setTimeout(() => {
-      if (video.paused) {
-        video.play().catch(() => {})
+    const handleCanPlay = () => {
+      if (video.paused && isPlaying) {
+        video.play().catch(e => {
+          console.warn("Autoplay prevented:", e)
+        })
       }
-    }, 500)
+    }
+
+    video.addEventListener('error', handleVideoError)
+    video.addEventListener('canplay', handleCanPlay)
 
     return () => {
-      video.removeEventListener('loadeddata', handleLoadedData)
-      video.removeEventListener('error', handleError)
-      clearTimeout(playTimeout)
+      video.removeEventListener('error', handleVideoError)
+      video.removeEventListener('canplay', handleCanPlay)
     }
+  }, [isPlaying])
+
+  // Effect for vertical video error handling
+  useEffect(() => {
+    const video = verticalVideoRef.current
+    if (!video) return
+
+    const handleVideoError = (e: Event) => {
+      console.error("Vertical highlight video error:", e, video.error)
+      video.load()
+    }
+
+    video.addEventListener('error', handleVideoError)
+    return () => video.removeEventListener('error', handleVideoError)
   }, [])
 
   const scrollToContent = () => {
@@ -97,6 +105,7 @@ export default function FunnelHero() {
           className="w-full h-full object-cover opacity-40"
         >
           <source src="/videos/hero/hero-bg.mp4" type="video/mp4" />
+          <source src="/videos/hero/hero-bg.mov" type="video/quicktime" />
           <source src="/videos/hero/hero-bg.MOV" type="video/quicktime" />
         </video>
       </div>

@@ -126,15 +126,16 @@ function JourneyBlock({ block, index }: { block: JourneyBlock; index: number }) 
               {(() => {
                 const src = block.media.src
                 const isMov = src.toLowerCase().endsWith('.mov')
-                const baseName = src.replace(/\.(MOV|mov|mp4)$/i, '')
                 
                 if (isMov) {
+                  // Try .mp4 first, then fallback to .MOV/.mov
+                  const baseName = src.replace(/\.(MOV|mov)$/i, '')
                   return (
                     <>
                       <source src={`${baseName}.mp4`} type="video/mp4" />
+                      <source src={src} type="video/quicktime" />
                       <source src={`${baseName}.mov`} type="video/quicktime" />
                       <source src={`${baseName}.MOV`} type="video/quicktime" />
-                      <source src={src} type="video/quicktime" />
                     </>
                   )
                 }
